@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="(28cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(28cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.5cm"  width="27cm" height="15cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+   <spacer length="1cm" />
+    <blockTable colWidths="2cm,2.5cm,2.5cm,2cm,2cm,2cm,1.5cm,2cm,2cm,2cm,2cm,2cm,2.5cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">FECHA DE LA SOLICITUD</para></td>
+          <td><para style="Encabezados">JEFE SOLICITANTE</para></td>
+          <td><para style="Encabezados">AREA</para></td>
+          <td><para style="Encabezados">NOMBRE DE LA PLAZA</para></td>
+          <td><para style="Encabezados">SEDE</para></td>
+          <td><para style="Encabezados">MOTIVO DE SOLICITUD</para></td>
+          <td><para style="Encabezados">SEGURO DE VIDA</para></td>
+          <td><para style="Encabezados">EDUCACION</para></td>          
+          <td><para style="Encabezados">EXPERIENCIA LABORAL</para></td>          
+          <td><para style="Encabezados">RANGO/EDAD (AÑOS)</para></td>
+          <td><para style="Encabezados">GENERO</para></td>          
+          <td><para style="Encabezados">CONTRATO</para></td>   
+          <td><para style="Encabezados">SALARIO</para></td>          
+        </tr>              
+    </blockTable>
+    
+    <blockTable colWidths="2cm,2.5cm,2.5cm,2cm,2cm,2cm,1.5cm,2cm,2cm,1cm,1cm,2cm,2cm,2.5cm" style="table_contenido">    
+    {% for record_mult in answers_list %}      
+      <tr>
+        <td><para style="datos"> {% for select in record_mult.answers.65d392910fc9871a4ffaa277 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 %}{{ select }}{% endfor %}</para></td>  
+        <td><para style="datos"> {% for select in record_mult.answers.65d39a374629b6fd0cfaa290 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65fa19ae979996a431d44bb3 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65d39c3b9fd3b8326461373e %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65eb30f712336b9365ebc3da %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65d3b95272066f2b91faa287 %}{{ select }}{% endfor %}</para></td>
+        
+        {% set experiencia = 0 %}
+        {% if  answers.65d3baf805c0f05e09617e85|length == 1 %}
+            {% set experiencia = record_mult.answers.65d3baf805c0f05e09617e85.0 %}
+        {% else %}
+            {% set experiencia = record_mult.answers.65d3baf805c0f05e09617e85 %}
+        {% endif %}
+          <td><para style="datos">{{experiencia}} - año(s)</para></td>
+        
+        <td><para style="datos"> {% for select in record_mult.answers.65d3c0f3ef61c3c9aaf772d6 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65d3c0f3ef61c3c9aaf772d7 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65d3c0f3ef61c3c9aaf772d8 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.65d3c2d2c8a5f9ce973c5a0f %}{{ select }}{% endfor %}</para></td>
+      
+        {% set salario = 0 %}
+        {% if  answers.65d3c295c7736c65c9faa2fa|length == 1 %}
+            {% set salario = record_mult.answers.65d3c295c7736c65c9faa2fa.0 %}
+        {% else %}
+            {% set salario = record_mult.answers.65d3c295c7736c65c9faa2fa %}
+        {% endif %}
+          <td><para style="datos">Q {{salario|floatformat:'2'}}</para></td>               
+      </tr>
+      {% endfor %}  
+  </blockTable>
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

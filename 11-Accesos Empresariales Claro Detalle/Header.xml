@@ -1,0 +1,7 @@
+<image x="1cm" y="25.8cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.5cm" />
+
+<setFont name="Helvetica-Bold" size="16" lineMode="single" />
+<drawCentredString x="13cm" y="27.2cm"> REPORTE PAGO A CONTRATAS (CLARO) </drawCentredString>
+<drawCentredString x="12.5cm" y="26.2cm"> PAGO 100% </drawCentredString>
+<lines>7cm 27cm 19.2cm 27cm</lines>
+

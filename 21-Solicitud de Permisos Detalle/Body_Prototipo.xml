@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="(28cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(28cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.5cm"  width="27cm" height="15cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+   <spacer length="1cm" />
+
+    <blockTable colWidths="6cm,2cm,1.5cm,1.5cm,2cm,3cm,2.8cm,3.9cm,3.8cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">Colaborador</para></td>
+          <td><para style="Encabezados">Fecha</para></td>
+          <td><para style="Encabezados">Dias</para></td>
+          <td><para style="Encabezados">Horas</para></td>
+          <td><para style="Encabezados">Tipo Permiso</para></td>
+          <td><para style="Encabezados">Detalle de Permiso</para></td>
+          <td><para style="Encabezados">Permiso del Dia</para></td>
+          <td><para style="Encabezados">Para el Dia</para></td>          
+          <td><para style="Encabezados">Retorno a Labores </para></td>          
+        </tr>              
+    </blockTable>
+
+  <blockTable colWidths="6cm,2cm,1.5cm,1.5cm,2cm,3cm,1cm,1.8cm,1cm,1.9cm,1cm,1cm,1.8cm,1cm" style="table_contenido">    
+    {% for record_mult in answers_list %}      
+      <tr>
+        <td><para style="datosLeft"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6603b82d35a69e33040df517 %}{{ select }}{% endfor %}</para></td>      
+        
+        {% set dia = '' %}
+        {% if  answers.6603bbc9a6f4cca5f4e9cf02|length == 1 %}
+            {% set dia = record_mult.answers.6603bbc9a6f4cca5f4e9cf02.0 %}
+        {% else %}
+            {% set dia = record_mult.answers.6603bbc9a6f4cca5f4e9cf02 %}
+        {% endif %}
+          <td><para style="datos">{{dia}}</para></td>
+        
+        {% set hora = '' %}
+        {% if  answers.6603bbc9a6f4cca5f4e9cf03|length == 1 %}
+            {% set hora = record_mult.answers.6603bbc9a6f4cca5f4e9cf03.0 %}
+        {% else %}
+            {% set hora = record_mult.answers.6603bbc9a6f4cca5f4e9cf03 %}
+        {% endif %}
+        <td><para style="datos">{{hora}}</para></td>  
+
+        {% set tipoPermiso = '' %}
+        {% if  answers.6603bfb02eae9b3e310df517|length == 1 %}
+            {% set tipoPermiso = record_mult.answers.6603bfb02eae9b3e310df517.0 %}
+        {% else %}
+            {% set tipoPermiso = record_mult.answers.6603bfb02eae9b3e310df517 %}
+        {% endif %}
+        <td><para style="datosLeft">{{tipoPermiso}}</para></td> 
+        
+        <td><para style="datosLeft"> {% for select in record_mult.answers.6603c1bb06bce18b64d09bd0 %}{{ select }}{% endfor %}</para></td> 
+        
+        {% set diaPermiso = '' %}
+        {% if  answers.6603c6b5385b2acf1edc3ae2|length == 1 %}
+            {% set diaPermiso = record_mult.answers.6603c6b5385b2acf1edc3ae2.0 %}
+        {% else %}
+            {% set diaPermiso = record_mult.answers.6603c6b5385b2acf1edc3ae2 %}
+        {% endif %}
+        <td background="#f2faff"><para style="datos">{{diaPermiso}}</para></td> 
+        
+        {% set mesPermiso = '' %}
+        {% if  answers.6603c6b5385b2acf1edc3ae3|length == 1 %}
+            {% set mesPermiso = record_mult.answers.6603c6b5385b2acf1edc3ae3.0 %}
+        {% else %}
+            {% set mesPermiso = record_mult.answers.6603c6b5385b2acf1edc3ae3 %}
+        {% endif %}
+        <td background="#f2faff"><para style="datosMes">{{mesPermiso}}</para></td> 
+        
+        {% set alDia = '' %}
+        {% if  answers.6603c6f9aa0a1dfefae9cf16|length == 1 %}
+            {% set alDia = record_mult.answers.6603c6f9aa0a1dfefae9cf16.0 %}
+        {% else %}
+            {% set alDia = record_mult.answers.6603c6f9aa0a1dfefae9cf16 %}
+        {% endif %}
+        <td background="#f2faff"><para style="datos">{{alDia}}</para></td>
+        
+        {% set alMes = '' %}
+        {% if  answers.6603c6f9aa0a1dfefae9cf17|length == 1 %}
+            {% set alMes = record_mult.answers.6603c6f9aa0a1dfefae9cf17.0 %}
+        {% else %}
+            {% set alMes = record_mult.answers.6603c6f9aa0a1dfefae9cf17 %}
+        {% endif %}
+        <td background="#f2faff"><para style="datosMes">{{alMes}}</para></td> 
+        
+        {% set alanio = '' %}
+        {% if  answers.6603c78e06bce18b64d09be4|length == 1 %}
+            {% set alanio = record_mult.answers.6603c78e06bce18b64d09be4.0 %}
+        {% else %}
+            {% set alanio = record_mult.answers.6603c78e06bce18b64d09be4 %}
+        {% endif %}
+        <td background="#f2faff"><para style="datos">{{alanio}}</para></td>  
+        
+        {% set retornoDia = '' %}
+        {% if  answers.66048a9d3fc1fac5950df5b1|length == 1 %}
+            {% set retornoDia = record_mult.answers.66048a9d3fc1fac5950df5b1.0 %}
+        {% else %}
+            {% set retornoDia = record_mult.answers.66048a9d3fc1fac5950df5b1 %}
+        {% endif %}
+        <td background="#dadce3"><para style="datos">{{retornoDia}}</para></td>
+        
+        {% set retornoMes = '' %}
+        {% if  answers.66048a9d3fc1fac5950df5b2|length == 1 %}
+            {% set retornoMes = record_mult.answers.66048a9d3fc1fac5950df5b2.0 %}
+        {% else %}
+            {% set retornoMes = record_mult.answers.66048a9d3fc1fac5950df5b2 %}
+        {% endif %}
+        <td background="#dadce3"><para style="datosMes">{{retornoMes}}</para></td> 
+        
+        {% set retornoAnio = '' %}
+        {% if  answers.66048a9d3fc1fac5950df5b3|length == 1 %}
+            {% set retornoAnio = record_mult.answers.66048a9d3fc1fac5950df5b3.0 %}
+        {% else %}
+            {% set retornoAnio = record_mult.answers.66048a9d3fc1fac5950df5b3 %}
+        {% endif %}
+        <td background="#dadce3"><para style="datos">{{retornoAnio}}</para></td>  
+      </tr>
+      {% endfor %}  
+  </blockTable>
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+{% endautoescape %}
+    </story>
+</document>

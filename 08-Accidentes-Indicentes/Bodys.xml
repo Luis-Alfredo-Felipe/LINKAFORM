@@ -1,0 +1,60 @@
+
+      <!--Definición de variable total-->
+    {% set total = 0 %}
+    <blockTable colWidths="1.8cm,1.8cm,2cm,1cm,2.2cm,2.5cm,1.9cm,1.8cm,2.2cm,1.4cm" style="contenido">
+        <tr>
+          <td background="#E8FFFE"><para style="datosTitulo"> Daño/Tercero </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Perdida/Total  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Perdida/Parcial </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Multa </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Arreglo/Terceros  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Arreglo/Autoridades </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Multa/Transito </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Otros/Gastos  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Timbres/Fiscales </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Sub-Total </para></td>
+        </tr>
+        <!--Definición de variable subtotal-->
+    {% for item in answers.63d156f53e0b1d3a80a4c6ec %}
+        {% set subtotal = 0 %}
+        <tr>
+           <td><para style="datos"> {{ item.63d15759a610e268e7f5625a }} </para></td>
+           {% if item.63d15759a610e268e7f5625a %}
+              {% add_total 'subtotal' item.63d15759a610e268e7f5625a %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15759a610e268e7f5625b }} </para></td>
+           {% if item.63d15759a610e268e7f5625b %}
+              {% add_total 'subtotal' item.63d15759a610e268e7f5625b %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15759a610e268e7f5625c }} </para></td>
+           {% if item.63d15759a610e268e7f5625c %}
+              {% add_total 'subtotal' item.63d15759a610e268e7f5625c %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15a9821311b6666cc7f27 }} </para></td>
+           {% if item.63d15a9821311b6666cc7f27 %}
+              {% add_total 'subtotal' item.63d15a9821311b6666cc7f27 %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15a9821311b6666cc7f28 }} </para></td>
+           {% if item.63d15a9821311b6666cc7f28 %}
+              {% add_total 'subtotal' item.63d15a9821311b6666cc7f28 %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15a9821311b6666cc7f29 }} </para></td>
+           {% if item.63d15a9821311b6666cc7f29 %}
+              {% add_total 'subtotal' item.63d15a9821311b6666cc7f29 %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15b17ad9af4d36f1b2199 }} </para></td>
+           {% if item.63d15b17ad9af4d36f1b2199 %}
+              {% add_total 'subtotal' item.63d15b17ad9af4d36f1b2199 %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15b17ad9af4d36f1b219a }} </para></td>
+           {% if item.63d15b17ad9af4d36f1b219a %}
+              {% add_total 'subtotal' item.63d15b17ad9af4d36f1b219a %}
+           {% endif %}
+           <td><para style="datos"> {{ item.63d15b17ad9af4d36f1b219b }} </para></td>
+           {% if item.63d15b17ad9af4d36f1b219b %}
+              {% add_total 'subtotal' item.63d15b17ad9af4d36f1b219b %}
+           {% endif %}
+           <td><para style="datos"> {{ subtotal }} </para></td>
+        </tr>
+        {% add_total 'total' subtotal %}
+  {% endfor %}

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="(28cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(28cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.5cm"  width="27cm" height="15cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+   <spacer length="1cm" />
+    <blockTable colWidths="3cm,4cm,4cm,2cm,2cm,2cm,4cm,2cm,2cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">DPI</para></td>
+          <td><para style="Encabezados">Empleado</para></td>
+          <td><para style="Encabezados">Area</para></td>
+          <td><para style="Encabezados">Bono 14-Aguinaldo</para></td>
+          <td><para style="Encabezados">Dias Anuales</para></td>
+          <td><para style="Encabezados">Dias para Calculo</para></td>
+          <td><para style="Encabezados">Periodo</para></td>
+          <td><para style="Encabezados">Sueldo Base</para></td>          
+          <td><para style="Encabezados">Total</para></td>          
+        </tr>              
+    </blockTable>
+
+  <blockTable colWidths="3cm,4cm,4cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm" style="table_contenido">
+    {% set total_suma = 0 %} 
+    {% for record_mult in answers_list %}   
+      <tr>
+        <td><para style="datosLeft"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534d %}{{ select }}{% endfor %}</para></td>      
+        <td><para style="datosLeft"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datosLeft"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 %}{{ select }}{% endfor %}</para></td>
+            
+        {% set bonoAguinaldo = '' %}
+        {% if  answers.66f59fb8559cb10da6e687de|length == 1 %}
+            {% set bonoAguinaldo = record_mult.answers.66f59fb8559cb10da6e687de.0 %}
+        {% else %}
+            {% set bonoAguinaldo = record_mult.answers.66f59fb8559cb10da6e687de %}
+        {% endif %}
+          <td><para style="datos">{{bonoAguinaldo}}</para></td>
+         
+        {% set diaAnual = '' %}
+        {% if  answers.666b5daaf64166f40b1cc9da|length == 1 %}
+            {% set diaAnual = record_mult.answers.666b5daaf64166f40b1cc9da.0 %}
+        {% else %}
+            {% set diaAnual = record_mult.answers.666b5daaf64166f40b1cc9da %}
+        {% endif %}
+        <td><para style="datos">{{diaAnual}}</para></td>  
+
+        {% set totalDias = '' %}
+        {% if  answers.666b5dd0cc32008aee912369|length == 1 %}
+            {% set totalDias = record_mult.answers.666b5dd0cc32008aee912369.0 %}
+        {% else %}
+            {% set totalDias = record_mult.answers.666b5dd0cc32008aee912369 %}
+        {% endif %}
+        <td><para style="datos">{{totalDias}}</para></td>  
+
+        <td><para style="datosLeft"> {% for select in record_mult.answers.666b55787ebcbee9cfd859e3 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datosLeft"> {% for select in record_mult.answers.666b55787ebcbee9cfd859e4 %}{{ select }}{% endfor %}</para></td>
+         
+        {% set suelBase = '' %}
+        {% if  answers.666b5daaf64166f40b1cc9d9|length == 1 %}
+            {% set suelBase = record_mult.answers.666b5daaf64166f40b1cc9d9.0 %}
+        {% else %}
+            {% set suelBase = record_mult.answers.666b5daaf64166f40b1cc9d9 %}
+        {% endif %}
+        <td><para style="datos">{% money_format suelBase 2 "Q " %}</para></td>
+  
+        {% set total = 0%}
+        {% set resultado_division = 0%}
+        {% if diaAnual != 0%}
+            {% arithmetic 'resultado_division' 'suelBase' '/' 'diaAnual'%}
+            {% arithmetic 'total' 'resultado_division' '*' 'totalDias'%}           
+          {% endif %}
+        <td><para style="datos"> {% money_format total 2 "Q " %} </para></td>
+            {% arithmetic 'total_suma' 'total_suma' '+' 'total'%}        
+        </tr>
+    {% endfor %}    
+  </blockTable>
+  
+  <spacer length="0.5cm" />
+  <blockTable colWidths="21cm,2cm,2cm" style="table_contenido">
+    <tr>
+        <td></td>        
+        <td background="#34495e"><para style="datosTotal"> Total:</para></td>
+        <td><para style="datos">{% money_format total_suma 2 "Q " %}</para></td>
+    </tr>
+  </blockTable> 
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

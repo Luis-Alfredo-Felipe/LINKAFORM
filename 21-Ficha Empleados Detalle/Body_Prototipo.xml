@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="(28cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(28cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.5cm"  width="27cm" height="15cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+   <spacer length="1cm" />
+    <blockTable colWidths="2.5cm,2.5cm,2.5cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,2.5cm,2.5cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">NOMBRES</para></td>
+          <td><para style="Encabezados">APELLIDOS</para></td>
+          <td><para style="Encabezados">NACIONALIDAD</para></td>
+          <td><para style="Encabezados">ESTADO CIVIL</para></td>
+          <td><para style="Encabezados">DPI</para></td>
+          <td><para style="Encabezados">LUGAR DE NACIMIENTO</para></td>
+          <td><para style="Encabezados">NIT</para></td>
+          <td><para style="Encabezados">AFILIACION IGGS</para></td>          
+          <td><para style="Encabezados">FECHA NACIMIENTO</para></td>          
+          <td><para style="Encabezados">NO. HIJOS</para></td>
+          <td><para style="Encabezados">NIVEL ACADEMICO</para></td>          
+          <td><para style="Encabezados">PUESTO PROFESIÓN</para></td>           
+        </tr>              
+    </blockTable>
+    
+    <blockTable colWidths="2.5cm,2.5cm,2.5cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,2.5cm,2.5cm" style="table_contenido">    
+    {% for record_mult in answers_list %}      
+      <tr>
+        <td><para style="datos"> {% for select in record_mult.answers.661557958f4f428c18539a16 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6616e00f3c8a9e5a9a0df658 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.66215432afb5fa122840fb89 %}{{ select }}{% endfor %}</para></td>  
+        <td><para style="datos"> {% for select in record_mult.answers.66155b5425e17960e16f7c09 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6615585e61a9b62cef0df586 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.661557b5abdf286abbe9cf0b %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6615585e61a9b62cef0df589 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.66155a40831113f20ad09c3f %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.661557a5379d52e570dc3a89 %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6615800b667b208e8fdc3b4a %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6615800b667b208e8fdc3b4e %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.6615800b667b208e8fdc3b4d %}{{ select }}{% endfor %}</para></td>           
+      </tr>
+      {% endfor %}  
+  </blockTable>
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

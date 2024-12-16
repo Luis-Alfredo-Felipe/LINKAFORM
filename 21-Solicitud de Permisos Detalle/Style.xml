@@ -1,0 +1,14 @@
+<blockTableStyle id="table_encabezado">
+ <lineStyle kind="GRID" colorName="#339b86" start="0,0" stop="-1,-1" thickness="1" />
+ <blockBackground colorName="#34495e" start="0,0" stop="-1,-1" />
+</blockTableStyle>
+
+<blockTableStyle id="table_contenido">
+ <lineStyle kind="GRID" colorName="#34495e" start="0,0" stop="-1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<paraStyle name="datosMes" fontName="Montserrat-Regular" fontSize="6" leading="10" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Regular" fontSize="6.5" leading="10" alignment="center" />
+<paraStyle name="datosLeft" fontName="Montserrat-Regular" fontSize="6.5" leading="10" alignment="left" />
+<paraStyle name="Encabezados" fontName="Montserrat-Regular" fontSize="8" leading="15" alignment="center" textColor="#FFFFFF"/>
+

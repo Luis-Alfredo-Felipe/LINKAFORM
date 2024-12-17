@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.0cm"  width="200mm" height="250mm"/>
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+   <spacer length="3cm" />
+    <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">NO. FACTURA</para></td>
+          <td><para style="Encabezados">RESPONSABLE</para></td>
+          <td><para style="Encabezados">SUB-CONTRATA</para></td>
+          <td><para style="Encabezados">FECHA</para></td>
+        </tr>              
+    </blockTable>
+
+    {% set total = 0 %} 
+    <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_contenido">
+    {% for record_mult in answers_list|slice:":1" %}   
+        <tr>                        
+          <td><para style="datos">{% for select in record_mult.answers.617b201d7fb4e61948c9bc8d %}{{ select }}{% endfor %}</para></td>  
+          <td><para style="datos">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a3f %}{{ select }}{% endfor %}</para></td>  
+          <td><para style="datos">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a40 %}{{ select }}{% endfor %}</para></td>  
+          {% set impresion_date = '' %}
+          <td><para style="datos">{% get_today "%d/%m/%Y %H:%M:%S" 'impresion_date' 'America/Mexico_City' %} </para></td>
+        </tr>
+      {% endfor %}  
+    </blockTable>
+
+   <spacer length="0.5cm" />
+    <blockTable colWidths="2.5cm,2cm,2cm,3.5cm,2.5cm,2.5cm,2.5cm,2.5cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">REGION</para></td>
+          <td><para style="Encabezados">FECHA</para></td>
+          <td><para style="Encabezados">OC</para></td>
+          <td><para style="Encabezados">DESCRIPCION</para></td>
+          <td><para style="Encabezados">SITIO CLARO</para></td>
+          <td><para style="Encabezados">DIRECCION</para></td>
+          <td><para style="Encabezados">ODT</para></td>
+          <td><para style="Encabezados">ANTICIPO 50%</para></td>
+        </tr>              
+    </blockTable>
+    <blockTable colWidths="2.5cm,2cm,2cm,3.5cm,2.5cm,2.5cm,2.5cm,2.5cm" style="table_contenido">
+      {% for record_mult in answers_list %}
+        {% set subtotal = 0.0 %}          
+        <tr>
+          <td><para style="datosLeft">{% for select in record_mult.answers.6002030d8fb7ff50f09d645f.601c0a651429cd53f6e299f2 %}{{ select }}{% endfor %}</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.61606981de8952bcd034284e %}{{ select }}{% endfor %}</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.61786c8a0f01615c9c8b4e19 %}{{ select }}{% endfor %}</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.617ac691f9f4c7a3cede8bff %}{{ select }}{% endfor %}</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.617b28252b102b47238b4e38 %}{{ select }}{% endfor %}</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.617b28252b102b47238b4e39 %}{{ select }}{% endfor %}</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.61606981de8952bcd0342851 %}{{ select }}{% endfor %}</para></td>
+          
+          {% set subBase = 0.0 %}
+          {% set suelBase = 0.0 %}
+          {% if  record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec|length == 1 %}
+          {% set suelBase = record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec.0 %}
+            {% arithmetic 'subBase' 'suelBase' '/' '2'%}  
+            {% add_total 'subtotal' subBase  %}
+          {% else %}
+          {% set suelBase = record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec %}
+            {% arithmetic 'subBase' 'suelBase' '/' '2'%}  
+            {% add_total 'subtotal' subBase  %}
+          {% endif %}
+        <td><para style="datos">{% money_format subtotal 2 "Q " %}</para></td>                
+        </tr>
+      {% add_total 'total' subtotal %}    
+      {% endfor %}                
+    </blockTable>
+    
+    <spacer length="0.5cm" />       
+    <blockTable colWidths="15cm,2.5cm,2.5cm" style="table_sub3_two">
+    {% set total_general = 0.0 %}
+    {% set total_iva = 0.0  %}
+    {% set iva = 0.12 %}  
+      <tr>
+        <td></td>    
+        <td background="#ff0000"><para style="Encabezados">Sub Total:</para></td> 
+        <td><para style="datos">{% money_format total 2 "Q " %}</para></td>
+        {% arithmetic 'total_iva' 'total' '*' 'iva'%}    
+      </tr>
+     </blockTable>
+     
+    <blockTable colWidths="15cm,2.5cm,2.5cm" style="table_sub3_two">    
+      <tr>
+        <td></td>    
+        <td background="#ff0000"><para style="Encabezados">IVA:</para></td> 
+        <td><para style="datos">{% money_format total_iva 2 "Q " %}</para></td>
+        {% arithmetic 'total_general' 'total_iva' '+' 'total'%}  
+      </tr>
+    </blockTable>  
+        
+    <blockTable colWidths="15cm,2.5cm,2.5cm" style="table_sub3_two">    
+      <tr>
+        <td></td>    
+        <td background="#ff0000"><para style="Encabezados">IVA:</para></td> 
+        <td><para style="datos">{% money_format total_general 2 "Q " %}</para></td>
+      </tr>                      
+    </blockTable>  
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

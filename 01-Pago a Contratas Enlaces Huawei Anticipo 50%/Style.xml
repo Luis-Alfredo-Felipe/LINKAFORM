@@ -15,7 +15,7 @@
 </blockTableStyle>
 
 <paraStyle name="datosMes" fontName="Montserrat-Regular" fontSize="6" leading="10" alignment="center" />
-<paraStyle name="datos" fontName="Montserrat-Regular" fontSize="7" leading="10" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Bold" fontSize="7" leading="10" alignment="center" />
 <paraStyle name="datosLeft" fontName="Montserrat-Regular" fontSize="7" leading="10" alignment="left" />
 <paraStyle name="Encabezados" fontName="Montserrat-Bold" fontSize="7" leading="10" alignment="center" textColor="#FFFFFF"/>
 <paraStyle name="Encabezados_Table" fontName="Montserrat-Bold" fontSize="6" leading="10" alignment="center" textColor="#FFFFFF"/>

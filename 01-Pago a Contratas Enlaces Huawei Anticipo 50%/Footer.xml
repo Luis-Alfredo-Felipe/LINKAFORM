@@ -1,0 +1,11 @@
+<lineMode width="0.1"/>
+
+<setFont name="Helvetica-Bold" size="9"/>
+<drawCentredString x="4cm" y="3.5cm">_____________________________</drawCentredString>
+<drawCentredString x="4cm" y="3cm">Representante Sub-Contrata</drawCentredString>
+
+<drawCentredString x="10cm" y="3.5cm">____________________________</drawCentredString>
+<drawCentredString x="10cm" y="3cm">Jefe de Operaciones</drawCentredString>
+
+<drawCentredString x="16cm" y="3.5cm">____________________________</drawCentredString>
+<drawCentredString x="16cm" y="3cm">Representante SELECOMNET</drawCentredString>

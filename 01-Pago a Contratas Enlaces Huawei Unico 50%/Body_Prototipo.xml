@@ -46,7 +46,7 @@
     <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_contenido">
     {% for record_mult in answers_list|slice:":1" %}   
         <tr>                        
-          <td><para style="datos">{% for select in record_mult.answers.617b201d7fb4e61948c9bc8d %}{{ select }}{% endfor %}</para></td>  
+          <td><para style="datos">{% for select in record_mult.answers.648893a26d3a48efe8d68d9b %}{{ select }}{% endfor %}</para></td>  
           <td><para style="datos">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a3f %}{{ select }}{% endfor %}</para></td>  
           <td><para style="datos">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a40 %}{{ select }}{% endfor %}</para></td>  
           {% set impresion_date = '' %}
@@ -80,21 +80,18 @@
           <td><para style="datosLeft">{% for select in record_mult.answers.617b28252b102b47238b4e39 %}{{ select }}{% endfor %}</para></td>
           <td><para style="datosLeft">{% for select in record_mult.answers.61606981de8952bcd0342851 %}{{ select }}{% endfor %}</para></td>
           
-          {% set subBase = 0.0 %}
-          {% set suelBase = 0.0 %}
-          {% if  record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec|length == 1 %}
-          {% set suelBase = record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec.0 %}
-            {% arithmetic 'subBase' 'suelBase' '/' '2'%}  
-            {% add_total 'subtotal' subBase  %}
-          {% else %}
-          {% set suelBase = record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec %}
-            {% arithmetic 'subBase' 'suelBase' '/' '2'%}  
-            {% add_total 'subtotal' subBase  %}
-          {% endif %}
-        <td><para style="datos">{% money_format subtotal 2 "Q " %}</para></td>                
-        </tr>
-      {% add_total 'total' subtotal %}    
-      {% endfor %}                
+        {% set suelBase = 0 %}
+        {% if  record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec|length == 1 %}
+            {% set suelBase = record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec.0 %}
+              {% add_total 'subtotal' suelBase  %}
+        {% else %}
+            {% set suelBase = record_mult.answers.617b3128300a264519c9bc75.61d73b3e2de56a3f2564f5ec %}
+              {% add_total 'subtotal' suelBase  %}
+        {% endif %}
+        <td><para style="datos">{% money_format subtotal 2 "Q " %}</para></td>
+      </tr>
+        {% add_total 'total' subtotal %}    
+      {% endfor %}             
     </blockTable>
   
     <spacer length="0.5cm" />       

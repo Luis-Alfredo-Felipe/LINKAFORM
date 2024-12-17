@@ -15,7 +15,7 @@
   <pageInfo pageSize="(500mm,200mm)" doc:example="" />
   <template  title="Mtto Vehiculos" author="LinkaForm">
     <pageTemplate id="first">
-      <frame id="first" x1="0.5cm" y1="1.0cm"  width="200mm" height="250mm"/>
+      <frame id="first" x1="1.5cm" y1="6cm" width="18cm" height="18cm"/>
       <pageGraphics>
                  <!-- Cabecera de documento -->
                 <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
@@ -32,7 +32,7 @@
     {% endautoescape %}
   </stylesheet>
     <story> 
-   <spacer length="3cm" />
+   <spacer length="2cm" />
     <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_encabezado">
         <tr>
           <td><para style="Encabezados">NO. FACTURA</para></td>
@@ -122,7 +122,7 @@
     <blockTable colWidths="15cm,2.5cm,2.5cm" style="table_sub3_two">    
       <tr>
         <td></td>    
-        <td background="#ff0000"><para style="Encabezados">IVA:</para></td> 
+        <td background="#ff0000"><para style="Encabezados">TOTAL:</para></td> 
         <td><para style="datos">{% money_format total_general 2 "Q " %}</para></td>
       </tr>                      
     </blockTable>  

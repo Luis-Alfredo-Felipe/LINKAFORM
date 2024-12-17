@@ -1,58 +1,4 @@
-<?xml version="1.0"?>
-{% load PrintFields %}
-{% load set_var %}
-{% load custom_tags %}
-
-<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
-
-    <docinit>
-        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
-        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
-        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
-        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
-    </docinit>
-
-  <pageInfo pageSize="(500mm,200mm)" doc:example="" />
-  <template  title="Mtto Vehiculos" author="LinkaForm">
-    <pageTemplate id="first">
-      <frame id="first" x1="0.5cm" y1="1.0cm"  width="200mm" height="250mm"/>
-      <pageGraphics>
-                 <!-- Cabecera de documento -->
-                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
-                {% Header company_logo parent user form Template meta %}
-        <!-- Pie del documento -->
-        {% Footer user form Template meta %}
-      </pageGraphics>
-    </pageTemplate>
-
-  </template>
-  <stylesheet>
-     {% autoescape on %}
-      {{ Template.style|safe }}
-    {% endautoescape %}
-  </stylesheet>
-    <story> 
-   <spacer length="1cm" />
-    <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_encabezado">
-        <tr>
-          <td><para style="Encabezados">NO. FACTURA</para></td>
-          <td><para style="Encabezados">SUB-CONTRATA</para></td>
-          <td><para style="Encabezados">RESPONSABLE</para></td>
-          <td><para style="Encabezados">FECHA</para></td>
-        </tr>              
-    </blockTable>
-
-    <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_contenido"> 
-      {% for record_mult in answers_list|slice:":1" %}   
-        <tr>                        
-          <td><para style="datosLeft">{% for select in record_mult.answers.67463c520b9a2dd2ff514c38 %}{{ select }}{% endfor %}</para></td>  
-          <td><para style="datosLeft">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a40 %}{{ select }}{% endfor %}</para></td>  
-          <td><para style="datosLeft">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a3f %}{{ select }}{% endfor %}</para></td>  
-          <td><para style="datosLeft">{% for select in record_mult.answers.67462fe8a624575b6bd70dfb %}{{ select }}{% endfor %}</para></td>  
-        </tr>
-      {% endfor %}  
-    </blockTable>
-
+<!--
    <spacer length="1cm" />
    {% set total = 0 %}
     <blockTable colWidths="2.5cm,1.8cm,1.8cm,3.8cm,2cm,2cm,2.3cm,1.8cm,2cm" style="table_encabezado">
@@ -125,9 +71,4 @@
         <td><para style="datosLeft">Q {{total_general|floatformat:"2"}}</para></td>
       </tr>                      
     </blockTable>
-
-    {% autoescape on %}
-    {{ Template.style|safe }}
-      {% endautoescape %}
-    </story>
-</document>
+-->

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+        <setFont name="Helvetica-Bold" size="10"/>
+        <drawRightString x="18cm" y="27.5cm"> HOJA DE TRASLADO 00{{answers.67ad0bc3aee00ed1e9dfa750}}</drawRightString>
+        <setFont name="Helvetica-Bold" size="10"/>
+        <drawRightString x="18cm" y="26.5cm">Fecha: {{answers.67acee73f4ba0e75539c481e}}</drawRightString>
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story> 
+    <spacer length="1cm" /> 
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2"><b></b> {{answers.67acee73f4ba0e75539c481f}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>TI</b></para></td>     
+      </tr>
+      <tr>  
+        <td><para style="text2"><b>SELECOM,</b> {{answers.67aceab8f85a3f741ba0fbb0}}</para></td>        
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2">Estimado Sr. Ovalle,</para></td>       
+      </tr>
+      <tr>
+        <td><para style="text2">Espero se encuentre bien.</para></td>       
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="parrafoll">Por este medio, le informo que la computadora portátil utilizada por: <b> {{answers.67aceecfc48debbb284e69c9}}</b> ha sido trasladado al área de: {% for select in answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 %}{{select}}{% endfor %} para su uso por: {{answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para></td>       
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2"><b> Detalles del Equipo: </b></para></td>       
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="8cm,8cm" style="table_Header">
+      <tr>
+        <td><para style="text1">Marca y Modelo</para></td>
+        <td><para style="text1">Numero de Serie</para> </td> 
+      </tr>
+    </blockTable>
+    <blockTable colWidths="8cm,8cm" style="contenido">
+      <tr>
+        <td><para style="text2">{{answers.67acfee9e70b08cdfcdfa73d}}</para></td>
+        <td><para style="text2">{{answers.67acfee9e70b08cdfcdfa73e}}</para> </td> 
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm" style="table_Header">
+      <tr>
+        <td><para style="text1">Especificaciones:</para></td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="16cm" style="table_contenidoll">
+      <tr>
+        <td><para style="text2"><b>- Procesador:</b> {{answers.67acffb9b8d7786e95dfa6fe}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Memoria RAM:</b> {{answers.67acffb9b8d7786e95dfa6ff}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Almacenamiento:</b> {{answers.67acffb9b8d7786e95dfa700}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Cargador:</b> {{answers.67acffb9b8d7786e95dfa701}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Batería:</b> {{answers.67acffb9b8d7786e95dfa702}}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2">{{answers.67ae8ea16abf0e644f0a48f2}} </para> </td>     
+      </tr>
+    </blockTable>
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2">Saludos Cordiales,</para> </td>               
+      </tr>
+    </blockTable>
+
+    <spacer length="1.5cm" />
+    <blockTable colWidths="2.5cm,4cm,3cm,4cm,2.5cm">
+      <tr>
+        <td></td>
+        <td><para style="text3"><b>Marvin Ovalle</b></para></td>
+        <td></td>
+        <td><para style="text3"><b>{{answers.67ad00f9aee00ed1e9dfa743}}</b></para></td>
+        <td></td>
+      </tr>
+    </blockTable>    
+    <blockTable colWidths="2.5cm,4cm,3cm,4cm,2.5cm">
+      <tr>
+        <td></td>
+        <td><para style="text3">TI</para></td>
+        <td></td>
+        <td><para style="text3">{{answers.67ad08f08db052661092fca3}}</para></td>
+        <td></td>
+      </tr>
+    </blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+
+

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="29cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(29cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1cm"  width="28cm" height="14cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="32cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>ll
+    <story> 
+    
+  <spacer length="0.1cm" />
+    <blockTable colWidths="2cm,1.6cm" style ="table_contenido">    
+        <tr>
+          <td></td>    
+        </tr>  
+        <tr>
+          <td></td>    
+        {% for record_mult in answers_list|slice:"15" %}             
+            <td><para style="datos"> {% for select in record_mult.answers.609d56a0234db7fd767eb3dd  %}{{ select }}{% endfor %}</para></td>     
+        {% endfor %}
+        </tr>
+        
+        <tr>
+        {% for record_mult in answers_list|slice:"1" %}             
+            <td><para style="datos"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f  %}{{ select }}{% endfor %}</para></td>    
+        {% endfor %}
+        </tr>                      
+    </blockTable>
+           
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

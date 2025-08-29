@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--  Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+  <story>
+    <spacer length="1cm"/>
+    <blockTable style="mtto_header" colWidths="4.5cm,4.5cm,4.5cm,4.5cm">
+      <tr>
+        <td><para style="dataB">Fecha de Generación:</para></td>
+        <td><para style="dataBB" >{{answers.680a7708bab8bd3f747baa2c}}</para></td>
+        <td><para style="dataB" >No. TAREA:</para></td>
+        <td><para style="dataBB" >{{answers.680a7ad1b6df42294c83f706}}</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_data" colWidths="4.5cm,4.5cm,4.5cm,4.5cm">
+      <tr>
+        <td><para style="dataB">Sitio:</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa2a}}</para></td>
+        <td><para style="dataB">Sala:</para></td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa30}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataB">RDA:</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa2d}}</para></td>
+        <td><para style="dataB">Proyecto:</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa33}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataB">Técnico Asignado:</para> </td>
+        <td><para style="data">{{answers.680aa74405b8eeb8a16e35f0}}</para></td>
+        <td><para style="dataB">RIR</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa2e}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataB">Entrada CNR</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa2f}}</para> </td>
+        <td><para style="dataB">Validación Alarma CCR:</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa36}}</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set longitude = '' %}
+      {% set latitude = '' %}
+      {% set cutLatitude = 0 %}
+      {% set cutLongitude = 0 %}
+
+      {% for ls in answers.680a7708bab8bd3f747baa37 %}
+        {% if cutLongitude > 26 and cutLongitude < 37   %}
+          {% concat 'longitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLongitude' 1 %}
+      {% endfor %}
+
+      {% for ls in answers.680a7708bab8bd3f747baa37 %}
+        {% if cutLatitude > 40 and cutLatitude < 57  %}
+          {% concat 'latitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLatitude' 1 %}
+      {% endfor %}
+
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="18cm">
+      <tr> 
+        <td><para style="dataC">COORDENADAS DE LA ESTACIÓN</para> </td>
+      </tr>
+      </blockTable> 
+
+      <blockTable style="mtto_data" colWidths="4.5cm,4.5cm,4.5cm,4.5cm">
+      <tr> 
+        <td><para style="dataB">Latitud</para> </td>
+        <td><para style="data">{{longitude}}</para> </td>
+        <td><para style="dataB">Longitud </para> </td>
+        <td><para style="data">{{latitude}}</para> </td>                                   
+      </tr>                               
+      </blockTable>
+
+    <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="4.5cm,13.5cm">
+     <tr>
+        <td><para style="dataL">Actividad a Realizar:</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa34}}</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datall" colWidths="4.5cm,13.5cm">
+      <tr>
+        <td><para style="dataL">Observaciones de Contratista:</para> </td>
+        <td><para style="data">{{answers.680a7708bab8bd3f747baa38}}</para> </td>
+      </tr>
+    </blockTable>
+
+  <condPageBreak height="10cm"/> 
+  <spacer length="1.5cm"/> 
+    <blockTable style="mtto_datalV" colWidths="18cm">
+      <tr>
+        <td><para style="Header_PHOTO">FOTOGRAFIA AREA CONTRATISTA</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr><td><para style="Header_PHOTO">Fotografia Grupal EPP Frontal</para> </td>
+          <td><para style="Header_PHOTO">Fotografia Grupal EPP Posterior</para> </td>
+          <td><para style="Header_PHOTO">Fotografia EPP Completo</para> </td>
+      </tr>
+    </blockTable>
+
+    {% set photo_01 = ''%}
+    {% set photo_02 = ''%}
+    {% set photo_03 = ''%}
+    {% set photo_04 = ''%}
+    {% set photo_05 = ''%}
+    {% set photo_06 = ''%}
+    {% set photo_07 = ''%}
+    {% set photo_08 = ''%}
+    {% set photo_09 = ''%}
+    {% set photo_10 = ''%}
+    {% set photo_11 = ''%}
+    {% set photo_12 = ''%}
+
+      {% if answers.680a7708bab8bd3f747baa3d.0.file_url %}
+        {% set photo_01 = answers.680a7708bab8bd3f747baa3d.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa3e.0.file_url %}
+        {% set photo_02 = answers.680a7708bab8bd3f747baa3e.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa3f.0.file_url %}
+        {% set photo_03 = answers.680a7708bab8bd3f747baa3f.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa40.0.file_url %}
+        {% set photo_04 = answers.680a7708bab8bd3f747baa40.0.file_url %}
+      {% endif%}
+      {% if answers.680a809f32b8e7080883f724.0.file_url %}
+        {% set photo_05 = answers.680a809f32b8e7080883f724.0.file_url %}
+      {% endif%}
+      {% if answers.680a809f32b8e7080883f725.0.file_url %}
+        {% set photo_06 = answers.680a809f32b8e7080883f725.0.file_url %}
+      {% endif%}
+      {% if answers.680a809f32b8e7080883f723.0.file_url %}
+        {% set photo_07 = answers.680a809f32b8e7080883f723.0.file_url %}
+      {% endif%}
+      {% if answers.680a809f32b8e7080883f726.0.file_url %}
+        {% set photo_08 = answers.680a809f32b8e7080883f726.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa41.0.file_url %}
+        {% set photo_09 = answers.680a7708bab8bd3f747baa41.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa42.0.file_url %}
+        {% set photo_10 = answers.680a7708bab8bd3f747baa42.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa42.0.file_url %}
+        {% set photo_11 = answers.680a7708bab8bd3f747baa42.0.file_url %}
+      {% endif%}
+      {% if answers.680a7708bab8bd3f747baa42.0.file_url %}
+        {% set photo_12 = answers.680a7708bab8bd3f747baa42.0.file_url %}
+      {% endif%}
+
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photo_01 %} 
+            <td href="{{ photo_01 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_01 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_02 %} 
+            <td href="{{ photo_02 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_02 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_03 %} 
+            <td href="{{ photo_03 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_03 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr><td><para style="Header_PHOTO">Vehiculo Rotulado Piloto</para> </td>
+          <td><para style="Header_PHOTO">Vehiculo Rotulado Copiloto</para> </td>
+          <td><para style="Header_PHOTO">Vehiculo Parte Frontal</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photo_04 %} 
+            <td href="{{ photo_04 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_04 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_05 %} 
+            <td href="{{ photo_05 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_05 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_06 %} 
+            <td href="{{ photo_06 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_06 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>    
+    
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr><td><para style="Header_PHOTO">Fotografia Herramientas</para> </td>
+          <td><para style="Header_PHOTO">Fotografia Carnet-DPI</para> </td>
+          <td><para style="Header_PHOTO">Fotografia Botiquín</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photo_07 %} 
+            <td href="{{ photo_07 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_07 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_08 %} 
+            <td href="{{ photo_08 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_08 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_09 %} 
+            <td href="{{ photo_09 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_09 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>  
+
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr><td><para style="Header_PHOTO">Fotografia Extintor</para> </td>
+          <td><para style="Header_PHOTO">Fotografia Extintor 1</para> </td>
+          <td><para style="Header_PHOTO">Fotografia Extintor 2</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photo_10 %} 
+            <td href="{{ photo_10 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_10 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_11 %} 
+            <td href="{{ photo_11 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_11 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photo_12 %} 
+            <td href="{{ photo_12 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_12 %}" imageWidth="5.5cm" imageHeight="4.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>  
+    
+    {% set photoB_01 = '' %}
+    {% set photoB_02 = '' %}
+    {% set photoB_03 = '' %}
+    {% set photoB_04 = '' %}
+    {% set photoB_05 = '' %}
+    {% set photoB_06 = '' %}
+    
+    {% if answers.680a86e9e8263edfcd6e376b.0.file_url %}
+      {% set photoB_01 = answers.680a86e9e8263edfcd6e376b.0.file_url %}
+    {% endif%}
+    {% if answers.680a86e9e8263edfcd6e376c.0.file_url %}
+      {% set photoB_02 = answers.680a86e9e8263edfcd6e376c.0.file_url %}
+    {% endif%}
+    {% if answers.680a86e9e8263edfcd6e376d.0.file_url %}
+      {% set photoB_03 = answers.680a86e9e8263edfcd6e376d.0.file_url %}
+    {% endif%}
+    {% if answers.680a8797a28fe4bed283f80d.0.file_url %}
+      {% set photoB_04 = answers.680a8797a28fe4bed283f80d.0.file_url %}
+    {% endif%}
+    {% if answers.680a8797a28fe4bed283f80e.0.file_url %}
+      {% set photoB_05 = answers.680a8797a28fe4bed283f80e.0.file_url %}
+    {% endif%}
+    {% if answers.680a8797a28fe4bed283f80f.0.file_url %}
+      {% set photoB_06 = answers.680a8797a28fe4bed283f80f.0.file_url %}
+    {% endif%}
+        
+    <condpageBreak height="5cm"/>
+    <spacer length="1.5cm"/>
+    <blockTable style="mtto_datalV" colWidths="18cm">
+      <tr>
+        <td><para style="Header_PHOTO">FOTOGRAFIA AREA CONTRATISTA</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr>
+        <td><para style="Header_PHOTO">Fotografia Sitio</para> </td>
+        <td><para style="Header_PHOTO">Fotografia Carnet</para> </td>
+        <td><para style="Header_PHOTO">Fotografia Rotulado Piloto</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photoB_01 %} 
+            <td href="{{ photoB_01 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_01 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photoB_02 %} 
+            <td href="{{ photoB_02 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_02 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photoB_03 %} 
+            <td href="{{ photoB_03 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_03 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    
+    <spacer length="1cm"/>
+    <blockTable style="mtto_datalV" colWidths="18cm">
+      <tr>
+        <td><para style="Header_PHOTO">FOTOGRAFIA EVIDENCIAS DE VANDALISMO</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr>
+        <td><para style="Header_PHOTO">Fotografia Porton</para> </td>
+        <td><para style="Header_PHOTO">Fotografia Paredes</para> </td>
+        <td><para style="Header_PHOTO">Fotografia General Sitio</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photoB_04 %} 
+            <td href="{{ photoB_04 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_04 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photoB_05 %} 
+            <td href="{{ photoB_05 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_05 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photoB_06 %} 
+            <td href="{{ photoB_06 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_06 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    
+    {% set photoB_07 = "" %}
+    {% set photoB_08 = "" %}
+    {% set photoB_09 = "" %}
+    
+    {% set count = 0 %}
+    {% for item in answers.680a8853c8274ae7707ba981 %}
+      {% if count  == 0 %}
+        {% set photoB_07 = item.file_url %}
+      {% endif %}
+      {% if count  == 1 %}
+        {% set photoB_08 = item.file_url %}
+      {% endif %}
+      {% if count  == 2 %}
+        {% set photoB_09 = item.file_url %}
+      {% endif %}
+      {% add_total 'count' 1 %}
+    {% endfor %}
+
+    <condpageBreak height="5cm"/>
+    <spacer length="1cm"/>
+    <blockTable style="mtto_datalV" colWidths="18cm">
+      <tr>
+        <td><para style="Header_PHOTO">FOTOGRAFIA DE LIMPIEZA Y ORDEN DEL SITIO</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="mtto_datalV" colWidths="6cm,6cm,6cm">
+      <tr>
+        <td><para style="Header_PHOTO">Fotografia Superficie</para> </td>
+        <td><para style="Header_PHOTO">Fotografia Lugar Trabajo</para> </td>
+        <td><para style="Header_PHOTO">Fotografia General</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="mtto_datalll" colWidths="6cm,6cm,6cm">
+      <tr>
+          {% if photoB_07 %} 
+            <td href="{{ photoB_07 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_07 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          {% if photoB_08 %} 
+            <td href="{{ photoB_08 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_08 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          {% if photoB_09 %} 
+            <td href="{{ photoB_09 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_09 %}" imageWidth="5.5cm" imageHeight="4.5cm"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+{% endautoescape %}
+  </story>
+</document>

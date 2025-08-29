@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(300mm,150mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="1.0cm" y1="1.0cm"  width="18cm" height="20cm"/>
+      <frame id="second" x1="2.0cm" y1="0.0cm" width="9cm" height="24cm"/>
+      <frame id="third"  x1="10cm"  y1="0.0cm" width="9cm" height="24cm"/>
+      <frame id="four"   x1="0.5cm" y1="0cm" width="20cm" height="18.5cm"/>
+      <frame id="five" x1="0.5cm" y1="0cm" width="9cm" height="12.8cm"/>
+      <frame id="six" x1="10cm" y1="0cm" width="9cm" height="12.8cm"/>
+      <frame id="seven" x1="0.5cm" y1="0.0cm" width="20cm" height="8.7cm"/>
+
+      <pageGraphics>
+      <drawRightString x="20.5cm" y="26.2cm">
+      </drawRightString>
+      {% Header company_logo parent user form Template meta %}
+      {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>
+<nextFrame/>
+
+  {% set hardware_si = '' %}
+  {% set hardware_no = '' %}
+  {% set software_si = '' %}
+  {% set software_no = '' %}
+  {% set cuentas_si = '' %}
+  {% set cuentas_no = '' %}
+  {% set correo_si = '' %}
+  {% set correo_no = '' %}
+  {% set carpeta_si = '' %}    
+  {% set carpeta_no = '' %}
+  {% set seguridad_si = '' %}
+  {% set seguridad_no = '' %}
+  {% set infraestructura_si = '' %}
+  {% set infraestructura_no = '' %}
+  {% set linkaform_si = '' %}
+  {% set linkaform_no = '' %}
+  {% set zoho_si = '' %}
+  {% set zoho_no = '' %}
+  
+  {% for list_tem in answers.685b2e625eb52ee7fb75292c %}
+    {% if list_tem == 'Hardware' %}
+      {% set hardware_si = '✓' %}
+      {% set hardware_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Software' %}
+      {% set software_si = '✓' %}
+      {% set software_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Cuentas y Accesos' %}
+      {% set cuentas_si = '✓' %}
+      {% set cuentas_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Correo Electronico' %}
+      {% set correo_si = '✓' %}
+      {% set correo_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Carpeta Compartida' %}
+      {% set carpeta_si = '✓' %}    
+      {% set carpeta_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Seguridad Informatica' %}
+      {% set seguridad_si = '✓' %}
+      {% set seguridad_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Infraestructura de Red y Energia' %}
+      {% set infraestructura_si = '✓' %}
+      {% set infraestructura_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Linkaform' %}
+      {% set linkaform_si = '✓' %}
+      {% set linkaform_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Soho' %}
+      {% set zoho_si = '✓' %}
+      {% set zoho_no = '' %}
+    {% endif %}
+  {% endfor %}
+  
+  <spacer length="1cm"/>
+  <blockTable colWidths="6cm,1cm,1cm" style="tabla 3">
+      <tr>
+        <td background = "#081350"><para style="Titulo">Descripción</para></td>
+        <td background = "#081350"><para style="Titulo">SI</para></td>
+        <td background = "#081350"><para style="Titulo">NO</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Software</para></td>
+        <td><para style="datosTitulo">{{ hardware_si }}</para></td>
+        <td><para style="datosTitulo">{{ hardware_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Hardware</para></td>
+        <td><para style="datosTitulo">{{ software_si }}</para></td>
+        <td><para style="datosTitulo">{{ software_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Cuentas y Accesos</para></td>
+        <td><para style="datosTitulo">{{ cuentas_si }}</para></td>
+        <td><para style="datosTitulo">{{ cuentas_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Correo Electrónico</para></td>
+        <td><para style="datosTitulo">{{ correo_si }}</para></td>
+        <td><para style="datosTitulo">{{ correo_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Carpeta Compartida</para></td>
+        <td><para style="datosTitulo">{{ carpeta_si }}</para></td>
+        <td><para style="datosTitulo">{{ carpeta_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Seguridad Informática</para></td>
+        <td><para style="datosTitulo">{{ seguridad_si }}</para></td>
+        <td><para style="datosTitulo">{{ seguridad_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Infraestructura-Red-Energia</para></td>
+        <td><para style="datosTitulo">{{ infraestructura_si }}</para></td>
+        <td><para style="datosTitulo">{{ infraestructura_no }}</para></td>
+      </tr>      
+      <tr>
+        <td><para style="datosTitulo">LinkaForm</para></td>
+        <td><para style="datosTitulo">{{ linkaform_si }}</para></td>
+        <td><para style="datosTitulo">{{ linkaform_no }}</para></td>
+      </tr>      
+      <tr>
+        <td><para style="datosTitulo">Zoho CRM</para></td>
+        <td><para style="datosTitulo">{{ zoho_si }}</para></td>
+        <td><para style="datosTitulo">{{ zoho_no }}</para></td>
+      </tr> 
+    </blockTable>
+    
+    <nextFrame/>    
+    <spacer length="1cm"/>
+      <blockTable colWidths="8cm" style="tabla 3">
+        <tr>
+          <td background = "#081350"><para style="Titulo">Detalle de Soporte</para></td>
+        </tr>  
+   
+        <tr>
+          <td>
+            <para style="datos">
+              {% for software in answers.685b03feab4d9338fb7277a8 %}
+                {{ software }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <para style="datos">
+              {% for hardware in answers.685ae5ff78164c38f537a4a2 %}
+                {{ hardware }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr> 
+
+        <tr>
+          <td>
+            <para style="datos">
+              {% for cuentas in answers.685b05f8dc683de0a52a5370 %}
+                {{ cuentas }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <para style="datos">
+              {% for email in answers.685db593275043112cbdf384 %}
+                {{ email }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <para style="datos">
+              {% for carpetas in answers.685dbd391e90061540834227 %}
+                {{ carpetas }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <para style="datos">
+              {% for seguridad in answers.685dc2e75b256e7c014fbd41 %}
+                {{ seguridad }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr> 
+        
+        <tr>
+          <td>
+            <para style="datos">
+              {% for infraestructura in answers.685dc9c6742b89c877ab5054 %}
+                {{ infraestructura }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr> 
+        
+        <tr>
+          <td>
+            <para style="datos">
+              {% for linkform in answers.68752b1ff99a20041c54e6eb %}
+                {{ linkform }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <para style="datos">
+              {% for zoho in answers.68758c6732f81f20a929a62a %}
+                {{ zoho }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </para>
+          </td>
+        </tr>         
+      </blockTable>
+
+    <nextFrame/>
+    
+    <spacer length="1.5cm"/>
+    <blockTable colWidths="16cm" style="tabla 3">
+      <tr>
+        <td background = "#081350"><para style="Titulo">Detalle Solicitud Linkaform</para></td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="16cm" style="contenido">
+      <tr>
+        <td><para style="datos">{{ answers.68752bfff99a20041c54e710 }}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="1.5cm"/>
+    <blockTable colWidths="16cm" style="tabla 3">
+      <tr>
+        <td background = "#081350"><para style="Titulo">Detalle Solicitud Zoho</para></td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="16cm" style="contenido">
+      <tr>
+        <td><para style="datos">{{ answers.68758ea5a5f94355198ab1eb }}</para></td>
+      </tr>
+    </blockTable>
+            
+    <spacer length="1.5cm"/>
+    <blockTable colWidths="16cm" style="tabla 3">
+      <tr>
+        <td background = "#081350"><para style="Titulo">Descripción de Solicitud </para></td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="16cm" style="contenido">
+      <tr>
+        <td><para style="datos">{{ answers.685dd481b606817f31ab5073 }}</para></td>
+      </tr>
+    </blockTable>
+  
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="3.5cm,5cm,4cm,3.5cm" style="contenido">
+      <tr>
+        <td background = "#081350"><para style="Tituloll">Usuario que Solicita: </para></td>
+        <td><para style="text1">{{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f }}</para></td>
+        <td background = "#081350"><para style="Tituloll">Fecha y Hora de Solicitud: </para></td>
+        <td><para style="text1">{{ answers.685ad189e75b3ea9744da79d }}</para></td>
+      </tr>
+    </blockTable>
+          
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+

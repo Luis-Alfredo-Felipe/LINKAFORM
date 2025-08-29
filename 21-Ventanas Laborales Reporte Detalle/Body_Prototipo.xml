@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="29cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(29cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="1.5cm" y1="1cm"  width="25cm" height="14cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="32cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>ll
+    <story> 
+    
+  <blockTable colWidths="6.5cm,6.5cm,6.5cm,6.5cm" style="table_contenido">
+  {% for record_mult in answers_list|slice:"1" %}  
+    <tr>
+      <td background = "#061952"><para style="Encabezados">EMPRESA: </para></td>
+      <td><para style="datosLeft"> {% for select in record_mult.answers.6659330286831bb5e00e0b5b %}{{ select }}{% endfor %}</para></td>
+      <td background = "#061952"><para style="Encabezados">DEPARTAMENTO: </para></td>
+      <td><para style="datosLeft"> {% for select in record_mult.answers.60007ca59253268e682b875e.60007ca59253268e682b8760 %}{{ select }}{% endfor %}</para></td>
+    </tr>
+    <tr>
+      <td background = "#061952"><para style="Encabezados">PERIODO: DEL </para></td>
+      <td><para style="datosLeft"> {% for select in record_mult.answers.665934785423510549e05db4 %}{{ select }}{% endfor %}</para></td>
+      <td background = "#061952"><para style="Encabezados">ELABORADO POR: </para></td>
+      <td><para style="datosLeft"> {% for select in record_mult.answers.6659355151231de1810e0b53 %}{{ select }}{% endfor %}</para></td>
+    </tr>
+    <tr>
+      <td background = "#061952"><para style="Encabezados"> AL:</para></td>
+      <td><para style="datosLeft"> {% for select in record_mult.answers.665934785423510549e05db5 %}{{ select }}{% endfor %}</para></td>
+      <td background = "#061952"><para style="Encabezados">FECHA DE ELABORACION: </para></td>
+      <td><para style="datosLeft"> {% for select in record_mult.answers.6659355151231de1810e0b54 %}{{ select }}{% endfor %}</para></td>
+    </tr>   
+  {% endfor %}
+  </blockTable>
+    
+   <spacer length="0.1cm" />
+    <blockTable colWidths="3cm,2cm,1.5cm,2.5cm,2.5cm,1.5cm,1.5cm,1.5cm,2cm,4cm,2cm,2cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezadosll">Nombre</para></td>
+          <td><para style="Encabezadosll">Fecha Ventana</para></td>
+          <td><para style="Encabezadosll">Vehiculo</para></td>
+          <td><para style="Encabezadosll">Dirección</para></td>
+          <td><para style="Encabezadosll">ODT's</para></td>
+          <td><para style="Encabezadosll">Inicio</para></td>
+          <td><para style="Encabezadosll">Final</para></td>
+          <td><para style="Encabezadosll">Total Horas</para></td>  
+          <td><para style="Encabezadosll">No. Ventana</para></td>          
+          <td><para style="Encabezadosll">Descripción de Actividad</para></td>          
+          <td><para style="Encabezadosll">Pago Ventanas</para></td>      
+          <td><para style="Encabezadosll">Detalle Trabajo</para></td>          
+        </tr>              
+    </blockTable>
+    
+    {% set Total = 0 %}
+    {% set TotalHora = 0.0 %}     
+    <blockTable colWidths="3cm,2cm,1.5cm,2.5cm,2.5cm,1.5cm,1.5cm,1.5cm,2cm,4cm,2cm,2cm" style="table_contenidoll">
+      {% for record_mult in answers_list %}
+        <!-- Fila para el nombre -->
+        <tr>
+          <td background="#e3e4e5"><para style="datos" colspan="12">{{ record_mult.answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para></td>
+        </tr>
+
+        <!-- Filas para los detalles asociados al nombre -->
+        {% set subTotal = 0.0 %}
+        {% set SubTotalHora = 0.0 %}   
+        {% for inner_item in record_mult.answers.66593646f19353763ea5d3dd %}
+          <tr>
+            <td background="#e3e4e5"></td><!-- Celda vacía para alinear con el nombre -->
+            <td><para style="datos">{{ inner_item.665936d55423510549e05dcb}}</para></td>
+            <td><para style="datos">{{ inner_item.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a4}}</para></td>
+            <td><para style="datos">{{ inner_item.665938478cb9c77f201c0bd0}}</para></td>
+            <td><para style="datos">{{ inner_item.665938478cb9c77f201c0bd1}}</para></td>
+            <td><para style="datos">{{ inner_item.66fc7159b52bc48e3db96ad7}}</para></td>            
+            <td><para style="datos">{{ inner_item.66fc7159b52bc48e3db96ad8}}</para></td>
+            <td><para style="datos">{{ inner_item.66608071a57db421f91c0bb3}}</para></td> 
+            
+            {% set subTHora = 0.0 %}
+            {% set subHora = 0.0 %}                         
+            {% if inner_item.66608071a57db421f91c0bb3|length == 1 %}
+            {% set subHora = inner_item.66608071a57db421f91c0bb3 %}
+              {% arithmetic 'subTHora' 'subHora' '+' 'subHora'%} 
+              {% add_total 'SubTotalHora' subTHora %} 
+            {% endif %}  
+                              
+            <td><para style="datos">{{ inner_item.6661e9799cfd01b4bfc909ee}}</para></td>
+            <td><para style="datos">{{ inner_item.672e7bb8fa2f82d6c698da5b}}</para></td>
+   
+            <td><para style="datos">{{ inner_item.66593ab7446bed3fdfe05dae}}</para></td>        
+
+            {% set subBase = 0.0 %}
+            {% set subPago = 0.0 %}
+            {% if inner_item.66593ab7446bed3fdfe05dae|length == 1 %}
+            {% set subPago = inner_item.66593ab7446bed3fdfe05dae.0 %}
+              {% arithmetic 'subBase' 'subPago' '+' 'subPago'%} 
+              {% add_total 'subTotal' subPago %} 
+            {% else %}
+            {% set subPago = inner_item.66593ab7446bed3fdfe05dae %}
+              {% arithmetic 'subBase' 'subPago' '+' 'subPago'%} 
+              {% add_total 'subTotal' subPago %}     
+            {% endif %}   
+            <td><para style="datos"> {% for select in record_mult.answers.666328109fc0f39f1dc909a6 %}{{ select }}{% endfor %}</para></td>         
+          </tr>
+        {% endfor %} 
+        <!-- Mostrar subtotal acumulado fuera del bucle -->
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td background="#061952"><para style="Encabezados">SubTotal</para></td>
+            <td><para style="datos">{{ SubTotalHora }}</para></td>
+            <td></td>
+            <td background="#061952"><para style="Encabezados">Sub-Total Ventanas:</para></td>
+            <td><para style="datos">{% money_format subTotal 2 "Q" %}</para></td>
+          </tr>
+        {% add_total 'Total' subTotal %}     
+      {% endfor %}
+    </blockTable>
+    
+  <spacer length="0.1cm" />
+    <blockTable colWidths="18cm,4cm,2cm,2cm" style="table_sub3_two">
+      <tr>
+        <td></td>    
+        <td background="#061952"><para style="Encabezados">Total Ventanas:</para></td> 
+        <td><para style="datos">{% money_format Total 2 "Q " %}</para></td>
+        <td></td> 
+      </tr>
+     </blockTable>
+
+           
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

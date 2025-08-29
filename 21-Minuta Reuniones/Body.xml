@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.5cm" width="200mm" height="245mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>
+    <spacer length="1cm" />
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="titulo">INFORMACIÓN GENERAL:</para></td>
+      </tr>
+    </blockTable> 
+    <blockTable colWidths="6cm,12cm" style="table_two">
+      <tr>
+        <td><para style="text1"> <b> Fecha: </b></para> </td>
+        <td><para style="text1"> {{ answers.684878151eb47b1c470c69c2 }}</para></td>         
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Número de Minuta: </b></para> </td>
+        <td><para style="text1"> {{ answers.684878151eb47b1c470c69c3 }}</para></td>         
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Versión: </b></para> </td>
+        <td><para style="text1"> {{ answers.684878151eb47b1c470c69c4 }}</para></td>         
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Coordinadora(a): </b></para> </td>
+        <td><para style="text1"> {{ answers.684878151eb47b1c470c69c5 }}</para></td>         
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Área: </b></para> </td>
+        <td><para style="text1"> {{ answers.684878151eb47b1c470c69c6 }}</para></td>             
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Hora Inicio: </b></para> </td>
+        <td><para style="text1"> {{ answers.68487839b436f581f39f3e7a }}</para></td>     
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Hora de Finalización: </b></para> </td>
+        <td><para style="text1"> {{ answers.68487839b436f581f39f3e7b }}</para></td>         
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Minuta Elaborado(a) Por: </b></para> </td>
+        <td><para style="text1"> {{ answers.6848788db015064d177dfc04 }}</para></td>         
+      </tr>
+      <tr>
+        <td><para style="text1"> <b> Lugar: </b></para> </td>
+        <td><para style="text1"> {{ answers.6848788db015064d177dfc03 }}</para></td>             
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.3 cm" />
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="titulo">PARTICIPANTES:</para></td>
+      </tr>
+    </blockTable> 
+    
+    <blockTable colWidths="9cm,9cm" style="contenido">  
+      <tr>
+        <td background = "#bababa"><para style ="text1"><b>Nombre del Participante:</b> </para></td>
+        <td background = "#bababa"><para style ="text1"><b>Cargo / Departamento:</b> </para></td>
+      </tr>
+        {% if answers.684878a366ccdf1dce7dfbe0 %}
+          {% for item in answers.684878a366ccdf1dce7dfbe0 %} 
+            <tr>
+              <td><para style="text1">{{ item.68487b44b5a86947b8117eff }}</para></td>
+              <td><para style="text1">{{ item.68487b44b5a86947b8117f00 }}</para></td>
+            </tr>
+          {% endfor %}
+          { % else %}
+            <tr>
+              <td><para style="text1">n/a</para></td>
+              <td><para style="text1">n/a</para></td>
+            </tr>
+        {% endif %}
+      </blockTable>
+
+    <spacer length="0.3 cm" />
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="titulo">TEMAS ABORDADOS:</para></td>
+      </tr>
+    </blockTable> 
+    <blockTable colWidths="6cm,12cm" style="contenidoll" >  
+      {% if answers.68487bd1eb0c5b594bf34f77 %}       
+        {% for item in answers.68487bd1eb0c5b594bf34f77 %}                  
+            <tr>
+                <td><para style="text1"><b> Tema: </b></para></td>
+                <td><para style="text1">{{ item.68487dd2f091951202e1125f }}</para></td>
+            </tr>
+            <tr>
+                <td><para style="text1"><b> Puntos Clave: </b></para></td>
+                <td><para style="text1">{{ item.68487e9ec5d4d46c3f0c69dc }}</para></td>
+            </tr>
+            <tr>
+                <td><para style="text1"><b> Acuerdos y Desiciones: </b></para></td>
+                <td><para style="text1">{{ item.68487dd2f091951202e11260 }}</para></td>
+            </tr>       
+        {% endfor %}
+        {% else %}
+            <tr>
+                <td><para style="text1"><b> Tema: </b></para></td>
+                <td><para style="text1">n/a</para></td>
+            </tr>
+            <tr>
+                <td><para style="text1"><b> Puntos Clave: </b></para></td>
+                <td><para style="text1">n/a</para></td>
+            </tr>
+            <tr>
+                <td><para style="text1"><b> Acuerdos y Desiciones: </b></para></td>
+                <td><para style="text1">n/a</para></td>
+            </tr>
+      {% endif %} 
+    </blockTable>
+
+    <condPageBreak height="5cm"/>
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="titulo">LINEAS DE ACCIÓN:</para></td>
+      </tr>
+    </blockTable> 
+
+    <spacer length="0.5 cm" />                                            
+      <blockTable colWidths="6cm,12cm" style="contenidolV" >
+        {% if answers.6848951700c9a32fda0c6a32  %}               
+          {% for item in answers.6848951700c9a32fda0c6a32 %}                  
+            <tr>
+              <td><para style="text1"><b> Acción: </b></para></td>
+              <td><para style="text1">{{ item.6848957a00c9a32fda0c6a39 }}</para></td>
+            </tr>
+            <tr>
+              <td><para style="text1"><b> Responsable: </b></para></td>
+              <td><para style="text1">{{ item.6848957a00c9a32fda0c6a3a }}</para></td>
+            </tr>
+            <tr>
+              <td><para style="text1"><b> Fecha Limite: </b></para></td>
+              <td><para style="text1">{{ item.6848957a00c9a32fda0c6a3b }}</para></td>
+            </tr>
+            <tr>
+              <td><para style="text1"><b> Estado: </b></para></td>
+              <td><para style="text1">{{ item.6848957a00c9a32fda0c6a3c }}</para></td>
+            </tr>        
+          {% endfor %}
+        {% else %}
+            <tr>
+              <td><para style="text1"><b> Acción: </b></para></td>
+              <td><para style="text1"></para></td>
+            </tr>
+            <tr>
+              <td><para style="text1"><b> Responsable: </b></para></td>
+              <td><para style="text1"></para></td>
+            </tr>
+            <tr>
+              <td><para style="text1"><b> Fecha Limite: </b></para></td>
+              <td><para style="text1"></para></td>
+            </tr>
+            <tr>
+              <td><para style="text1"><b> Estado: </b></para></td>
+              <td><para style="text1"></para></td>
+            </tr>
+          {% endif %}    
+      </blockTable>      
+        
+    <!-- Aca Finaliza 1ra. Pagina y Empieza 2da Pagina -->   
+    <condPageBreak height="6cm"/>     
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="titulo">OBSERVACIONES ADICIONALES:</para></td>
+      </tr>
+    </blockTable> 
+    <blockTable colWidths="18cm" style="contenido">
+      <tr>
+        <td><para style="parrafo">{{ answers.684892cf00c9a32fda0c69ca }}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.5 cm" />
+    <condPageBreak height="6cm"/>  
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="titulo">FIRMA DE PARTICIPANTES:</para></td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="18cm" style="contenido">
+      <tr>
+        <td><para style="firmas">N/A</para></td>
+      </tr>
+    </blockTable>                      
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+

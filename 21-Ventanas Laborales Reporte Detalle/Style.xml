@@ -1,0 +1,29 @@
+<blockTableStyle id="table_encabezado">
+ <lineStyle kind="GRID" colorName="#e1eff4" start="0,0" stop="-1,-1" thickness="1" />
+ <blockBackground colorName="#061952" start="0,0" stop="-1,-1" />
+</blockTableStyle>
+
+<blockTableStyle id="table_contenido">
+  <lineStyle kind="BOX" colorName="#061952" start="0,0" stop="-1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_contenidoll">
+  <!-- Estilo para los bordes exteriores de la tabla (caja completa) -->
+  <lineStyle kind="BOX" colorName="#061952" start="0,0" stop="-1,-1" thickness="0.5" />
+  <!-- Estilo para la línea inferior de cada celda -->
+  <lineStyle kind="INNERGRID" colorName="#061952" start="0,0" stop="-1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_sub3_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="center" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,0"/> 
+</blockTableStyle>
+
+<paraStyle name="datosMes" fontName="Montserrat-Regular" fontSize="6" leading="10" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Regular" fontSize="6" leading="10" alignment="center" />
+<paraStyle name="datosLeft" fontName="Montserrat-Regular" fontSize="7" leading="10" alignment="left" />
+<paraStyle name="Encabezados" fontName="Montserrat-Bold" fontSize="7" leading="12" alignment="center" textColor="#FFFFFF"/>
+<paraStyle name="Encabezadosll" fontName="Montserrat-Bold" fontSize="6" leading="12" alignment="center" textColor="#FFFFFF"/>
+<paraStyle name="datosTotal" fontName="Montserrat-Bold" fontSize="6.5" leading="10" alignment="center" textColor="#FFFFFF"/>

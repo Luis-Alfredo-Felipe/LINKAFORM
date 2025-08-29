@@ -82,7 +82,6 @@
                          <td><para style="datosRP"> {{ l.60edf7509292403756acaef2.60f1261fe58ff965ba6f0251.0 }} </para></td>
                          {% endfor %}
                     </tr>
-
                     </blockTable>
 
     <spacer length="0.3cm"/>
@@ -96,8 +95,8 @@
         <td background="#DBEDF0"><para style="datos"> D </para></td>
         <td background="#DBEDF0"><para style="datos"> L</para></td>
       </tr>
-  {% for item in answers.60edff07ea56ede46cd48f00%}
-      {% for l in answers.6335cc3f76d708a3a7df9aa2 %}  
+      {% for item in answers.60edff07ea56ede46cd48f00 %}
+      {% for l in answers.6335cc3f76d708a3a7df9aa2 %}
       <tr>
         <td><para style="datosRL"> {{ item.60edff14790e7fd21f6f0240 }} </para></td>
         <td><para style="datosRL"> {{ item.60edf790526d066a536f0255.60f1286f9f87230582acae68 }} </para></td>
@@ -107,9 +106,9 @@
         <td><para style="datosRL">  </para></td>
         <td><para style="datosRL">  </para></td>
       </tr>
-  {% endfor %}
-  {% endfor %}
-</blockTable>
+      {% endfor %}
+      {% endfor %}
+    </blockTable>
 
   <spacer length="0.5cm" />
   <blockTable colWidths="5cm,1.5cm,5cm,1.6cm,5cm,1.5cm" colHeights=".5cm, 5cm, .5cm" style="table_firma">

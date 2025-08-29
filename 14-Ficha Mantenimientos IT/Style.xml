@@ -1,0 +1,107 @@
+<blockTableStyle id="marc_photo">
+    <!-- Estilo de línea solo para la segunda celda -->
+<blockAlignment value="center" start="0,0" stop="-1, -1" />
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_Header">
+<lineStyle thickness="1" kind="GRID" colorName="#081350" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#081350" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_Headerll">
+    <lineStyle thickness="1" kind="BOX" colorName="#000" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub1_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub3_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="1,0" stop="2,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="4,0" stop="5,0"/>  <!-- Une la celda 4 y 5 -->
+    <blockSpan start="7,0" stop="8,0"/>  <!-- Une la celda 7 y 8 -->
+    <blockSpan start="10,0" stop="11,0"/>  <!-- Une la celda 10 y 11 -->
+    <blockSpan start="13,0" stop="14,0"/>  <!-- Une la celda 13 y 14 -->
+    <blockSpan start="16,0" stop="17,0"/>  <!-- Une la celda 16 y 17 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="5,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="7,0" stop="8,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="10,0" stop="11,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="13,0" stop="14,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="16,0" stop="17,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub4_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="1,0" stop="2,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="4,0" stop="5,0"/>  <!-- Une la celda 4 y 5 -->
+    <blockSpan start="7,0" stop="8,0"/>  <!-- Une la celda 7 y 8 -->
+    <blockSpan start="10,0" stop="11,0"/>  <!-- Une la celda 10 y 11 -->
+    <blockSpan start="13,0" stop="14,0"/>  <!-- Une la celda 13 y 14 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#FFFFFF" start="4,0" stop="5,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#FFFFFF" start="7,0" stop="8,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#FFFFFF" start="10,0" stop="11,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#FFFFFF" start="13,0" stop="14,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub5_two">
+ <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="1,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="3,0" stop="3,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="5,0" stop="5,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub6_two">
+ <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="1,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="3,0" stop="3,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="5,0" stop="5,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="7,0" stop="7,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub7_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="1,0" stop="2,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="4,0" stop="5,0"/>  <!-- Une la celda 4 y 5 -->
+    <blockSpan start="7,0" stop="8,0"/>  <!-- Une la celda 7 y 8 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="5,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="7,0" stop="8,-1"/> 
+</blockTableStyle>
+<blockTableStyle id="table_sub8_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="1,0" stop="2,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="2,-1"/> 
+   <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="4,0" stop="8,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_firma">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="1,-1" stop="1,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="3,-1" stop="3,-1" thickness="0.5" />
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Montserrat-Bold" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosll" fontName="Montserrat" fontSize="7" leading="5" alignment="center" />
+<paraStyle name="dataB" fontName="Montserrat" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataBB" fontName="Montserrat-Bold" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="datosTitulo" fontName="Montserrat-Regular" fontSize="12" leading="15" alignment="center" textColor="#FFFFFF" />
+<paraStyle name="datosSubtitulo" fontName="Montserrat-Bold" fontSize="6.0" leading="19" alignment="center"/>
+<paraStyle name="firma" fontName="Montserrat-Bold" fontSize="7" leading="2" alignment="center" />
+<paraStyle name="text1" fontName="Montserrat-Bold" fontSize="8" leading="12" alignment="left" />
+<paraStyle name="text2" fontName="Montserrat-Regular" fontSize="8" leading="12" alignment="left" />
+<paraStyle name="text3" fontName="Montserrat-Bold" fontSize="8" leading="5" alignment="left" />
+<paraStyle name="text4" fontName="Montserrat-Regular" fontSize="9" leading="12" alignment="center" />
+<paraStyle name="text5" fontName="Montserrat-Regular" fontSize="7" leading="5" alignment="center" />
+<paraStyle name="text6" fontName="Montserrat-Regular" fontSize="7" leading="5" alignment="right" />

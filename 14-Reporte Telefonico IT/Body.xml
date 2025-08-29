@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story> 
+ <spacer length="3cm" />
+  <blockTable colWidths="4cm,4cm,4cm,4cm" style="table_sub7_two">
+    <tr>
+      <td><para style="text1"><b>USUARIO: </b></para></td>
+      <td><para style="text1">{{answers.67a6157bb11cfd3dca2b3fe6}}</para> </td> 
+      <td><para style="text1"><b>FECHA: </b></para></td>
+      <td><para style="text1">{{answers.67aa7c53165d72ab2fa53bfb}}</para> </td> 
+    </tr>
+  </blockTable>
+   <spacer length="0.5cm" />
+  <blockTable colWidths="4cm,4cm,4cm,4cm" style="table_sub7_two">
+    <tr>
+      <td><para style="text1"><b>EXTENSIÓN: </b></para></td>
+      <td><para style="text1">{{answers.67a6157bb11cfd3dca2b3fe5}}</para> </td> 
+      <td><para style="text1"><b>IP: </b></para></td>
+      <td><para style="text1">{{answers.67a6157bb11cfd3dca2b3fe7}}</para> </td> 
+    </tr>
+  </blockTable>
+  
+  <spacer length="1cm" />
+  <blockTable colWidths="16cm" style="table_sub1_two">
+    <tr>
+      <td><para style="datos"><b>DESCRIPCIÓN DEL TELEFONO</b></para></td>
+    </tr>
+  </blockTable>
+  
+  <spacer length="1cm" />
+  <blockTable colWidths="8cm,8cm" style="encabezado">
+    <tr>
+      <td><para style="datosTitulo"><b>FOTOGRAFIA DEL TELÉFONO </b></para></td>
+      <td><para style="datosTitulo"><b>UBICACIÓN </b></para></td>
+    </tr>
+  </blockTable>
+  
+  {% set fotoA1 = "" %}
+  {% set count = 0 %}
+  {% if answers.67a6157bb11cfd3dca2b3fe9 %}
+      {% for item in answers.67a6157bb11cfd3dca2b3fe9 %}
+          {% if count  == 0 %}
+              {% set fotoA1 = item.file_url %}
+          {% endif %}
+          {% add_total 'count' 1 %}
+      {% endfor %}
+  {% endif %}
+
+  <blockTable colWidths="8cm,8cm" style="contenido">
+    <tr>
+      <td>{% if fotoA1 %}<imageAndFlowables imageName="{% get_thumbnail fotoA1 %}"  imageWidth="6cm" imageHeight="5cm" imageSide="left" />{% endif %}</td>
+      <td><para style="text1">{{answers.67a6157bb11cfd3dca2b3fe8}}</para></td>
+    </tr>
+  </blockTable>
+  
+  <spacer length="0.5cm" />
+  <blockTable colWidths="7cm,5cm,4cm" style="encabezado">
+    <tr>
+      <td><para style="datosTitulo"><b>AREA </b></para></td>
+      <td><para style="datosTitulo"><b>TIPO DE DISPOSITIVO </b></para></td>
+      <td><para style="datosTitulo"><b>STATUS </b></para></td>
+    </tr>
+  </blockTable>
+    <blockTable colWidths="7cm,5cm,4cm" style="contenido">
+    <tr>
+      <td><para style="text1">{{answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760}}</para></td>
+      <td><para style="text1">{{answers.67a61b6bb11cfd3dca2b4066}}</para></td>
+      <td><para style="text1">{{answers.67a63df988f542f5db31ce10}}</para></td>
+    </tr>    
+  </blockTable>
+  
+  <spacer length="0.5cm" />
+  <blockTable colWidths="16cm" style="encabezado">
+    <tr>
+      <td><para style="datosTitulo"><b>OBSERVACIONES </b></para></td>
+    </tr>
+  </blockTable>  
+    <blockTable colWidths="16cm" style="contenido">
+    <tr>
+      <td><para style="text1">{{answers.67a6157bb11cfd3dca2b3fea}}</para></td>
+    </tr>    
+  </blockTable>  
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+

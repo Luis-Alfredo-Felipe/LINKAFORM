@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="500mm,200mm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="1.5cm" y1="2.5cm"  width="18cm" height="21cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+    
+  <spacer length="0.5cm" />
+  <blockTable colWidths="3cm,3cm,3cm,3cm,3cm,3cm" style="table_contenido">
+   {% for record_mult in answers_list|slice:"1" %}
+        <tr>
+          <td background="#061952"><para style="Encabezados">Reporte por Placas:</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a4 %}{{ select }}{% endfor %}</para></td>
+          <td background="#061952"><para style="Encabezados">Pilotos:</para></td>
+          <td><para style="datosLeft">{% for select in record_mult.answers.6154ca157d665404bfb2e1bc.6154ca157d665404bfb2e1bd %}{{ select }}{% endfor %}</para></td>
+          <td background="#061952"><para style="Encabezados">Departamentos:</para></td>  
+          <td><para style="datosLeft">{% for select in record_mult.answers.6169ee35df53576c466f0bb5.6169eea4b903688faafc7f43 %}{{ select }}{% endfor %}</para></td>   
+        </tr>
+      {% endfor %}              
+  </blockTable>
+         
+   <spacer length="1cm" />
+  <blockTable colWidths="1.5cm,3cm,1.5cm,2.5cm,2.5cm,3cm,2cm,2cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">Placa</para></td>
+          <td><para style="Encabezados">Piloto</para></td>
+          <td><para style="Encabezados">KM Entrada</para></td>          
+          <td><para style="Encabezados">Fecha-Hora-Entrada</para></td>          
+          <td><para style="Encabezados">Departamentos</para></td>
+          <td><para style="Encabezados">Lugar de Destino</para></td>          
+          <td><para style="Encabezados">Nivel Combustible</para></td>   
+          <td><para style="Encabezados">Observaciones</para></td>       
+        </tr>              
+  </blockTable>
+    
+  <blockTable colWidths="1.5cm,3cm,1.5cm,2.5cm,2.5cm,3cm,2cm,2cm" style="table_contenido">      
+    {% for record_mult in answers_list %}
+      <tr>                        
+        <td><para style="datosLeft"> {% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a4 %}{{ select }}{% endfor %}</para></td>     
+        <td><para style="datosLeft"> {% for select in record_mult.answers.6154ca157d665404bfb2e1bc.6154ca157d665404bfb2e1bd %}{{ select }}{% endfor %}</para></td>             
+        <td><para style="datosLeft"> {% for select in record_mult.answers.61f44fe686b4eb6f6515542d %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datosLeft"> {% for select in record_mult.answers.61d86a597b762267dbc7ae95 %}{{ select }}{% endfor %}</para></td>     
+        <td><para style="datosLeft"> {% for select in record_mult.answers.6169ee35df53576c466f0bb5.6169eea4b903688faafc7f43 %}{{ select }}{% endfor %}</para></td>          
+        <td><para style="datosLeft"> {% for select in record_mult.answers.61dc92830ec4b0f37d64f6e1 %}{{ select }}{% endfor %}</para></td>          
+        
+        {% set lvCombustible = 0 %}
+        {% if  answers.61d86b2143f68bb4c3b1f68d|length == 1 %}
+            {% set lvCombustible = record_mult.answers.61d86b2143f68bb4c3b1f68d.0 %}
+        {% else %}
+            {% set lvCombustible = record_mult.answers.61d86b2143f68bb4c3b1f68d %}
+        {% endif %}
+        <td><para style="datosLeft">{{lvCombustible}}</para></td>
+                
+        <td><para style="datosLeft"> {% for select in record_mult.answers.61d86b2143f68bb4c3b1f68e%}{{ select }}{% endfor %}</para></td>              
+      </tr>
+    {% endfor %}  
+  </blockTable>
+              
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,30cm)">
+        <pageTemplate id="first" pageSize="(21cm,30cm)">
+            <frame id="first"    x1="1.5cm"   y1="1.5cm" width="18cm"   height="24.5cm"/>
+            <pageGraphics>
+                <setFont name="Montserrat-Regular" size="7.5"/>
+                <drawCenteredString x="10.2cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Montserrat-Regular" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+
+    <story>
+         <spacer length="0.2cm"/>  
+        <blockTable colWidths="11cm,6cm">  
+            <tr>
+                <td>
+                    <blockTable colWidths="5cm, 6cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Encargado de Equipo:</b> </para></td>
+                            <td><para style="text2">{{answers.67b4bf90d6a3b9f221982632}}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Área:</b> </para></td>
+                            <td><para style="text2">{{answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760}}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Técnico Encargado:</b> </para></td>
+                            <td><para style="text2">{{answers.67b4c02fb6c91b7267f15cce}}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Fecha Mantenimiento:</b> </para></td>
+                            <td><para style="text2">{{answers.67b4bf90d6a3b9f221982631}}</para></td>
+                        </tr>
+                    </blockTable>
+                </td>
+                
+                <td>
+                    {% set fotoA1 = "" %}
+                    {% set count = 0 %}
+                    {% if answers.67b4c056a3023d033ab78243 %}
+                        {% for item in answers.67b4c056a3023d033ab78243 %}
+                            {% if count  == 0 %}
+                                {% set fotoA1 = item.file_url %}
+                            {% endif %}
+                            {% add_total "count" 1 %}
+                        {% endfor %}
+                    {% endif %}
+                    <blockTable colWidths="1cm, 4cm, 1cm">
+                        <tr>
+                            <td> </td>
+                                {% if fotoA1 %}
+                                <td href="{{ fotoA1 }}" target="_blank"><imageAndFlowables imageName="{{ fotoA1 }}"  imageWidth="2.5cm" imageHeight="2.5cm" /></td>
+                                {% else %}
+                                <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="7cm" imageHeight="5cm"/> </td> 
+                                {% endif %}                  
+                            <td> </td>
+                        </tr>  
+                    </blockTable>
+                </td>
+            </tr> 
+        </blockTable>          
+
+        {% set desktop_si = "" %}
+        {% set desktop_no = "x" %}
+        {% set laptop_si = "" %}
+        {% set laptop_no = "x" %}
+        {% set tablet_si = "" %}
+        {% set tablet_no = "x" %}
+        {% set printer_si = "" %}
+        {% set printer_no = "x" %}
+        {% set ext_si = "" %}
+        {% set ext_no = "x" %}
+        {% set otro_si = "" %}
+        {% set otro_no = "x" %}        
+
+        {% for list_item in answers.67b4c0a7d323703e32982747 %}
+                {% if list_item == "Desktop" %}
+                    {% set desktop_si = "✓" %}
+                    {% set desktop_no = "" %}
+                {% endif %}    
+                {% if list_item == "Laptop" %}
+                    {% set laptop_si = "✓" %}
+                    {% set laptop_no = "" %}
+                {% endif %}    
+                {% if list_item == "Tablet" %}
+                    {% set tablet_si = "✓" %}
+                    {% set tablet_no = "" %}
+                {% endif %}    
+                {% if list_item == "Impresora" %}
+                    {% set printer_si = "✓" %}
+                    {% set printer_no = "" %}
+                {% endif %}    
+                {% if list_item == "Extensión Teléfonica" %}
+                    {% set ext_si = "✓" %}
+                    {% set ext_no = "" %}
+                {% endif %}
+                {% if list_item == "Otros" %}
+                    {% set otro_si = "✓" %}
+                    {% set otro_no = "" %}
+                {% endif %}
+            {% endfor %}
+
+    <spacer length="0.5cm"/>  
+    <blockTable colWidths="16.5cm" style="table_Header">
+      <tr>
+        <td><para style="datosTitulo">TIPO DE EQUIPO</para></td>
+      </tr>
+    </blockTable>      
+   
+    <blockTable colWidths="16.5cm" style="table_Headerll">        
+        <tr>
+            <td>
+                <blockTable colWidths="2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,1.5cm,0.3cm,0.3cm" style="table_sub3_two">
+                    <tr>
+                        <td><para style="text5">Desktop</para></td>
+                        <td>{{desktop_si}}</td>
+                        <td>{{desktop_no}}</td>
+                        <td><para style="text5">Laptop</para></td>
+                        <td>{{laptop_si}}</td>
+                        <td>{{laptop_no}}</td>
+                        <td><para style="text5">Tablet</para></td>
+                        <td>{{tablet_si}}</td>
+                        <td>{{tablet_no}}</td>
+                        <td><para style="text5">Impresora</para></td>
+                        <td>{{printer_si}}</td>
+                        <td>{{printer_no}}</td>
+                        <td><para style="text5">Ext. TEL</para></td>
+                        <td>{{ext_si}}</td>
+                        <td>{{ext_no}}</td>
+                        <td><para style="text5">Otros</para></td>
+                        <td>{{otro_si}}</td>
+                        <td>{{otro_no}}</td>
+                    </tr>
+                </blockTable>
+            </td>
+        </tr> 
+    </blockTable>
+
+    <blockTable colWidths="16.5cm" style="table_Header">
+      <tr>
+        <td><para style="datosTitulo">INFORMACIÓN DE EQUIPO</para></td>
+      </tr>
+    </blockTable>  
+    
+    <blockTable colWidths="16.5cm" style="table_Headerll">        
+        <tr>
+            <td>
+                <blockTable colWidths="2.5cm,2.5cm,2.5cm,2.5cm,2.5cm,2.5cm" style="table_sub5_two">
+                  <tr>
+                    <td><para style="text1"> <b>Marca:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d14e6e0ba415be29de39}} </para> </td>  
+                    <td><para style="text1"> <b>Modelo:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d1ba065dfa4f0e0b6239}} </para> </td>
+                    <td><para style="text1"> <b>Serie:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d1ba065dfa4f0e0b623a}} </para> </td>                     
+                  </tr>
+                </blockTable>                
+                <spacer length="0.3cm"/> 
+                <blockTable colWidths="2.5cm,1.5cm,1cm,1.5cm,1.5cm,2cm,1.5cm,4cm" style="table_sub6_two">
+                  <tr>
+                    <td><para style="text1"> <b>Disco Duro: </b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d1ba065dfa4f0e0b623b}} </para> </td>  
+                    <td><para style="text1"> <b>GB:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d28d6a05ac5453ed9c62}} </para> </td>
+                    <td><para style="text1"> <b>RAM:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d452dcd19c80a5222eb5}} GB </para> </td>
+                    <td><para style="text1"> <b>Video:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d452dcd19c80a5222eb6}} </para> </td>                         
+                  </tr>
+                </blockTable>
+                <spacer length="0.3cm"/> 
+                <blockTable colWidths="4cm,7cm,1cm,3cm" style="table_sub6_two">
+                  <tr>
+                    <td><para style="text1"> <b>Sistema Operativo: </b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d452dcd19c80a5222eb7}} </para> </td>  
+                    <td><para style="text1"> <b>IP:</b></para> </td>
+                    <td><para style="text2"> {{ answers.67b4d477b79c268e4d29de07}} </para> </td>                       
+                  </tr>
+                </blockTable>                
+            </td>
+        </tr> 
+    </blockTable>
+    
+    <spacer length="0.5cm"/>  
+    <blockTable colWidths="16.5cm" style="table_Header">
+      <tr>
+        <td><para style="datosTitulo">REQUERIMIENTO</para></td>
+      </tr>
+    </blockTable>     
+    
+    <blockTable colWidths="16.5cm" style="table_Headerll">        
+        <tr>
+            <td>
+                <blockTable colWidths="16cm">
+                  <tr>
+                    <td><para style="text2">Detalles de la Falla: {{ answers.67b4d4aa14141723247085a8}}</para></td>
+                  </tr>
+                </blockTable>                
+            </td>
+        </tr> 
+    </blockTable>
+    
+        {% set hardDisk_si = "" %}
+        {% set hardDisk_no = "x" %}
+        {% set Papelera_si = "" %}
+        {% set Papelera_no = "x" %}
+        {% set temporales_si = "" %}
+        {% set temporales_no = "x" %}
+        {% set programas_si = "" %}
+        {% set programas_no = "x" %}
+        {% set mail_si = "" %}
+        {% set mail_no = "x" %}
+        {% set fPoder_si = "" %}
+        {% set fPoder_no = "x" %}
+        {% set backup_si = "" %}
+        {% set backup_no = "x" %} 
+        {% set update_si = "" %}
+        {% set update_no = "x" %} 
+        {% set antivirus_si = "" %}
+        {% set antivirus_no = "x" %} 
+        {% set carpetas_si = "" %}
+        {% set carpetas_no = "x" %}
+        {% set otr_si = "" %}
+        {% set otr_no = "x" %}        
+
+        {% for list_item in answers.67b4d6773a9baa41c3222e21 %}
+                {% if list_item == "Limpieza Disco Duro" %}
+                    {% set hardDisk_si = "✓" %}
+                    {% set hardDisk_no = "" %}
+                {% endif %}    
+                {% if list_item == "Limpieza Papelera" %}
+                    {% set Papelera_si = "✓" %}
+                    {% set Papelera_no = "" %}
+                {% endif %}    
+                {% if list_item == "Archivos Temporales Cache" %}
+                    {% set temporales_si = "✓" %}
+                    {% set temporales_no = "" %}
+                {% endif %}    
+                {% if list_item == "Desinstalar Programas" %}
+                    {% set programas_si = "✓" %}
+                    {% set programas_no = "" %}
+                {% endif %}    
+                {% if list_item == "Revision de Correo" %}
+                    {% set mail_si = "✓" %}
+                    {% set mail_no = "" %}
+                {% endif %}
+                {% if list_item == "Realizar Backup" %}
+                    {% set fPoder_si = "✓" %}
+                    {% set fPoder_no = "" %}
+                {% endif %}
+                {% if list_item == "Instalacion Actualizaciones" %}
+                    {% set backup_si = "✓" %}
+                    {% set backup_no = "" %}
+                {% endif %}
+                {% if list_item == "Analisis Antivirus" %}
+                    {% set update_si = "✓" %}
+                    {% set update_no = "" %}
+                {% endif %}
+                {% if list_item == "Carpetas Compartidas/Impresoras" %}
+                    {% set antivirus_si = "✓" %}
+                    {% set antivirus_no = "" %}
+                {% endif %}
+                {% if list_item == "Limpieza Fuente Poder" %}
+                    {% set carpetas_si = "✓" %}
+                    {% set carpetas_no = "" %}
+                {% endif %}
+            {% endfor %}
+
+    <blockTable colWidths="16.5cm" style="table_Header">
+      <tr>
+        <td><para style="datosTitulo">MANTENIMIENTO PREVENTIVO</para></td>
+      </tr>
+    </blockTable>     
+    
+    <blockTable colWidths="16.5cm" style="table_Headerll">        
+        <tr>
+            <td>
+                <blockTable colWidths="4cm,0.3cm,0.3cm,3cm,0.3cm,0.3cm,5cm,0.3cm,0.3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text6">Limpieza Disco Duro</para></td>
+                        <td>{{hardDisk_si}}</td>
+                        <td>{{hardDisk_no}}</td>
+                        <td><para style="text6">Vaciar Papelera</para></td>
+                        <td>{{Papelera_si}}</td>
+                        <td>{{Papelera_no}}</td>
+                        <td><para style="text6">Limpieza Temporales/cache</para></td>
+                        <td>{{temporales_si}}</td>
+                        <td>{{temporales_no}}</td>
+                    </tr>
+                </blockTable>
+
+                <spacer length="0.1cm"/>  
+                <blockTable colWidths="4cm,0.3cm,0.3cm,3cm,0.3cm,0.3cm,5cm,0.3cm,0.3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text6">Desinstalar Programas</para></td>
+                        <td>{{programas_si}}</td>
+                        <td>{{programas_no}}</td>
+                        <td><para style="text6">Revision Email</para></td>
+                        <td>{{mail_si}}</td>
+                        <td>{{mail_no}}</td>
+                        <td><para style="text6">Fuente de Poder</para></td>
+                        <td>{{fPoder_si}}</td>
+                        <td>{{fPoder_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>  
+                <blockTable colWidths="4cm,0.3cm,0.3cm,3cm,0.3cm,0.3cm,5cm,0.3cm,0.3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text6">Backups</para></td>
+                        <td>{{backup_si}}</td>
+                        <td>{{backup_no}}</td>
+                        <td><para style="text6">Actualizaciones</para></td>
+                        <td>{{update_si}}</td>
+                        <td>{{update_no}}</td>
+                        <td><para style="text6">Analisis Antivirus</para></td>
+                        <td>{{antivirus_si}}</td>
+                        <td>{{antivirus_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>  
+                <blockTable colWidths="4cm,0.3cm,0.3cm,1.4cm,10cm" style="table_sub8_two">
+                    <tr>
+                        <td><para style="text6">Carpetas Compartidas</para></td>
+                        <td>{{carpetas_si}}</td>
+                        <td>{{carpetas_no}}</td>
+                        <td><para style="text6">Otros:</para></td>
+                        <td>{{answers.67b60c02ebb92944177085c5}}</td>
+                    </tr>
+                </blockTable>
+            </td>
+        </tr> 
+    </blockTable>
+    
+        {% set cambioDisco_si = "" %}
+        {% set cambioDisco_no = "x" %}
+        {% set cambioRam_si = "" %}
+        {% set cambioRam_no = "x" %}
+        {% set formateo_si = "" %}
+        {% set formateo_no = "x" %}
+        {% set limInterna_si = "" %}
+        {% set limInterna_no = "x" %}
+        {% set pastaTermica_si = "" %}
+        {% set pastaTermica_no = "x" %}
+        {% set office_si = "" %}
+        {% set office_no = "x" %}
+        {% set insAntivirus_si = "" %}
+        {% set insAntivirus_no = "x" %} 
+        {% set softwareAdic_si = "" %}
+        {% set softwareAdic_no = "x" %} 
+        {% set ip_si = "" %}
+        {% set ip_no = "x" %} 
+        {% set email_si = "" %}
+        {% set email_no = "x" %}    
+
+        {% for list_item in answers.67b613a71fece83771222eab %}
+                {% if list_item == "Cambio Disco Duro" %}
+                    {% set cambioDisco_si = "✓" %}
+                    {% set cambioDisco_no = "" %}
+                {% endif %}    
+                {% if list_item == "Cambio RAM" %}
+                    {% set cambioRam_si = "✓" %}
+                    {% set cambioRam_no = "" %}
+                {% endif %}    
+                {% if list_item == "Instalacion Windows" %}
+                    {% set formateo_si = "✓" %}
+                    {% set formateo_no = "" %}
+                {% endif %}    
+                {% if list_item == "Limpieza Interna" %}
+                    {% set limInterna_si = "✓" %}
+                    {% set limInterna_no = "" %}
+                {% endif %}    
+                {% if list_item == "Cambio Pasta Termica" %}
+                    {% set pastaTermica_si = "✓" %}
+                    {% set pastaTermica_no = "" %}
+                {% endif %}
+                {% if list_item == "Instalacion Office" %}
+                    {% set office_si = "✓" %}
+                    {% set office_no = "" %}
+                {% endif %}
+                {% if list_item == "Instalacion Antivirus" %}
+                    {% set instAntivirus_si = "✓" %}
+                    {% set instAntivirus_no = "" %}
+                {% endif %}
+                {% if list_item == "Software Adicional" %}
+                    {% set softwareAdic_si = "✓" %}
+                    {% set softwareAdic_no = "" %}
+                {% endif %}
+                {% if list_item == "Configuracion IP" %}
+                    {% set ip_si = "✓" %}
+                    {% set ip_no = "" %}
+                {% endif %}
+                {% if list_item == "Configuracion Email" %}
+                    {% set email_si = "✓" %}
+                    {% set email_no = "" %}
+                {% endif %}
+            {% endfor %}
+    
+    <blockTable colWidths="16.5cm" style="table_Header">
+      <tr>
+        <td><para style="datosTitulo">MANTENIMIENTO CORRECTIVO</para></td>
+      </tr>
+    </blockTable>     
+    
+    <blockTable colWidths="16.5cm" style="table_Headerll">        
+        <tr>
+            <td>
+                <blockTable colWidths="4cm,0.3cm,0.3cm,3cm,0.3cm,0.3cm,5cm,0.3cm,0.3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text6">Cambio Disco Duro</para></td>
+                        <td>{{cambioDisco_si}}</td>
+                        <td>{{cambioDisco_no}}</td>
+                        <td><para style="text6">Instalación RAM</para></td>
+                        <td>{{cambioRam_si}}</td>
+                        <td>{{cambioRam_no}}</td>
+                        <td><para style="text6">Instalación Windows</para></td>
+                        <td>{{formateo_si}}</td>
+                        <td>{{formateo_no}}</td>
+                    </tr>
+                </blockTable>
+
+                <spacer length="0.1cm"/>  
+                <blockTable colWidths="4cm,0.3cm,0.3cm,3cm,0.3cm,0.3cm,5cm,0.3cm,0.3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text6">Limpieza Interna</para></td>
+                        <td>{{limInterna_si}}</td>
+                        <td>{{limInterna_no}}</td>
+                        <td><para style="text6">Cambio Pasta Termica</para></td>
+                        <td>{{pastaTermica_si}}</td>
+                        <td>{{pastaTermica_no}}</td>
+                        <td><para style="text6">Instalación Office</para></td>
+                        <td>{{office_si}}</td>
+                        <td>{{office_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>  
+                <blockTable colWidths="4cm,0.3cm,0.3cm,3cm,0.3cm,0.3cm,5cm,0.3cm,0.3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text6">Instalación Antivirus</para></td>
+                        <td>{{insAntivirus_si}}</td>
+                        <td>{{insAntivirus_no}}</td>
+                        <td><para style="text6">Instalación Software</para></td>
+                        <td>{{softwareAdic_si}}</td>
+                        <td>{{softwareAdic_no}}</td>
+                        <td><para style="text6">Configuración Ip</para></td>
+                        <td>{{ip_si}}</td>
+                        <td>{{ip_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>  
+                <blockTable colWidths="4cm,0.3cm,0.3cm,1.4cm,10cm" style="table_sub8_two">
+                    <tr>
+                        <td><para style="text6">Configuración Email</para></td>
+                        <td>{{email_si}}</td>
+                        <td>{{email_no}}</td>
+                        <td><para style="text6">Otros:</para></td>
+                        <td>{{answers.67b60dcbd2279c415d0b6245}}</td>
+                    </tr>
+                </blockTable>
+            </td>
+        </tr> 
+    </blockTable>
+    
+    <spacer length="0.3cm" />
+    <blockTable colWidths="16.5cm" style="table_Headerll">        
+        <tr>
+            <td>
+                <blockTable colWidths="16cm">
+                  <tr>
+                    <td><para style="text2"><b>Observaciones:</b> {{answers.67b4d7664c655d0fc629de14}}</para></td>
+                  </tr>
+                </blockTable>                
+            </td>
+        </tr> 
+    </blockTable>
+    
+    <spacer length="1cm" />
+    <blockTable colWidths="5cm,2cm,5cm">
+      <tr>
+        <td><para style="firma"><b>_____________________________</b></para></td>   
+        <td></td>       
+        <td><para style="firma"><b>_____________________________</b></para></td>               
+      </tr>
+      <tr>
+        <td><para style="firma"><b>FIRMA ENCARGADO </b></para></td>
+            <td></td>       
+        <td><para style="firma"><b>FIRMA TÉCNICO </b></para></td>        
+      </tr>
+    </blockTable>
+       
+     </story>
+</document>
+
+

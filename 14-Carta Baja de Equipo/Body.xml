@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+        <setFont name="Helvetica-Bold" size="10"/>
+        <drawRightString x="18cm" y="27.5cm"> HOJA DE BAJA 00{{answers.67d84dc265a552132a5418de}}</drawRightString>
+        <setFont name="Helvetica-Bold" size="10"/>
+        <drawRightString x="18cm" y="26.5cm">Fecha: {{answers.67d84dc265a552132a5418c7}}</drawRightString>
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story> 
+    <spacer length="1cm" /> 
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2"><b></b> {{answers.67d84dc265a552132a5418c8}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>TI</b></para></td>     
+      </tr>
+      <tr>  
+        <td><para style="text2"><b>SELECOM,</b></para></td>        
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2">Estimado Sr. Ovalle,</para></td>       
+      </tr>
+      <tr>
+        <td><para style="text2">Espero se encuentre bien.</para></td>       
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="parrafoll">Estimado Sr. Ovalle, gusto de saludarle, por el presente le informo que el equipo que utilizaba : <b> {{answers.67d84dc265a552132a5418c9}} {{answers.67d84dc265a552132a5418cb}} </b> Marca: <b> {{answers.67d84dc265a552132a5418cd}}</b> Modelo: <b>{{answers.67d84dc265a552132a5418ce}}</b> No. Serie: <b> {{ answers.67d84dc265a552132a5418cf }}</b> se hace la devolución a TI la cual se utilizaba en el área <b>{{answers.67d84dc265a552132a5418ca}}</b> con las siguientes características: </para></td>       
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2"><b> Detalles del Equipo: </b></para></td>       
+      </tr>
+    </blockTable>
+
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm" style="table_Header">
+      <tr>
+        <td><para style="text1">Especificaciones:</para></td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="16cm" style="table_contenidoll">
+      <tr>
+        <td><para style="text2"><b>- Procesador:</b> {{answers.67d84dc265a552132a5418d1}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Memoria RAM:</b> {{answers.67d84dc265a552132a5418d2}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Disco Duro:</b> {{answers.67d84dc265a552132a5418d3}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Cargador:</b> {{answers.67d84dc265a552132a5418d4}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Batería:</b> {{answers.67d84dc265a552132a5418d5}}</para></td>
+      </tr>
+    </blockTable>
+        
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm" style="table_Header">
+      <tr>
+        <td><para style="text1">Otras:</para></td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="16cm" style="table_contenidoll">
+      <tr>
+        <td><para style="text2"><b>- Monitor:</b> {{answers.67d84dc265a552132a5418d6}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Teclado:</b> {{answers.67d84dc265a552132a5418d7}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Mouse:</b> {{answers.67d84dc265a552132a5418d8}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Impresora:</b> {{answers.67d84dc265a552132a5418d9}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>- Otros:</b> {{answers.67d84e2565a552132a5418e4}}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="parrafoll">{{answers.67d84dc265a552132a5418da}} </para> </td>     
+      </tr>
+    </blockTable>    
+ 
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2">Sin Otro Particular.</para> </td>               
+      </tr>
+      <tr>
+        <td><para style="text2">Nos Suscribimos Atentamente:</para> </td>               
+      </tr>
+    </blockTable>
+
+    <spacer length="1.5cm" />
+    <blockTable colWidths="2.5cm,4cm,3cm,4cm,2.5cm">
+      <tr>
+        <td></td>
+        <td><para style="text3"><b>{{answers.67d84dc265a552132a5418c8}}</b></para></td>
+        <td></td>
+        <td><para style="text3"><b>{{answers.67d84dc265a552132a5418db}}</b></para></td>
+        <td></td>
+      </tr>
+    </blockTable>  
+      
+    <blockTable colWidths="2.5cm,4cm,3cm,4cm,2.5cm">
+      <tr>
+        <td></td>
+        <td><para style="text3">TI</para></td>
+        <td></td>
+        <td><para style="text3">{{answers.67d84dc265a552132a5418dc}}</para></td>
+        <td></td>
+      </tr>
+    </blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+
+

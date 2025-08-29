@@ -1,0 +1,19 @@
+<image x="2cm" y="27cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/687692c93b31a010f429a5e9.png " width="4cm" height="1.5cm" />
+<image x="6.5cm" y="26.8cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/6890bd14296c64a21287301a.png " width="11cm" height="1.3cm" />
+
+
+<setFont name="Helvetica-Bold" size="10"/>
+# <!--<drawCentredString x="10.5cm" y="27cm">CONTROL DE LA CALIDAD TRANSFORMETAL </drawCentredString>-->
+<lines>1.5cm 26.5cm 19.5cm 26.5cm</lines>
+
+# <!-- Línea Horizontal superior -->
+<lines>1.5cm 28.5cm 19.5cm 28.5cm</lines>
+# <setFont name="Helvetica-Bold" size="15"/>
+# <!-- Línea Horizontal inferior -->
+<lines>1.5cm 1.5cm 19.5cm 1.5cm</lines>
+# <setFont name="Helvetica-Bold" size="15"/>
+# <!-- Línea vertical izquierda -->
+<lines>1.5cm 1.5cm 1.5cm 28.5cm</lines>a
+# <!-- Línea vertical derecha -->
+<lines>19.5cm 1.5cm 19.5cm 28.5cm</lines>
+

@@ -39,7 +39,8 @@
         <td><para style="P8L">NOMBRE INGENIERO/SUPERVISOR RESPONSABLE:</para> </td>
         <td><para style="dataBB">{{answers.66aa4b5a9d21943a619ce134}}</para> </td>
       </tr>
-    </blockTable>
+    </blockTable>  
+                                      
 <spacer length="0.5cm"/>
     <blockTable style="mtto_header" colWidths="18cm">
       <tr>

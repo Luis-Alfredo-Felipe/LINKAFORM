@@ -1,0 +1,13 @@
+<image x="0cm" y="25.7cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/684c6f2a89665b5677e11225.png " width="21cm" height="4cm" />
+<image x="14.5cm" y="26.7cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.2cm" />
+<!-- <image x="1.5cm" y="2.3cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/66051b4e3bf40e1fe8d09c28.jpg " width="18cm" height="2.4cm" /> -->
+
+
+<!-- <setFont name="Helvetica-Bold" size="10"/> -->
+<!-- <drawRightString x="19cm" y="27.5cm"> RRHH-SP-002</drawRightString> -->
+<setFont name="Helvetica-Bold" size="15"/>
+<drawCentredString x="10.5cm" y="26.5cm"> M I N U T A   D E   R E U N I Ó N </drawCentredString>
+<drawCentredString x="10.5cm" y="26.4cm"> ____________________________________</drawCentredString>
+<setFont name="Helvetica-Bold" size="12"/>
+<!-- <drawCentredString x="10.5cm" y="25.8cm">{{folio}}</drawCentredString> -->
+<!-- <lines>1.3cm 12cm 19.2cm 12cm</lines> -->

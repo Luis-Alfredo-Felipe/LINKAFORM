@@ -1,0 +1,90 @@
+<blockTableStyle id="TablaTitulo">
+    <!-- Borde superior (fila 0) -->
+    <lineStyle kind="LINEABOVE" colorName="#000" start="0,0" stop="3,0"/>    
+    <!-- Borde inferior (última fila, por ejemplo fila 4) -->
+    <lineStyle kind="LINEBELOW" colorName="#000" start="0,4" stop="3,4"/>    
+    <!-- Borde izquierdo -->
+    <lineStyle kind="LINEBEFORE" colorName="#000" start="0,0" stop="0,4"/>    
+    <!-- Borde derecho -->
+    <lineStyle kind="LINEAFTER" colorName="#000" start="3,0" stop="3,4"/>
+</blockTableStyle>
+
+<blockTableStyle id="marc_photo">
+    <!-- Estilo de línea solo para la segunda celda -->
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="parrafo">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+<lineStyle thickness="0.5" kind="GRID" colorName="#000000" start="0,0" stop="-1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="red_header">
+<blockValign value="TOP"/>
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#E4FFFE"  start="0,0" stop="-1,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="mtto_header">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#f95609"  start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="1,0" stop="1,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="3,0" stop="3,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="5,0" stop="5,-1"/>
+ <blockBackground colorName="#f95609"  start="2,0" stop="2,-1"/>
+ <blockBackground colorName="#f95609"  start="4,0" stop="4,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="6,0" stop="6,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub1_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,1" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,1" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000000" start="1,0" stop="1,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000000" start="3,0" stop="3,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_sub2_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="left" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="6,0" stop="6,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="9,0" stop="9,0"/>  
+</blockTableStyle>
+
+<paraStyle name="datos" fontName="Helvetica-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosll" fontName="Helvetica" fontSize="7" leading="5" alignment="center" />
+<paraStyle name="dataB" fontName="Helvetica" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataBB" fontName="Helvetica-Bold" fontSize="10" leading="7" alignment="LEFT"/>
+<paraStyle name="datosTitulo" fontName="Helvetica-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosSubtitulo" fontName="Helvetica-Bold" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Helvetica" fontSize="8" leading="4" alignment="center" />
+<paraStyle name="text1" fontName="Helvetica-Bold" fontSize="7" leading="10" alignment="left" textColor="#FFFFFF" />
+
+<paraStyle name="text2" fontName="Helvetica" fontSize="7" leading="10" alignment="left" />
+
+<paraStyle name="checklist" fontName="Helvetica" fontSize="12" leading="25" alignment="center" />
+<paraStyle name="checklistll" fontName="Helvetica" fontSize="10" leading="8" alignment="center" />
+
+
+<paraStyle name="text3" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="center" textColor="#FFFFFF" />
+
+<paraStyle name="barra" fontName="Helvetica-Bold" fontSize="9" leading="12" alignment="center" />
+<paraStyle name="barrall" fontName="Helvetica" fontSize="0.1" leading="0.1" alignment="center" />
+
+<paraStyle name="parrafo" fontName="Helvetica" fontSize="8" leading="9" alignment="justify" />
+<paraStyle name="title" fontName="Helvetica-Bold" fontSize="8" leading="9" alignment="center" />
+
+<paraStyle name="footer" fontName="Helvetica" fontSize="8" leading="9" alignment="center" />
+
+<paraStyle name="text4" fontName="Helvetica" fontSize="9" leading="7" alignment="center" />

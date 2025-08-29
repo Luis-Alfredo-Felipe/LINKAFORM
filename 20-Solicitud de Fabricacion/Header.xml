@@ -1,0 +1,14 @@
+<image x="1.8cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/68769cd90340bb1c2ccad39d.png " width="17.9cm" height="4cm" />
+<image x="1.8cm" y="26.3cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/687692c93b31a010f429a5e9.png " width="4cm" height="2cm" />
+
+<!-- Línea Horizontal superior -->
+<lines>1.5cm 28.5cm 20cm 28.5cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<!-- Línea Horizontal inferior -->
+<lines>1.5cm 3cm 20cm 3cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<!-- Línea vertical izquierda -->
+<lines>1.5cm 3cm 1.5cm 28.5cm</lines>
+<!-- Línea vertical derecha -->
+<lines>20cm 3cm 20cm 28.5cm</lines>
+

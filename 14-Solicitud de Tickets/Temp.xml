@@ -1,0 +1,699 @@
+
+<!--
+  <nextFrame/>  
+  {% set hardware_si = ''%}
+  {% set hardware_no = ''%}
+  {% set software_si = ''%}
+  {% set software_no = ''%}
+  {% set cuentas_si = ''%}
+  {% set cuentas_no = ''%}
+  {% set correo_si = ''%}
+  {% set correo_no = ''%}
+  {% set carpeta_si = ''%}    
+  {% set carpeta_no = ''%}
+  {% set seguridad_si = ''%}
+  {% set seguridad_no = ''%}
+  {% set infraestructura_si = ''%}
+  {% set infraestructura_no = ''%}
+  {% set linkaform_si = ''%}
+  {% set linkaform_no = ''%}
+  {% set zoho_si = ''%}
+  {% set zoho_no = ''%}
+                             
+  {% for list_tem in answers.685b2e625eb52ee7fb75292c %}
+    {% if list_tem == 'Hardware' %}
+      {% set hardware_si = '✓' %}
+      {% set hardware_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Software' %}
+      {% set software_si = '✓' %}
+      {% set software_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Cuentas y Accesos' %}
+      {% set cuentas_si = '✓' %}
+      {% set cuentas_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Correo Electronico' %}
+      {% set correo_si = '✓' %}
+      {% set correo_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Carpeta Compartida' %}
+      {% set carpeta_si = '✓' %}    
+      {% set carpeta_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Seguridad Informatica' %}
+      {% set seguridad_si = '✓' %}
+      {% set seguridad_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Infraestructura de Red y Energia' %}
+      {% set infraestructura_si = '✓' %}
+      {% set infraestructura_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Linkaform' %}
+      {% set linkaform_si = '✓' %}
+      {% set linkaform_no = '' %}
+    {% endif %}
+    {% if list_tem == 'Soho' %}
+      {% set zoho_si = '✓' %}
+      {% set zoho_no = '' %}
+    {% endif %}
+  {% endfor %}
+  
+  <spacer length="1cm"/>
+  <blockTable colWidths="6cm,1cm,1cm" style="tabla 3">
+      <tr>
+        <td background = "#081350"><para style="Titulo">Descripcion</para></td>
+        <td background = "#081350"><para style="Titulo">SI</para></td>
+        <td background = "#081350"><para style="Titulo">NO</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Software</para></td>
+        <td><para style="datosTitulo">{{ hardware_si }}</para></td>
+        <td><para style="datosTitulo">{{ hardware_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Hardware</para></td>
+        <td><para style="datosTitulo">{{ software_si }}</para></td>
+        <td><para style="datosTitulo">{{ software_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Cuentas y Accesos</para></td>
+        <td><para style="datosTitulo">{{ cuentas_si }}</para></td>
+        <td><para style="datosTitulo">{{ cuentas_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Correo Electrónico</para></td>
+        <td><para style="datosTitulo">{{ correo_si }}</para></td>
+        <td><para style="datosTitulo">{{ correo_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Carpeta Compartida</para></td>
+        <td><para style="datosTitulo">{{ carpeta_si }}</para></td>
+        <td><para style="datosTitulo">{{ carpeta_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Seguridad Informática</para></td>
+        <td><para style="datosTitulo">{{ seguridad_si }}</para></td>
+        <td><para style="datosTitulo">{{ seguridad_no }}</para></td>
+      </tr>
+      <tr>
+        <td><para style="datosTitulo">Infraestructura-Red-Energia</para></td>
+        <td><para style="datosTitulo">{{ infraestructura_si }}</para></td>
+        <td><para style="datosTitulo">{{ infraestructura_no }}</para></td>
+      </tr>      
+      <tr>
+        <td><para style="datosTitulo">LinkaForm</para></td>
+        <td><para style="datosTitulo">{{ linkaform_si }}</para></td>
+        <td><para style="datosTitulo">{{ linkaform_no }}</para></td>
+      </tr>      
+      <tr>
+        <td><para style="datosTitulo">Zoho CRM</para></td>
+        <td><para style="datosTitulo">{{ zoho_si }}</para></td>
+        <td><para style="datosTitulo">{{ zoho_no }}</para></td>
+      </tr> 
+    </blockTable>
+
+  <nextFrame/>
+    {% set hardware == '' %}
+    {% for item in answers.685ae5ff78164c38f537a4a2 %}
+        {% if item == 'Falla de Monitor' %}
+            {% set hardware = 'Falla de Monitor' %}
+        {% elif item == 'Falla de CPU' %}
+            {% set hardware = 'Falla de CPU' %}
+        {% elif item == 'Falla de Impresora Atasco Papel Sin Respuesta' %}
+            {% set hardware = 'Falla de Impresora Atasco Papel Sin Respuesta' %}
+        {% elif item == 'Error de Impresora Compartida' %}
+            {% set hardware = 'Error de Impresora Compartida' %}
+        {% elif item == 'Traslado de Equipo' %}
+            {% set hardware = 'Traslado de Equipo' %}
+        {% elif item == 'Instalacion de Proyector' %}
+            {% set hardware = 'Instalacion de Proyector' %}
+        {% elif item == 'Instalacion de Nuevo Equipo' %}
+            {% set hardware = 'Instalacion de Nuevo Equipo' %}
+        {% elif item == 'Falla de Mouse Teclado' %}
+            {% set hardware = 'Falla de Mouse Teclado' %}
+        {% elif item == 'Reemplazo Teclado Mouse Camara Microfono' %}
+            {% set hardware = 'Reemplazo Teclado Mouse Camara Microfono' %}
+        {% elif item == 'Instalacion de Impresora' %}
+            {% set hardware = 'Instalacion de Impresora' %}
+        {% elif item == 'Falla de Escanner' %}
+            {% set hardware = 'Falla de Escanner' %}
+        {% elif item == 'Computador no Enciende' %}
+            {% set hardware = 'Computador no Enciende' %}
+        {% elif item == 'Equipo PC Lenta no Responde' %}
+            {% set hardware = 'Equipo PC Lenta no Responde' %}
+        {% elif item == 'Bateria Laptop Defectuosa' %}
+            {% set hardware = 'Bateria Laptop Defectuosa' %}
+        {% elif item == 'Laptop No Enciende' %}
+            {% set hardware = 'Laptop No Enciende' %}
+        {% elif item == 'Teclado o Mouse de Laptop Tiene Fallas ' %}
+            {% set hardware = 'Teclado o Mouse de Laptop Tiene Fallas ' %}
+        {% elif item == ' PC no tiene Audio' %}
+            {% set hardware = ' PC no tiene Audio' %}
+        {% elif item == ' Creacion Clave Usuario Impresora de Canella' %}
+            {% set hardware = ' Creacion Clave Usuario Impresora de Canella' %}
+        {% elif item == ' Configuracion Impresora de Canella' %}
+            {% set hardware = ' Configuracion Impresora de Canella' %}
+    {% endif %}
+    {% endfor %}  
+
+    {% set software == '' %}        
+    {% for item in answers.685b03feab4d9338fb7277a8 %}
+        {% if item == 'Error de Acceso a SAGE' %}
+            {% set software = 'Error de Acceso a SAGE' %}
+        {% elif item == 'Soporte Crystal Repots' %}
+            {% set software = 'Soporte Crystal Repots' %}
+        {% elif item == 'Error Anydesk' %}
+            {% set software = 'Error Anydesk' %}
+        {% elif item == 'Error Licencia Office' %}
+            {% set software = 'Error Licencia Office' %}
+        {% elif item == 'Error Correo Outlook' %}
+            {% set software = 'Error Correo Outlook' %}
+        {% elif item == 'Crear Carpetas Compartidas' %}
+            {% set software = 'Crear Carpetas Compartidas' %}
+        {% elif item == 'Licencia Windows 10 Pro' %}
+            {% set software = 'Licencia Windows 10 Pro' %}
+        {% elif item == 'Licencia Windows 11 Pro' %}
+            {% set software = 'Licencia Windows 11 Pro' %}
+        {% elif item == 'Instalacion de Programas de Diseño Adobe' %}
+            {% set software = 'Instalacion de Programas de Diseño Adobe' %}
+        {% elif item == 'Instalacion de Programas de Diseño Autodesk' %}
+            {% set software = 'Instalacion de Programas de Diseño Autodesk' %}
+        {% elif item == 'Creacion Configuracion Correo Outlook' %}
+            {% set software = 'Creacion Configuracion Correo Outlook' %}
+        {% elif item == 'Instalacion de Antivirus' %}
+            {% set software = 'Instalacion de Antivirus' %}
+        {% elif item == 'Instalacion de Antivirus' %}
+            {% set software = 'Formateo Instalacion Sistema Operativo' %}
+        {% elif item == 'Formateo Instalacion Sistema Operativo' %}
+            {% set software = 'Instalacion de Actualizaciones Windows' %}
+        {% elif item == 'Instalacion de Actualizaciones Windows' %}
+            {% set software = 'Soporte Error de Auxiliar de Planilla' %}
+        {% elif item == 'Soporte Error de Auxiliar de Planilla' %}
+            {% set software = 'Configuracion de Acceso a Cuenta Bitacoras Web' %}
+        {% elif item == 'Configuracion de Acceso a Cuenta Bitacoras Web' %}
+        {% endif %}
+      {% endfor %}   
+      
+      {% set linkaform ==''%}
+      {% for item in answers.68752b1ff99a20041c54e6eb %}
+        {% if item == 'Configuracion Usuarios Linkaform' %}
+          {% set linkaform = 'Configuracion Usuarios Linkaform' %}
+        {% elif item == 'Configuracion Movil APP Linkaform' %}
+          {% set linkaform = 'Configuracion Movil APP Linkaform' %}
+        {% elif item == 'Creacion Formularios Linkaform' %}
+          {% set linkaform = 'Creacion Formularios Linkaform' %}
+        {% elif item == 'Gestion Reportes PDF Linkaform' %}
+          {% set linkaform = 'Gestion Reportes PDF Linkaform' %}
+        {% elif item == 'Gestion Reportes Eclipse Linkaform' %}
+          {% set linkaform = 'Gestion Reportes Eclipse Linkaform' %}
+        {% elif item == 'Soporte App Movil Linkaform' %}
+          {% set linkaform = 'Soporte App Movil Linkaform' %}
+        {% elif item == 'Permisos Formuario Linkaform' %}
+          {% set linkaform = 'Permisos Formuario Linkaform' %}
+        {% elif item == 'Eliminacion Cuenta Linkaform' %}
+          {% set linkaform = 'Eliminacion Cuenta Linkaform' %}
+        {% elif item == 'Creacion de Reporte PDF Linkaform' %}
+          {% set linkaform = 'Creacion de Reporte PDF Linkaform' %}
+        {% elif item == 'Creacion de Reporte Linkaform (JAVA)' %}
+          {% set linkaform = 'Creacion de Reporte Linkaform (JAVA)' %}
+        {% endif %}
+      {% endfor %}
+
+      {% set zoho == '' %}
+      {% for item in answers.68758c6732f81f20a929a62a %}
+        {% if item == 'Gestion de Perfiles' %}
+          {% set zoho = 'Gestion de Perfiles' %}
+        {% elif item == 'Personalizar Modulos y Campos' %}
+          {% set zoho = 'Personalizar Modulos y Campos' %}
+        {% elif item == 'Automatizacion de Procesos' %}
+          {% set zoho = 'Automatizacion de Procesos' %}
+        {% elif item == 'Diseño Mantenimiento de Plantillas PDF' %}
+          {% set zoho = 'Diseño Mantenimiento de Plantillas PDF' %}
+        {% elif item == 'Reportes Personalizados' %}
+          {% set zoho = 'Reportes Personalizados' %}
+        {% elif item == 'Mantenimiento de Sistema' %}
+          {% set zoho = 'Mantenimiento de Sistema' %}
+        {% elif item == 'Capacitacion Zoho' %}
+          {% set zoho = 'Capacitacion Zoho' %}
+        {% elif item == 'Gestion Correos y Plantillas' %}
+          {% set zoho = 'Gestion Correos y Plantillas' %}
+        {% endif %}
+      {% endfor %}
+      
+      {% set cuentas = '' %}
+      {% for item in answers.685b05f8dc683de0a52a5370 %}
+        {% if item == 'Cambio o Recuperacion de Contraseña Dominio' %}
+          {% set cuentas = 'Cambio o Recuperacion de Contraseña Dominio' %}
+        {% elif item == 'Cuenta Bloqueado Usuario Dominio' %}
+          {% set cuentas = 'Cuenta Bloqueado Usuario Dominio' %}
+        {% elif item == 'Error de Acceso Cuenta Sistema Sage' %}
+          {% set cuentas = 'Error de Acceso Cuenta Sistema Sage' %}
+        {% elif item == 'Error de Acceso Auxiliar de Planilla' %}
+          {% set cuentas = 'Error de Acceso Auxiliar de Planilla' %}
+        {% elif item == 'Error de Acceso Cuenta Linkaform' %}
+          {% set cuentas = 'Error de Acceso Cuenta Linkaform' %}
+        {% elif item == 'Error de Acceso a Cuenta Bitacoras Web' %}
+          {% set cuentas = 'Error de Acceso a Cuenta Bitacoras Web' %}
+        {% elif item == 'Asignacion de Roles Sage' %}
+          {% set cuentas = 'Asignacion de Roles Sage' %}
+        {% elif item == 'Configuracion Cuenta Correo Outlook Movil' %}
+          {% set cuentas = 'Configuracion Cuenta Correo Outlook Movil' %}
+         {% elif item == 'Configuracion de Acceso Reportes Bitacoras Web' %}
+          {% set cuentas = 'Configuracion de Acceso Reportes Bitacoras Web' %}
+         {% elif item == 'Creacion Usuario Sage' %}
+          {% set cuentas = 'Creacion Usuario Sage' %}
+         {% elif item == 'Eliminación de Cuentas Inactivas Sage' %}
+          {% set cuentas = 'Eliminación de Cuentas Inactivas Sage' %}        
+        {% endif %}
+      {% endfor %}
+      
+      {% set email = '' %}        
+      {% for item in answers.685b03feab4d9338fb7277a8%}
+        {% if item == 'Error de Envio Correo Electronico' %}
+            {% set email = 'Error de Envio Correo Electronico' %}
+        {% elif item == 'Error de Recepcion Correo Electronico' %}
+            {% set email = 'Error de Recepcion Correo Electronico' %}
+        {% elif item == 'Buzon Lleno Correo Electronico' %}
+            {% set email = 'Buzon Lleno Correo Electronico' %}
+        {% elif item == 'Configuracion de Correo Outlook, movil' %}
+            {% set email = 'Configuracion de Correo Outlook, movil' %}
+        {% elif item == 'Creacion y Configuracion de Correo' %}
+            {% set email = 'Creacion y Configuracion de Correo' %}
+        {% elif item == 'Creacion de Reenviador Correo' %}
+            {% set email = 'Creacion de Reenviador Correo' %}
+        {% elif item == 'Configuracion de Firmas Correo' %}
+            {% set email = 'Configuracion de Firmas Correo' %}
+        {% elif item == 'Correo Bloqueado' %}
+            {% set email = 'Correo Bloqueado' %}
+        {% elif item == 'Cambio de Correo Electronico' %}
+            {% set email = 'Cambio de Correo Electronico' %}
+        {% elif item == 'Configuracion de Correo Gmail' %}
+            {% set email = 'Configuracion de Correo Gmail' %}
+        {% elif item == 'Acceso a Cuentas Selecoment' %}
+            {% set email = 'Acceso a Cuentas Selecoment' %}
+        {% elif item == 'Acceso a Cuentas Transformetal' %}
+            {% set email = 'Acceso a Cuentas Transformetal' %}
+        {% elif item == 'Acceso a Cuentas Infracom' %}
+            {% set email = 'Acceso a Cuentas Infracom' %}
+        {% elif item == 'Configuracion de Correo Hotmail' %}
+            {% set email = 'Configuracion de Correo Hotmail' %}
+        {% elif item == 'Configuracion de Onedrive' %}
+            {% set email = 'Configuracion de Onedrive' %}
+        {% elif item == 'Configuracion de Google Drive' %}
+            {% set email = 'Configuracion de Google Drive' %}
+        {% endif %}
+      {% endfor %}
+      
+      {% set carpeta = '' %}
+      {% for item in answers.685dbd391e90061540834227 %}
+        {% if item == 'Creacion de Carpeta Compartida' %}
+          {% set carpeta = 'Creacion de Carpeta Compartida' %}
+        {% elif item == 'Permisos a Carpeta Compartida' %}
+          {% set carpeta = 'Permisos a Carpeta Compartida' %}
+        {% elif item == 'Archivo Eliminado o Perdido' %}
+          {% set carpeta = 'Archivo Eliminado o Perdido' %}
+        {% elif item == 'Acceso Configuracion Carpeta Compartida' %}
+          {% set carpeta = 'Acceso Configuracion Carpeta Compartida' %}
+        {% elif item == 'Acceso a Unidad o Mapeo de Red' %}
+          {% set carpeta = 'Acceso a Unidad o Mapeo de Red' %}
+        {% elif item == 'Acceso Inaccesible por Permisos' %}
+          {% set carpeta = 'Acceso Inaccesible por Permisos' %}
+        {% elif item == 'Backup Respaldo Informacion' %}
+          {% set carpeta = 'Backup Respaldo Informacion' %}
+        {% elif item == 'Elimnacion de Acceso a Carpeta Compartida' %}
+          {% set carpeta = 'Elimnacion de Acceso a Carpeta Compartida' %}
+        {% elif item == 'Agregar Usuario a Acceso Carpeta Compartida' %}
+          {% set carpeta = 'Agregar Usuario a Acceso Carpeta Compartida' %}
+        {% endif %}
+      {% endfor %} 
+      
+      {% set seguridad = '' %}
+      {% for item in answers.685dc2e75b256e7c014fbd41 %}
+        {% if item == 'Alerta o Sospecha de Virus/Malware' %}
+          {% set seguridad = 'Alerta o Sospecha de Virus/Malware' %}
+        {% elif item == 'Dispositivo Bloqueado/Infectado Virus' %}
+          {% set seguridad = 'Dispositivo Bloqueado/Infectado Virus' %}
+        {% elif item == 'Permisos de Antivirus Para Instalacion Programas' %}
+          {% set seguridad = 'Permisos de Antivirus Para Instalacion Programas' %}
+        {% elif item == 'Licencia Antivirus Desactualizada' %}
+          {% set seguridad = 'Licencia Antivirus Desactualizada' %}
+        {% elif item == 'Instalacion Antivirus' %}
+          {% set seguridad = 'Instalacion Antivirus' %}
+        {% elif item == 'Escaneo Analisis de Antivirus a Equipo de Computo' %}
+          {% set seguridad = 'Escaneo Analisis de Antivirus a Equipo de Computo' %}
+        {% elif item == 'Equipo Infectado por Virus' %}
+          {% set seguridad = 'Equipo Infectado por Virus' %}
+        {% elif item == 'Correo Sospechoso o Spam' %}
+          {% set seguridad = 'Correo Sospechoso o Spam' %}
+        {% elif item == 'Configuracion de Acceso Anydesk /Acceso Remoto' %}
+          {% set seguridad = 'Configuracion de Acceso Anydesk /Acceso Remoto' %}
+        {% endif %}
+      {% endfor %}
+      
+    {% set energia = '' %}
+    {% for item in answers.685dc9c6742b89c877ab5054 %}
+        {% if item == 'Configuracion de Equipo a Red LAN' %}
+            {% set energia = 'Configuracion de Equipo a Red LAN' %}
+        {% elif item == 'Configuracion de Direccion IP Equipo Computo' %}
+            {% set energia = 'Configuracion de Direccion IP Equipo Computo' %}
+        {% elif item == 'Configuracion de Permisos de Navegacion Internet' %}
+            {% set energia = 'Configuracion de Permisos de Navegacion Internet' %}
+        {% elif item == 'Error de Acceso a Servidor Dominio' %}
+            {% set energia = 'Error de Acceso a Servidor Dominio' %}
+        {% elif item == 'Errro de Acceso a Servicios SAGE' %}
+            {% set energia = 'Errro de Acceso a Servicios SAGE' %}
+        {% elif item == 'Error de Conexion a Red LAN' %}
+            {% set energia = 'Error de Conexion a Red LAN' %}
+        {% elif item == 'Error de Conexion a Internet' %}
+            {% set energia = 'Error de Conexion a Internet' %}
+        {% elif item == 'Conexion a Internet Lenta' %}
+            {% set energia = 'Conexion a Internet Lenta' %}
+        {% elif item == 'Sin Acceso  a Red WIFI' %}
+            {% set energia = 'Sin Acceso  a Red WIFI' %}
+        {% elif item == 'Error de Navegacion Internet' %}
+            {% set energia = 'Error de Navegacion Internet' %}
+        {% elif item == 'Error de Acceso a Plataforma Web' %}
+            {% set energia = 'Error de Acceso a Plataforma Web' %}
+        {% elif item == 'Falla Extension Teléfonica' %}
+            {% set energia = 'Falla Extension Teléfonica' %}
+        {% elif item == 'Configuracion Extension Telefonica' %}
+            {% set energia = 'Configuracion Extension Telefonica' %}
+        {% elif item == 'Revision de UPS Proteccion Energia Electrica' %}
+            {% set energia = 'Revision de UPS Proteccion Energia Electrica' %}
+        {% elif item == 'Revisinon de Punto de Energia Tomacorriente' %}
+            {% set energia = 'Revisinon de Punto de Energia Tomacorriente' %}
+      {% endif %}
+    {% endfor %}       
+
+
+      <spacer length="1cm"/>
+      <blockTable colWidths="8cm" style="tabla 3">
+        <tr>
+          <td background = "#081350"><para style="Titulo">Detalle de Soporte</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{hardware}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{software}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{linkaform}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{zoho}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{cuentas}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{email}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{carpeta}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{seguridad}}</para></td>
+        </tr>
+        <tr>
+          <td><para style="datos">{{energia}}</para></td>
+        </tr>
+      </blockTable>  
+-->
+
+    {% set hardware = '' %}
+    {% for item in answers.685ae5ff78164c38f537a4a2 %}
+      {% if item == 'Falla de Monitor' %}
+          {% set hardware = 'Falla de Monitor' %}
+      {% elif item == 'Falla de CPU' %}
+          {% set hardware = 'Falla de CPU' %}
+      {% elif item == 'Falla de Impresora Atasco Papel Sin Respuesta' %}
+          {% set hardware = 'Falla de Impresora Atasco Papel Sin Respuesta' %}
+      {% elif item == 'Error de Impresora Compartida' %}
+          {% set hardware = 'Error de Impresora Compartida' %}
+      {% elif item == 'Traslado de Equipo' %}
+          {% set hardware = 'Traslado de Equipo' %}
+      {% elif item == 'Instalacion de Proyector' %}
+          {% set hardware = 'Instalacion de Proyector' %}
+      {% elif item == 'Instalacion de Nuevo Equipo' %}
+          {% set hardware = 'Instalacion de Nuevo Equipo' %}
+      {% elif item == 'Falla de Mouse Teclado' %}
+          {% set hardware = 'Falla de Mouse Teclado' %}
+      {% elif item == 'Reemplazo Teclado Mouse Camara Microfono' %}
+          {% set hardware = 'Reemplazo Teclado Mouse Camara Microfono' %}
+      {% elif item == 'Instalacion de Impresora' %}
+          {% set hardware = 'Instalacion de Impresora' %}
+      {% elif item == 'Falla de Escanner' %}
+          {% set hardware = 'Falla de Escanner' %}
+      {% elif item == 'Computador no Enciende' %}
+          {% set hardware = 'Computador no Enciende' %}
+      {% elif item == 'Equipo PC Lenta no Responde' %}
+          {% set hardware = 'Equipo PC Lenta no Responde' %}
+      {% elif item == 'Bateria Laptop Defectuosa' %}
+          {% set hardware = 'Bateria Laptop Defectuosa' %}
+      {% elif item == 'Laptop No Enciende' %}
+          {% set hardware = 'Laptop No Enciende' %}
+      {% elif item == 'Teclado o Mouse de Laptop Tiene Fallas ' %}
+          {% set hardware = 'Teclado o Mouse de Laptop Tiene Fallas ' %}
+      {% elif item == ' PC no tiene Audio' %}
+          {% set hardware = ' PC no tiene Audio' %}
+      {% elif item == ' Creacion Clave Usuario Impresora de Canella' %}
+          {% set hardware = ' Creacion Clave Usuario Impresora de Canella' %}
+      {% elif item == ' Configuracion Impresora de Canella' %}
+          {% set hardware = ' Configuracion Impresora de Canella' %}
+      {% endif %}
+    {% endfor %}   
+    
+    {% set software = '' %}        
+    {% for item in answers.685b03feab4d9338fb7277a8 %}
+        {% if item == 'Error de Acceso a SAGE' %}
+            {% set software = 'Error de Acceso a SAGE' %}
+        {% elif item == 'Soporte Crystal Repots' %}
+            {% set software = 'Soporte Crystal Repots' %}
+        {% elif item == 'Error Anydesk' %}
+            {% set software = 'Error Anydesk' %}
+        {% elif item == 'Error Licencia Office' %}
+            {% set software = 'Error Licencia Office' %}
+        {% elif item == 'Error Correo Outlook' %}
+            {% set software = 'Error Correo Outlook' %}
+        {% elif item == 'Crear Carpetas Compartidas' %}
+            {% set software = 'Crear Carpetas Compartidas' %}
+        {% elif item == 'Licencia Windows 10 Pro' %}
+            {% set software = 'Licencia Windows 10 Pro' %}
+        {% elif item == 'Licencia Windows 11 Pro' %}
+            {% set software = 'Licencia Windows 11 Pro' %}
+        {% elif item == 'Instalacion de Programas de Diseño Adobe' %}
+            {% set software = 'Instalacion de Programas de Diseño Adobe' %}
+        {% elif item == 'Instalacion de Programas de Diseño Autodesk' %}
+            {% set software = 'Instalacion de Programas de Diseño Autodesk' %}
+        {% elif item == 'Creacion Configuracion Correo Outlook' %}
+            {% set software = 'Creacion Configuracion Correo Outlook' %}
+        {% elif item == 'Instalacion de Antivirus' %}
+            {% set software = 'Instalacion de Antivirus' %}
+        {% elif item == 'Instalacion de Antivirus' %}
+            {% set software = 'Formateo Instalacion Sistema Operativo' %}
+        {% elif item == 'Formateo Instalacion Sistema Operativo' %}
+            {% set software = 'Instalacion de Actualizaciones Windows' %}
+        {% elif item == 'Instalacion de Actualizaciones Windows' %}
+            {% set software = 'Soporte Error de Auxiliar de Planilla' %}
+        {% elif item == 'Soporte Error de Auxiliar de Planilla' %}
+            {% set software = 'Configuracion de Acceso a Cuenta Bitacoras Web' %}
+        {% elif item == 'Configuracion de Acceso a Cuenta Bitacoras Web' %}
+        {% endif %}
+      {% endfor %}       
+      
+      {% set linkaform = '' %}
+      {% for item in answers.68752b1ff99a20041c54e6eb %}
+        {% if item == 'Configuracion Usuarios Linkaform' %}
+          {% set linkaform = 'Configuracion Usuarios Linkaform' %}
+        {% elif item == 'Configuracion Movil APP Linkaform' %}
+          {% set linkaform = 'Configuracion Movil APP Linkaform' %}
+        {% elif item == 'Creacion Formularios Linkaform' %}
+          {% set linkaform = 'Creacion Formularios Linkaform' %}
+        {% elif item == 'Gestion Reportes PDF Linkaform' %}
+          {% set linkaform = 'Gestion Reportes PDF Linkaform' %}
+        {% elif item == 'Gestion Reportes Eclipse Linkaform' %}
+          {% set linkaform = 'Gestion Reportes Eclipse Linkaform' %}
+        {% elif item == 'Soporte App Movil Linkaform' %}
+          {% set linkaform = 'Soporte App Movil Linkaform' %}
+        {% elif item == 'Permisos Formuario Linkaform' %}
+          {% set linkaform = 'Permisos Formuario Linkaform' %}
+        {% elif item == 'Eliminacion Cuenta Linkaform' %}
+          {% set linkaform = 'Eliminacion Cuenta Linkaform' %}
+        {% elif item == 'Creacion de Reporte PDF Linkaform' %}
+          {% set linkaform = 'Creacion de Reporte PDF Linkaform' %}
+        {% elif item == 'Creacion de Reporte Linkaform (JAVA)' %}
+          {% set linkaform = 'Creacion de Reporte Linkaform (JAVA)' %}
+        {% endif %}
+      {% endfor %}  
+      
+      {% set cuentas = '' %}
+      {% for item in answers.685b05f8dc683de0a52a5370 %}
+        {% if item == 'Cambio o Recuperacion de Contraseña Dominio' %}
+          {% set cuentas = 'Cambio o Recuperacion de Contraseña Dominio' %}
+        {% elif item == 'Cuenta Bloqueado Usuario Dominio' %}
+          {% set cuentas = 'Cuenta Bloqueado Usuario Dominio' %}
+        {% elif item == 'Error de Acceso Cuenta Sistema Sage' %}
+          {% set cuentas = 'Error de Acceso Cuenta Sistema Sage' %}
+        {% elif item == 'Error de Acceso Auxiliar de Planilla' %}
+          {% set cuentas = 'Error de Acceso Auxiliar de Planilla' %}
+        {% elif item == 'Error de Acceso Cuenta Linkaform' %}
+          {% set cuentas = 'Error de Acceso Cuenta Linkaform' %}
+        {% elif item == 'Error de Acceso a Cuenta Bitacoras Web' %}
+          {% set cuentas = 'Error de Acceso a Cuenta Bitacoras Web' %}
+        {% elif item == 'Asignacion de Roles Sage' %}
+          {% set cuentas = 'Asignacion de Roles Sage' %}
+        {% elif item == 'Configuracion Cuenta Correo Outlook Movil' %}
+          {% set cuentas = 'Configuracion Cuenta Correo Outlook Movil' %}
+         {% elif item == 'Configuracion de Acceso Reportes Bitacoras Web' %}
+          {% set cuentas = 'Configuracion de Acceso Reportes Bitacoras Web' %}
+         {% elif item == 'Creacion Usuario Sage' %}
+          {% set cuentas = 'Creacion Usuario Sage' %}
+         {% elif item == 'Eliminación de Cuentas Inactivas Sage' %}
+          {% set cuentas = 'Eliminación de Cuentas Inactivas Sage' %}        
+        {% endif %}
+      {% endfor %}      
+               
+      {% set email = '' %}        
+      {% for item in answers.685b03feab4d9338fb7277a8%}
+        {% if item == 'Error de Envio Correo Electronico' %}
+            {% set email = 'Error de Envio Correo Electronico' %}
+        {% elif item == 'Error de Recepcion Correo Electronico' %}
+            {% set email = 'Error de Recepcion Correo Electronico' %}
+        {% elif item == 'Buzon Lleno Correo Electronico' %}
+            {% set email = 'Buzon Lleno Correo Electronico' %}
+        {% elif item == 'Configuracion de Correo Outlook, movil' %}
+            {% set email = 'Configuracion de Correo Outlook, movil' %}
+        {% elif item == 'Creacion y Configuracion de Correo' %}
+            {% set email = 'Creacion y Configuracion de Correo' %}
+        {% elif item == 'Creacion de Reenviador Correo' %}
+            {% set email = 'Creacion de Reenviador Correo' %}
+        {% elif item == 'Configuracion de Firmas Correo' %}
+            {% set email = 'Configuracion de Firmas Correo' %}
+        {% elif item == 'Correo Bloqueado' %}
+            {% set email = 'Correo Bloqueado' %}
+        {% elif item == 'Cambio de Correo Electronico' %}
+            {% set email = 'Cambio de Correo Electronico' %}
+        {% elif item == 'Configuracion de Correo Gmail' %}
+            {% set email = 'Configuracion de Correo Gmail' %}
+        {% elif item == 'Acceso a Cuentas Selecoment' %}
+            {% set email = 'Acceso a Cuentas Selecoment' %}
+        {% elif item == 'Acceso a Cuentas Transformetal' %}
+            {% set email = 'Acceso a Cuentas Transformetal' %}
+        {% elif item == 'Acceso a Cuentas Infracom' %}
+            {% set email = 'Acceso a Cuentas Infracom' %}
+        {% elif item == 'Configuracion de Correo Hotmail' %}
+            {% set email = 'Configuracion de Correo Hotmail' %}
+        {% elif item == 'Configuracion de Onedrive' %}
+            {% set email = 'Configuracion de Onedrive' %}
+        {% elif item == 'Configuracion de Google Drive' %}
+            {% set email = 'Configuracion de Google Drive' %}
+        {% endif %}
+      {% endfor %}
+      
+      {% set carpeta = '' %}
+      {% for item in answers.685dbd391e90061540834227 %}
+        {% if item == 'Creacion de Carpeta Compartida' %}
+          {% set carpeta = 'Creacion de Carpeta Compartida' %}
+        {% elif item == 'Permisos a Carpeta Compartida' %}
+          {% set carpeta = 'Permisos a Carpeta Compartida' %}
+        {% elif item == 'Archivo Eliminado o Perdido' %}
+          {% set carpeta = 'Archivo Eliminado o Perdido' %}
+        {% elif item == 'Acceso Configuracion Carpeta Compartida' %}
+          {% set carpeta = 'Acceso Configuracion Carpeta Compartida' %}
+        {% elif item == 'Acceso a Unidad o Mapeo de Red' %}
+          {% set carpeta = 'Acceso a Unidad o Mapeo de Red' %}
+        {% elif item == 'Acceso Inaccesible por Permisos' %}
+          {% set carpeta = 'Acceso Inaccesible por Permisos' %}
+        {% elif item == 'Backup Respaldo Informacion' %}
+          {% set carpeta = 'Backup Respaldo Informacion' %}
+        {% elif item == 'Elimnacion de Acceso a Carpeta Compartida' %}
+          {% set carpeta = 'Elimnacion de Acceso a Carpeta Compartida' %}
+        {% elif item == 'Agregar Usuario a Acceso Carpeta Compartida' %}
+          {% set carpeta = 'Agregar Usuario a Acceso Carpeta Compartida' %}
+        {% endif %}
+      {% endfor %}             
+      
+      {% set seguridad = '' %}
+      {% for item in answers.685dc2e75b256e7c014fbd41 %}
+        {% if item == 'Alerta o Sospecha de Virus/Malware' %}
+          {% set seguridad = 'Alerta o Sospecha de Virus/Malware' %}
+        {% elif item == 'Dispositivo Bloqueado/Infectado Virus' %}
+          {% set seguridad = 'Dispositivo Bloqueado/Infectado Virus' %}
+        {% elif item == 'Permisos de Antivirus Para Instalacion Programas' %}
+          {% set seguridad = 'Permisos de Antivirus Para Instalacion Programas' %}
+        {% elif item == 'Licencia Antivirus Desactualizada' %}
+          {% set seguridad = 'Licencia Antivirus Desactualizada' %}
+        {% elif item == 'Instalacion Antivirus' %}
+          {% set seguridad = 'Instalacion Antivirus' %}
+        {% elif item == 'Escaneo Analisis de Antivirus a Equipo de Computo' %}
+          {% set seguridad = 'Escaneo Analisis de Antivirus a Equipo de Computo' %}
+        {% elif item == 'Equipo Infectado por Virus' %}
+          {% set seguridad = 'Equipo Infectado por Virus' %}
+        {% elif item == 'Correo Sospechoso o Spam' %}
+          {% set seguridad = 'Correo Sospechoso o Spam' %}
+        {% elif item == 'Configuracion de Acceso Anydesk /Acceso Remoto' %}
+          {% set seguridad = 'Configuracion de Acceso Anydesk /Acceso Remoto' %}
+        {% endif %}
+      {% endfor %}
+      
+    {% set energia = '' %}
+    {% for item in answers.685dc9c6742b89c877ab5054 %}
+        {% if item == 'Configuracion de Equipo a Red LAN' %}
+            {% set energia = 'Configuracion de Equipo a Red LAN' %}
+        {% elif item == 'Configuracion de Direccion IP Equipo Computo' %}
+            {% set energia = 'Configuracion de Direccion IP Equipo Computo' %}
+        {% elif item == 'Configuracion de Permisos de Navegacion Internet' %}
+            {% set energia = 'Configuracion de Permisos de Navegacion Internet' %}
+        {% elif item == 'Error de Acceso a Servidor Dominio' %}
+            {% set energia = 'Error de Acceso a Servidor Dominio' %}
+        {% elif item == 'Errro de Acceso a Servicios SAGE' %}
+            {% set energia = 'Errro de Acceso a Servicios SAGE' %}
+        {% elif item == 'Error de Conexion a Red LAN' %}
+            {% set energia = 'Error de Conexion a Red LAN' %}
+        {% elif item == 'Error de Conexion a Internet' %}
+            {% set energia = 'Error de Conexion a Internet' %}
+        {% elif item == 'Conexion a Internet Lenta' %}
+            {% set energia = 'Conexion a Internet Lenta' %}
+        {% elif item == 'Sin Acceso  a Red WIFI' %}
+            {% set energia = 'Sin Acceso  a Red WIFI' %}
+        {% elif item == 'Error de Navegacion Internet' %}
+            {% set energia = 'Error de Navegacion Internet' %}
+        {% elif item == 'Error de Acceso a Plataforma Web' %}
+            {% set energia = 'Error de Acceso a Plataforma Web' %}
+        {% elif item == 'Falla Extension Teléfonica' %}
+            {% set energia = 'Falla Extension Teléfonica' %}
+        {% elif item == 'Configuracion Extension Telefonica' %}
+            {% set energia = 'Configuracion Extension Telefonica' %}
+        {% elif item == 'Revision de UPS Proteccion Energia Electrica' %}
+            {% set energia = 'Revision de UPS Proteccion Energia Electrica' %}
+        {% elif item == 'Revisinon de Punto de Energia Tomacorriente' %}
+            {% set energia = 'Revisinon de Punto de Energia Tomacorriente' %}
+      {% endif %}
+    {% endfor %}    
+      
+      
+      
+        <tr>
+          <td><para style="datos">{% for hardware in answers.685ae5ff78164c38f537a4a2 %}{{ hardware }}{% if not loop.last %}, {% endif %}<br/></para>{% endfor %}</td>
+        </tr>
+        
+        <tr>
+          <td><para style="datos">{% for software in answers.685b03feab4d9338fb7277a8 %}{{ software }}{% if not loop.last %}, {% endif %}<br/></para>{% endfor %}</td>
+        </tr>
+        
+        <tr>
+          <td><para style="datos">{% for linkaform in answers.68752b1ff99a20041c54e6eb %}{{ linkaform }}{% if not loop.last %}, {% endif %}<br/></para>{% endfor %}</td>
+        </tr>
+        
+                
+        <tr>
+          <td>
+            <para style="datos">
+              {% for zoho in answers.68758c6732f81f20a929a62a %}
+                {{ zoho }}{% if not loop.last %}, {% endif %}<br/>
+              {% endfor %}
+            </para>
+          </td>
+        </tr>

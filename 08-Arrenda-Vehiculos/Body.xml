@@ -461,7 +461,7 @@
   </tr>
 </blockTable>
 
-<spacer length="0.3cm"/>
+<spacer length="0.2cm"/>
 
 <blockTable colWidths="20cm">
   <tr>
@@ -473,35 +473,31 @@
 </tr>
 </blockTable>
 
-<spacer length="0.3cm"/>
+<spacer length="0.2cm"/>
 
-<blockTable colWidths="7cm,6cm,7cm">
-         <tr>
-           <td>
-             <para style="firma"> Firma Conductor  </para>
+  <blockTable colWidths="7cm,6cm,7cm">
+   <tr>
+     <td>
+       <para style="firma"> Firma Conductor  </para>
+        <para style="firma"> ______________________________ </para>
+       <para style="firma"> Nombre y Firma </para>
+       <para style="firma"> {{ answers.6154ca157d665404bfb2e1bc.6154ca157d665404bfb2e1bd }} </para>
+     </td>
 
+     <td>
+        <para style="firma"> {{ answers.60ca727c8c8c5866d7a4c4e3 }} </para>              
+        <para style="firma"> ______________________________ </para>
+      <para style="firma"> Firma Liquidación </para>
+     </td>
+     <td>
+       <para style="firma"> Persona que Entrega Vehiculo  </para>
 
-              <para style="firma"> ______________________________ </para>
-             <para style="firma"> Nombre y Firma </para>
-             <para style="firma"> {{ answers.6154ca157d665404bfb2e1bc.6154ca157d665404bfb2e1bd }} </para>
-           </td>
-
-           <td>
-             <para style="firma"> Persona que Autoriza </para>
-
-              <para style="firma"> ______________________________ </para>
-            <para style="firma"> Aceptación </para>
-            <para style="firma"> {{ answers.60ca727c8c8c5866d7a4c4e3 }} </para>
-           </td>
-           <td>
-             <para style="firma"> Persona que Entrega Vehiculo  </para>
-
-              <para style="firma"> ______________________________ </para>
-             <para style="firma"> Nombre y Firma </para>
-             <para style="firma"> {{ answers.615b27a0ea33f749b970e448 }} </para>
-           </td>
-          </tr>
-        </blockTable>
+        <para style="firma"> ______________________________ </para>
+       <para style="firma"> Nombre y Firma </para>
+       <para style="firma"> {{ answers.615b27a0ea33f749b970e448 }} </para>
+     </td>
+    </tr>
+  </blockTable>
 
   {% autoescape on %}
     {{ Template.style|safe }}

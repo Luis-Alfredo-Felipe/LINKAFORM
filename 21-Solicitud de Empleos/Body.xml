@@ -1,0 +1,917 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,32cm)">
+        <pageTemplate id="first" pageSize="(21cm,34cm)">
+            <frame id="first"    x1="1.5cm"   y1="1.5cm" width="18cm"   height="24.5cm"/>
+            <pageGraphics>
+                <setFont name="Montserrat-Regular" size="7.5"/>
+                <drawCenteredString x="10.2cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Montserrat-Regular" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+
+    <story>  
+        <spacer length="0.2cm"/>
+        <blockTable colWidths="17cm">  
+            <tr>
+                <td>
+                    <blockTable colWidths="3.5cm,5cm,3.5cm,5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Fecha Solicitud:</b> </para></td>
+                            <td><para style="text2"> {{answers.6838a5e66fee6a2582e92b3e}}</para></td>
+                            <td><para style="text1"><b>Puesto Solicitado:</b> </para></td>
+                            <td><para style="text2"> {{answers.6838a5e66fee6a2582e92b3f}}</para></td>
+                            <td></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="3.5cm,5cm,3.5cm,5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Pretensión Salarial:</b> </para></td>
+                            <td><para style="text2"> Q. {{answers.6838a61bfbc9a6e76b5f11a5}}</para></td>
+                            <td><para style="text1"><b>Dirección Domicilio:</b> </para></td>
+                            <td><para style="text2"> {{answers.6838a61bfbc9a6e76b5f11a4}}</para></td>
+                            <td></td>
+                        </tr>
+                    </blockTable>
+                </td>
+            </tr> 
+        </blockTable>
+        
+        <spacer length="0.2cm"/>
+        <blockTable colWidths="17cm">  
+            <tr>
+                <td>        
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">INFORMACIÓN PERSONAL</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="10.5cm,6.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Nombre Completo</b> </para></td>
+                            <td><para style="text1"><b>Nombre y Apellido de Conyugue</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="10.5cm,6.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838a698c63045844020d0e6}}</para></td>
+                            <td><para style="text2">{{answers.6838a704d9f55624aa20cfb2}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="4cm,3.5cm,3cm,3cm,3.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Edad</b> </para></td>
+                            <td><para style="text1"><b>Fecha de Nacimiento</b> </para></td>
+                            <td><para style="text1"><b>Estado Civil</b> </para></td>
+                            <td><para style="text1"><b>Nacionalidad</b> </para></td>
+                            <td><para style="text1"><b>No. DPI</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="4cm,3.5cm,3cm,3cm,3.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838a9383acf2df7d4c2f3ef}}</para></td>
+                            <td><para style="text2">{{answers.6838a9383acf2df7d4c2f3ee}}</para></td>
+                            <td><para style="text2">{{answers.6838a9383acf2df7d4c2f3f0}}</para></td>
+                            <td><para style="text2">{{answers.6838a9d248901929d3d1f098}}</para></td>
+                            <td><para style="text2">{{answers.6838a9d248901929d3d1f099}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="4cm,3.5cm,3cm,3cm,3.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Extendido en</b></para></td>
+                            <td><para style="text1"><b>Licencia de Conducir</b></para></td>
+                            <td><para style="text1"><b>Tipo de Licencia</b></para></td>
+                            <td><para style="text1"><b>Fecha Vencimiento</b></para></td>
+                            <td><para style="text1"><b>Tipo Vehiculo/Modelo</b></para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="4cm,3.5cm,3cm,3cm,3.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838a9fb918df8a1d3d1f007}}</para></td>
+                            <td><para style="text2">{{answers.6838aaeaea443514ca20cfd7}}</para></td>
+                            <td><para style="text2">{{answers.6838aaeaea443514ca20cfd8}}</para></td>
+                            <td><para style="text2">{{answers.683e2a93a47f971e2cedfa4e}}</para></td>
+                            <td><para style="text2">{{answers.6838ab3193ff6ff8360bfd7d}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="10.5cm,3cm,3.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Dirección de Residencia</b> </para></td>
+                            <td><para style="text1"><b>Teléfono Fijo</b> </para></td>
+                            <td><para style="text1"><b>Teléfono Móvil</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="10.5cm,3cm,3.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838abdc8deca3bf58e92ca3}}</para></td>
+                            <td><para style="text2">{{answers.6838abdc8deca3bf58e92ca4}}</para></td>
+                            <td><para style="text2">{{answers.6838abdc8deca3bf58e92ca5}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="4cm,3.5cm,3cm,6.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>No. NIT</b> </para></td>
+                            <td><para style="text1"><b>No. Cuenta bancaria</b> </para></td>
+                            <td><para style="text1"><b>Banco</b> </para></td>
+                            <td><para style="text1"><b>Correo Electrónico Email</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="4cm,3.5cm,3cm,6.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838ac5c10f52c8788e92bd4}}</para></td>
+                            <td><para style="text2">{{answers.6838ac5c10f52c8788e92bd5}}</para></td>
+                            <td><para style="text2">{{answers.6838add80b7baa8566e92b2b}}</para></td>    
+                            <td><para style="text2">{{answers.6838ae3c18c3c479ad20cfdb}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="17cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Parentesco con Algún Empleado de la Empresa</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="17cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838ae3c18c3c479ad20cfdc}}</para></td>
+                        </tr>
+                    </blockTable> 
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">INFORMACIÓN FAMILIAR Y ECONÓMICA</para></td>	
+                        </tr>
+                    </blockTable>    
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Nombre del Padre</b> </para></td>
+                            <td><para style="text1"><b>Ocupación</b> </para></td>
+                            <td><para style="text1"><b>Teléfono</b> </para></td>
+                            <td><para style="text1"><b>Edad</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838c22736160026ecd1efb6}}</para></td>
+                            <td><para style="text2">{{answers.6838c22736160026ecd1efb7}}</para></td>
+                            <td><para style="text2">{{answers.6838c22736160026ecd1efb8}}</para></td>
+                            <td><para style="text2">{{answers.6838c22736160026ecd1efb9}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Nombre de la Madre</b> </para></td>
+                            <td><para style="text1"><b>Ocupación</b> </para></td>
+                            <td><para style="text1"><b>Teléfono</b> </para></td>
+                            <td><para style="text1"><b>Edad</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838c25876d573abe7e92bbb}}</para></td>
+                            <td><para style="text2">{{answers.6838c25876d573abe7e92bbc}}</para></td>
+                            <td><para style="text2">{{answers.6838c25876d573abe7e92bbd}}</para></td>
+                            <td><para style="text2">{{answers.6838c25876d573abe7e92bbe}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>Nombre de Conyugue</b> </para></td>
+                            <td><para style="text1"><b>Ocupación</b> </para></td>
+                            <td><para style="text1"><b>Teléfono</b> </para></td>
+                            <td><para style="text1"><b>Edad</b> </para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6852c6ea732c05497880e3e1}}</para></td>
+                            <td><para style="text2">{{answers.6852c6ea732c05497880e3e2}}</para></td>
+                            <td><para style="text2">{{answers.6852c6ea732c05497880e3e3}}</para></td>
+                            <td><para style="text2">{{answers.6852c6ea732c05497880e3e4}}</para></td>
+                        </tr>
+                    </blockTable>         
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,9.5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Indique Cuantos Hermanos Tiene</b> </para></td>
+                            <td><para style="text2"> {{answers.6838c7d88e7b92ebde5f11fb}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/> 
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="contenido" >
+                        <tr>
+                            <td><para style="text1"><b> Nombre de Hermanos(a) </b></para></td>
+                            <td><para style="text1"><b> Ocupación </b></para></td>
+                            <td><para style="text1"><b> Lugar de Trabajo </b></para></td>
+                            <td><para style="text1"><b> Edad </b></para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <blockTable colWidths="7.5cm,3cm,3cm,3.5cm" style="table">
+                    {% if answers.6838c7d88e7b92ebde5f11fc %}
+                        {% for item in answers.6838c7d88e7b92ebde5f11fc %}
+                        <tr>
+                            <td><para style="text2"> {{ item.6838c8262c934cde9220d016 }} </para></td>
+                            <td><para style="text2"> {{ item.6838c8262c934cde9220d017 }} </para></td>
+                            <td><para style="text2"> {{ item.6838c8262c934cde9220d018 }} </para></td>
+                            <td><para style="text2"> {{ item.6838c8262c934cde9220d019 }} </para></td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                        </tr>
+                    {% endif %}
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,3cm,6.5cm" style="contenido" >
+                        <tr>
+                            <td><para style="text1"><b> Nombre Hijos(as)</b></para></td>
+                            <td><para style="text1"><b> Edad </b></para></td>
+                            <td><para style="text1"><b> Lugar o Centro de Estudios</b></para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="7.5cm,3cm,6.5cm" style="table">
+                    {% if answers.6838c90de225012f7e0bfe19 %}
+                        {% for item in answers.6838c90de225012f7e0bfe19 %}
+                        <tr>
+                            <td><para style="text2"> {{ item.6838c95e398458d234c2f408 }} </para></td> 
+                            <td><para style="text2"> {{ item.6838c95e398458d234c2f409 }} </para></td>
+                            <td><para style="text2"> {{ item.6838c95e398458d234c2f40a }} </para></td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                        </tr>
+                    {% endif %}
+                    </blockTable>
+                    
+                    {% set propia = '' %}
+                    {% set plazos = '' %}
+                    {% set alquilada = '' %}
+                    {% if answers.6838c9f52c934cde9220d023 == 'Propia' %}
+                        {% set propia = 'X' %}
+                    {% elif answers.6838c9f52c934cde9220d023 == 'Pago a Plazos' %}
+                        {% set plazos = 'X' %}
+                    {% elif answers.6838c9f52c934cde9220d023 == 'Alquilada' %}
+                        {% set alquilada = 'X' %}
+                    {% endif %}
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="17cm">  
+                        <tr>
+                            <td>
+                                <blockTable colWidths="3cm,3cm,0.5cm,3cm,0.5cm,3cm,0.5cm" style="table_sub3_two">
+                                    <tr>
+                                        <td><para style="text1"><b>Tipo de Vivienda:</b> </para></td>
+                                        <td><para style="text3"><b>Propia:  </b></para></td>
+                                        <td><para style="text2">{{propia}}</para></td>
+                                        <td><para style="text3"><b>Pago a Plazos: </b></para></td>
+                                        <td><para style="text2">{{plazos}}</para></td>
+                                        <td><para style="text3"><b>Alquilada: </b></para></td>
+                                        <td><para style="text2">{{alquilada}}</para></td>
+                                    </tr>
+                                </blockTable>
+                            </td>                            
+                        </tr> 
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,9.5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Con Quienes Vives </b> </para></td>
+                            <td><para style="text2"> {{answers.6838ca5b95003a4a2bc2f2fc}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="10.5cm,6.5cm" style="contenido">
+                        <tr>
+                            <td><para style="text1"><b>En Caso de Emergencia Llamar a </b> </para></td>
+                            <td><para style="text1"><b>Teléfono Fijo/Móvil</b> </para></td>	
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="10.5cm,6.5cm" style="table">
+                        <tr>
+                            <td><para style="text2">{{answers.6838ca5b95003a4a2bc2f2fd}}</para></td>
+                            <td><para style="text2">{{answers.6838ca5b95003a4a2bc2f2fe}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">INFORMACIÓN ACADÉMICA Y CONOCIMIENTOS GENERALES</para></td>	
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="4cm,4cm,4cm,2.5cm,2.5cm" style="contenido" >
+                        <tr>
+                            <td><para style="text1"><b> Nivel Educación </b></para></td>
+                            <td><para style="text1"><b> Titulo Obtenido </b></para></td>
+                            <td><para style="text1"><b> Establecimiento </b></para></td>
+                            <td><para style="text1"><b> Año Inicio </b></para></td>
+                            <td><para style="text1"><b> Año Finalización </b></para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="4cm,4cm,4cm,2.5cm,2.5cm" style="table">
+                    {%if answers.6838d74fd4ee1f46e00bfe40 %}
+                        {% for item in answers.6838d74fd4ee1f46e00bfe40 %}
+                            <tr>
+                                <td><para style="text2"> {{ item.6838d7971652ac8020d1f019 }} </para></td>
+                                <td><para style="text2"> {{ item.6838d7dcadabbb23650bfd35 }} </para></td>
+                                <td><para style="text2"> {{ item.6838d7dcadabbb23650bfd36 }} </para></td>
+                                <td><para style="text2"> {{ item.6838d7dcadabbb23650bfd37 }} </para></td>
+                                <td><para style="text2"> {{ item.6838d7dcadabbb23650bfd38 }} </para></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                            <tr>
+                                <td><para style="text2">N/A</para></td>
+                                <td><para style="text2">N/A</para></td>
+                                <td><para style="text2">N/A</para></td>
+                                <td><para style="text2">N/A</para></td>
+                                <td><para style="text2">N/A</para></td>
+                            </tr>
+                    {% endif %}
+                    </blockTable>  
+                </td>
+            </tr>
+        </blockTable>       
+        
+        <!-- Aca Finaliza 1ra. Pagina y Empieza Segunda Pagina -->    
+        <condPageBreak height="3cm"/>  
+        <blockTable colWidths="17cm">       
+            <tr>
+                <td>          
+                    <spacer length="0.5cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">OTROS ESTUDIOS</para></td>	
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="17cm">
+                        <tr>
+                            <td><para style="text2">{{answers.6851f1d064b0ae74fbe66177}}</para></td>	
+                        </tr>
+                    </blockTable>
+                </td>
+            </tr>
+        </blockTable>
+                                         
+        <blockTable colWidths="17cm">       
+            <tr>
+                <td>    
+                    <blockTable colWidths="3cm,3cm,3cm,3cm,2.5cm,2.5cm" style="contenido">
+                        <tr>
+                             <td><para style="text1"><b> Idioma </b></para></td>
+                             <td><para style="text1"><b> Dominio</b></para></td>
+                             <td><para style="text1"><b> Idioma </b></para></td>
+                             <td><para style="text1"><b> Dominio</b></para></td>
+                             <td><para style="text1"><b> Idioma </b></para></td>
+                             <td><para style="text1"><b> Dominio</b></para></td>
+                        </tr> 
+                    </blockTable>
+                    <blockTable colWidths="3cm,3cm,3cm,3cm,2.5cm,2.5cm" style="table">
+                        <tr>
+                        {% if answers.6838d9ccc1db9dafa6c2f374 %}
+                            {% for l in answers.6838d9ccc1db9dafa6c2f374 %} 
+                                <td><para style="text2"> {{ l.6838db37b8491f46f75f1105 }} </para></td>
+                                <td><para style="text2"> {{ l.6838da2c0b5200309e0bfdc8 }} </para></td>
+                            {% endfor %}
+                        {% else %}
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                        </tr>
+                        {% endif %}
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,9.5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Manejo de Equipo de Oficina </b> </para></td>
+                            <td><para style="text2"> {{answers.684214fd192d8bf1200c6a22}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="7.5cm,9.5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Habilidades y Manejo de Software </b> </para></td>
+                            <td><para style="text2"> {{answers.684214fd192d8bf1200c6a23}}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set herreria = '' %}
+                    {% set electricidad = '' %}
+                    {% set albañileria = '' %}
+                    {% set cableado = '' %}
+                    {% set fibra = '' %}
+                    {% set torres = '' %}                
+                    {% set enlace = '' %}
+                    {% set programacion = '' %}
+                    
+                    {% if answers.6842159aeb5ff370f20c6a71 == 'Herrería' %}
+                        {% set herreria = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Electricidad' %}
+                        {% set electricidad = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Albañilería' %}
+                        {% set albañileria = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Cableado Estructurado' %}
+                        {% set cableado = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Fibra Óptica' %}
+                        {% set fibra = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Instalación de Torres' %}
+                        {% set torres = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Enlace de Última Milla' %}
+                        {% set enlace = 'X' %}
+                    {% elif answers.6842159aeb5ff370f20c6a71 == 'Programación de Equipos de Comunicación' %}
+                        {% set programacion = 'X' %}
+                    {% endif %}
+                    <spacer length="0.1cm"/>
+
+                    <blockTable colWidths="3.5cm,3.5cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="text1"><b>Conocimiento Técnico:</b> </para></td>
+                            <td><para style="text3"><b>Herrería:  </b></para></td>
+                            <td><para style="text2">{{herreria}}</para></td>
+                            <td><para style="text3"><b>Electricidad: </b></para></td>
+                            <td><para style="text2">{{electricidad}}</para></td>
+                            <td><para style="text3"><b>Albañilería: </b></para></td>
+                            <td><para style="text2">{{albañileria}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="3.5cm,3.5cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="text1"><b></b> </para></td>
+                            <td><para style="text3"><b>Cableado Estructurado:  </b></para></td>
+                            <td><para style="text2">{{cableado}}</para></td>
+                            <td><para style="text3"><b>Fibra Óptica: </b></para></td>
+                            <td><para style="text2">{{fibra}}</para></td>
+                            <td><para style="text3"><b>Instalación de Torres: </b></para></td>
+                            <td><para style="text2">{{torres}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="3.5cm,3.5cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="text1"><b></b> </para></td>
+                            <td><para style="text3"><b>Enlace Última Milla:  </b></para></td>
+                            <td><para style="text2">{{enlace}}</para></td>
+                            <td><para style="text3"><b>Programación de equipos: </b></para></td>
+                            <td><para style="text2">{{programacion}}</para></td>
+                        </tr>
+                    </blockTable>
+                       
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">HISTORIAL LABORAL</para></td>	
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="17cm">
+                        <tr>
+                            <td><para style="text1">Ingrese su experiencia laboral, iniciando por el trabajo más reciente.</para></td>	
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="2.5cm,6cm,3.5cm,5cm" style="contenidoll" >
+                    {% if answers.6838de510e6891d68f20d0ae %}
+                        {% for item in answers.6838de510e6891d68f20d0ae %}
+                        <spacer length="0.5cm"/>                    
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Empresa </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f115b }}</para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Puesto Jefe Inmediato </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f1162 }}</para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Puesto Inicial </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f115c }}</para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Puesto Final </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f115d }}</para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Fecha Ingreso </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f115e}}</para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Fecha Salida </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f115f }}</para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Salario Inicial </b></para></td>
+                                <td><para style="text2">Q. {{ item.6838ded56d5b0f99065f1160 }}</para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Salario Final </b></para></td>
+                                <td><para style="text2">Q. {{ item.6838ded56d5b0f99065f1161 }}</para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Motivo Salida </b></para></td>
+                                <td><para style="text2">{{ item.6838ded56d5b0f99065f1163 }}</para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> </b></para></td>
+                                <td><para style="text2"> </para></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Empresa </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Puesto Jefe Inmediato </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Puesto Inicial </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Puesto Final </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Fecha Ingreso </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Fecha Salida </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                            </tr>
+                            <tr>
+                                <td background="#bcc4d8"><para style="text1"><b> Salario Inicial </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                                <td background="#bcc4d8"><para style="text1"><b> Salario Final </b></para></td>
+                                <td><para style="text2"> N/A </para></td>
+                            </tr>
+                    {% endif %}
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">INFORMACIÓN GENERAL</para></td>	
+                        </tr>
+                    </blockTable>
+                    
+                    {% set viajar_si = '' %}
+                    {% set viajar_no = '' %}
+                    {% if answers.6839d2d711ebc865460bfe75 == "SI" %}
+                        {% set viajar_si = 'X' %}
+                        {% set viajar_no = '' %}
+                    {% elif answers.6839d2d711ebc865460bfe75 == "No" %}
+                        {% set viajar_si = '' %}
+                        {% set viajar_no = 'X' %}
+                    {% endif %}
+                    
+                    {% set horario_si = '' %}
+                    {% set horario_no = '' %}    
+                    {% if answers.6839d2d711ebc865460bfe76 == "SI" %}
+                        {% set horario_si = 'X' %}
+                        {% set horario_no = '' %}
+                    {% elif answers.6839d2d711ebc865460bfe76 == "No" %}
+                        {% set horario_si = '' %}
+                        {% set horario_no = 'X' %}
+                    {% endif %}
+                    
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="5.5cm,1cm,0.5cm,1cm,0.5cm,5.5cm,1cm,0.5cm,1cm,0.5cm" style="table_sub5_two">
+                        <tr>
+                            <td><para style="text1"><b>¿Disponibilidad para viajar?</b></para></td>
+                            <td><para style="text3"><b>Si:  </b></para></td>
+                            <td><para style="text2">{{viajar_si}}</para></td>
+                            <td><para style="text3"><b>No: </b></para></td>
+                            <td><para style="text2">{{viajar_no}}</para></td>
+                            <td><para style="text1"><b>¿Tiene alguna Limitación Horario?</b></para></td>
+                            <td><para style="text3"><b>Si:  </b></para></td>
+                            <td><para style="text2">{{horario_si}}</para></td>
+                            <td><para style="text3"><b>No: </b></para></td>
+                            <td><para style="text2">{{horario_no}}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Especificar Motivo de Limitación de Horario </b> </para></td>
+                            <td><para style="text2">{{answers.6839d2d711ebc865460bfe77}}</para></td>                            
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Fecha en el Cúal Podria Iniciar Labores</b> </para></td>
+                            <td><para style="text2">{{answers.6839d2d711ebc865460bfe78}}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Especificar Motivo de Fecha de Inicio Laboral</b> </para></td>	
+                            <td><para style="text2">{{answers.6839d2d711ebc865460bfe79}}</para></td>
+                        </tr>
+                    </blockTable>                  
+                </td>
+            </tr>
+        </blockTable>
+        
+        <!-- Aca Finaliza 2da. Pagina y Empieza Tercera Pagina -->    
+        <condPageBreak height="4cm"/>
+        <spacer length ="4cm"/>
+        <blockTable colWidths="17cm">  
+            <tr>
+                <td>     
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">INFORMACIÓN DE SALUD</para></td>	
+                        </tr>
+                    </blockTable>                    
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>¿Cuál es su Tipo de Sangre? </b> </para></td>
+                            <td><para style="text2">{{answers.6839d5163cdf6093b00bfd2b}}</para></td>                            
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Cuál es su Peso Lbs.</b> </para></td>
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f368}}</para></td>
+                        </tr>
+                    </blockTable>                    
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Indicar su Altura Mts.</b> </para></td>	
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f369}} Mt.</para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Padece Alguna Enfermedad Crónica</b> </para></td>	
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f36a}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Lleva Algún Tratamietno Medico</b> </para></td>	
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f36b}}</para></td>
+                        </tr>
+                    </blockTable>                    
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Ha sido Operado Alguna Vez</b> </para></td>	
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f36c}}</para></td>
+                        </tr>
+                    </blockTable>           
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Es Alergico a Algún Medicamento</b> </para></td>	
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f36d}}</para></td>
+                        </tr>
+                    </blockTable>                                           
+                    <blockTable colWidths="8.5cm,8.5cm" style="table_sub1_two">
+                        <tr>
+                            <td background="#bcc4d8"><para style="text1"><b>Esta Afiliado al IGSS/Algun Seguro Medico</b> </para></td>	
+                            <td><para style="text2">{{answers.6839da169437b5fb25c2f36e}}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length ="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">PADECE ALGUNO DE ESTOS SINTOMAS</para></td>	
+                        </tr>
+                    </blockTable>  
+                     
+                    {% set epilepsia = '' %}
+                    {% set alturas = '' %}
+                    {% set corazon = '' %}
+                    {% set presion = '' %}
+                    {% set sordera = '' %}
+                    {% set vertigo = '' %}
+                    {% set oidos = '' %}
+                    {% set asma = '' %}
+                    {% set pulmones = '' %}
+                    {% set diabetes = '' %}
+                    {% set renales = '' %}
+                    {% set desmayos = '' %}
+                    {% set neumonia = '' %}
+                    {% set ninguno = '' %}                    
+                    
+                    {% if answers.6839da911378f366fd75e847 == 'Epilepsia' %}
+                        {% set epilepsia = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Temor a las Alturas' %}
+                        {% set alturas = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Enfermedad del Corazon' %}
+                        {% set corazon = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Presion Arterial Elevada' %}
+                        {% set presion = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Sordera' %}
+                        {% set sordera = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Vertigo' %}
+                        {% set vertigo = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Problemas de Oido' %}
+                        {% set oidos = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Asma' %}
+                        {% set asma = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Liquido en Pulmones' %}
+                        {% set pulmones = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Neumonia' %}
+                        {% set neumonia = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Diabetes' %}
+                        {% set diabetes = 'X' %}
+                    {% elif answers.6839da911378f366fd75e847 == 'Problemas Renales' %}
+                        {% set renales = 'X' %}    
+                    {% elif answers.6839da911378f366fd75e847 == 'Desmayos o Mareos' %}
+                        {% set desmayos = 'X' %}    
+                    {% elif answers.6839da911378f366fd75e847 == 'Ninguna' %}
+                        {% set ninguno = 'X' %}
+                    {% endif %}
+                    
+                     <spacer length ="0.2cm"/> 
+                    <blockTable colWidths="1cm,4cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub6_two">
+                        <tr>
+                            <td><para style="text3"></para></td>
+                            <td><para style="text3"><b>Epilepsia:</b></para></td>
+                            <td><para style="text2">{{epilepsia}}</para></td>
+                            <td><para style="text3"><b>Temor a las Alturas:</b></para></td>
+                            <td><para style="text2">{{alturas}}</para></td>
+                            <td><para style="text3"><b>Enfermedad Corazon:</b></para></td>
+                            <td><para style="text2">{{corazon}}</para></td>
+                            <td><para style="text3"><b></b></para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="1cm,4cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub6_two">
+                        <tr>
+                            <td><para style="text3"></para></td>
+                            <td><para style="text3"><b>Presion Arterial Elevada:</b></para></td>
+                            <td><para style="text2">{{presion}}</para></td>
+                            <td><para style="text3"><b>Sordera: </b></para></td>
+                            <td><para style="text2">{{sordera}}</para></td>
+                            <td><para style="text3"><b>Vertigo: </b></para></td>
+                            <td><para style="text2">{{vertigo}}</para></td>
+                            <td><para style="text3"><b></b></para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length="0.1cm"/>
+                    <blockTable colWidths="1cm,4cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub6_two">
+                        <tr>
+                            <td><para style="text3"></para></td>
+                            <td><para style="text3"><b>Problema de Oidos: </b></para></td>
+                            <td><para style="text2">{{oidos}}</para></td>
+                            <td><para style="text3"><b>Asma: </b></para></td>
+                            <td><para style="text2">{{asma}}</para></td>
+                            <td><para style="text3"><b>Pulmones: </b></para></td>
+                            <td><para style="text2">{{pulmones}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length ="0.1cm"/>
+                    <blockTable colWidths="1cm,4cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub6_two">
+                        <tr>
+                            <td><para style="text3"></para></td>
+                            <td><para style="text3"><b>Diabetes: </b></para></td>
+                            <td><para style="text2">{{diabetes}}</para></td>
+                            <td><para style="text3"><b>Renales: </b></para></td>
+                            <td><para style="text2">{{renales}}</para></td>
+                            <td><para style="text3"><b>Desmayos: </b></para></td>
+                            <td><para style="text2">{{desmayos}}</para></td>
+                        </tr>
+                    </blockTable>
+                    <spacer length ="0.1cm"/>      
+                    <blockTable colWidths="1cm,4cm,0.5cm,4cm,0.5cm,4.5cm,0.5cm" style="table_sub7_two">
+                        <tr>
+                            <td><para style="text3"></para></td>
+                            <td><para style="text3"><b>Neumonia: </b></para></td>
+                            <td><para style="text2">{{neumonia}}</para></td>
+                            <td><para style="text3"><b>Ninguna:</b> </para></td>
+                            <td><para style="text2"><b>{{ninguna}}</b> </para></td>
+                            <td><para style="text3"><b> </b> </para></td>
+                            <td><para style="text2"><b></b> </para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length ="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">Escriba el Nombre de Tres Personas que puedan dar Referencias Laborales de Usted</para></td>	
+                        </tr>
+                    </blockTable>               
+                    <blockTable colWidths="7cm,5cm,5cm" style="contenido" >
+                        <tr>
+                            <td><para style="text1"><b> Nombre Completo </b></para></td>
+                            <td><para style="text1"><b> Teléfono </b></para></td>
+                            <td><para style="text1"><b> Empresa o Puesto Laboral </b></para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="7cm,5cm,5cm" style="table">
+                    {% if answers.6839dff18dc7ef979c20d079 %}
+                        {% for item in answers.6839dff18dc7ef979c20d079 %}
+                            <tr>
+                                <td><para style="text2"> {{ item.6839e0414434789bd175e8e8 }} </para></td>
+                                <td><para style="text2"> {{ item.6839e0414434789bd175e8e9 }} </para></td>
+                                <td><para style="text2"> {{ item.6839e0414434789bd175e8ea }} </para></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                            <tr>
+                                <td><para style="text2">N/A</para></td>
+                                <td><para style="text2">N/A</para></td>
+                                <td><para style="text2">N/A</para></td>
+                            </tr>
+                    {% endif %}
+                    </blockTable>
+                    
+                    <spacer length ="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="17cm">
+                        <tr>
+                            <td><para style="dataT">Escriba el Nombre de Tres Personas que puedan dar Referencias Laborales no familiares</para></td>	
+                        </tr>
+                    </blockTable>               
+                    <blockTable colWidths="7cm,5cm,5cm" style="contenido" >
+                        <tr>
+                            <td><para style="text1"><b> Nombre Completo </b></para></td>
+                            <td><para style="text1"><b> Teléfono </b></para></td>
+                            <td><para style="text1"><b> Empresa o Puesto Laboral </b></para></td>
+                        </tr>
+                    </blockTable>
+                    <blockTable colWidths="7cm,5cm,5cm" style="table">
+                    {% if answers.6839e070055d2405025d7f6c %}
+                        {% for item in answers.6839e070055d2405025d7f6c %}
+                            <tr>
+                                <td><para style="text2"> {{ item.6839e13fe5ac80cd385f10d1 }} </para></td>
+                                <td><para style="text2"> {{ item.6839e13fe5ac80cd385f10d2 }} </para></td>
+                                <td><para style="text2"> {{ item.6839e13fe5ac80cd385f10d3 }} </para></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                            <td><para style="text2">N/A</para></td>
+                        </tr>
+                    {% endif %}
+                    </blockTable>
+                    
+                    <spacer length = "0.3cm"/>
+                    <blockTable colWidths="17cm">
+                        <tr>
+                            <td><para style="parrafo">Confirmo que la información proporcionada en ésta solicitud es verdadera y completa. Entiendo que cualquier dato falso u omitido podría afectar negativamente el proceso de selección o, en caso de contratación, dar lugar a la finalización de la relación laboral, así como lo indica el Código de Trabajo en el artículo 77 inciso f. Autorizando a SELECOMNET a verificar los datos aquí consignados como parte del proceso de evaluación.</para></td>
+                        </tr>
+                    </blockTable>   
+                    
+                    <spacer length="1.3cm" />
+                    <blockTable colWidths="1cm,7cm,1cm,7cm" style="table_firma">
+                        <tr>
+                            <td></td>
+                            <td><para style="text1"><b></b></para></td>   
+                            <td>   </td>       
+                            <td><para style="text1"><b></b></para></td>                   
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><para style="firma"><b>Firma:</b></para></td>
+                            <td>   </td>       
+                            <td><para style="firma"><b>Fecha:</b></para></td>        
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length = "0.3cm"/>
+                    <blockTable colWidths="17cm">
+                        <tr>
+                            <td><para style="parrafo">Completar esta solicitud es un paso inicial en el proceso de selección y no implica ningún compromiso por parte de SELECOMNET. Agradecemos tu interés en formar parte de nuestro equipo y valoramos el tiempo que dedicas a brindarnos esta información.</para></td>
+                        </tr>
+                    </blockTable>   
+                                                                                                                    
+                </td>
+            </tr>
+        </blockTable> 
+        
+             
+     </story>
+</document>
+
+

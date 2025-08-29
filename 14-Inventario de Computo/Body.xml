@@ -1,0 +1,710 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.3cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+      <setFont name="Helvetica" size="10" lineMode="single" />
+    <drawRigthString  x="10.5cm" y="26.5cm">Departamento:{{answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760}}              Persona Asignada: {{ answers.67bdd45b6126da535811f213 }}</drawRigthString>
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>  
+    <blockTable colWidths="3.5cm,6cm,3.5cm,6.5cm" style="table_sub5_two">
+        <tr>
+            <td><para style="text1"><b>Departamento:</b></para> </td>
+            <td><para style="text2">{{ answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 }}</para> </td>    
+            <td><para style="text1"><b>Persona Asignada:</b></para> </td>
+            <td><para style="text2">{{ answers.67bdd45b6126da535811f213 }}</para> </td>           
+        </tr>  
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>        
+                <blockTable colWidths="20cm" style="table_Header">
+                    <tr>
+                        <td><para style="datosTitulo">HARDWARE</para></td>
+                    </tr>
+                </blockTable>
+            </td>   
+        </tr>
+    </blockTable> 
+         
+    {% set desktop_si = "" %}
+    {% set desktop_no = "x" %}
+    {% set laptop_si = "" %}
+    {% set laptop_no = "x" %}
+    {% set todUno_si = "" %}
+    {% set todUno_no = "x" %}
+    {% set hp_si = "" %}
+    {% set hp_no = "x" %}
+    {% set dell_si = "" %}
+    {% set dell_no = "x" %}
+    {% set otros_si = "" %}
+    {% set otros_no = "x" %}
+    
+    {% for list_item in answers.67bdd840b2350fb0eb0b9d0b %}
+        {% if list_item == "Escritorio" %}
+          {% set desktop_si = "✓" %}
+          {% set desktop_no = "" %}
+         {% endif %}
+        {% if list_item == "Laptop" %}
+          {% set laptop_si = "✓" %}
+          {% set laptop_no = "" %}
+        {% endif %}
+        {% if list_item == "Todo en Uno" %}
+          {% set todUno_si = "✓" %}
+          {% set todUno_no = "" %}
+        {% endif %}
+    {% endfor %}
+    
+    {% for list_item in answers.67bdd840b2350fb0eb0b9d0c %}
+        {% if list_item == "HP" %}
+          {% set hp_si = "✓" %}
+          {% set hp_no = "" %}
+        {% endif %}
+        {% if list_item == "DELL" %}
+          {% set dell_si = "✓" %}
+          {% set dell_no = "" %}
+        {% endif %}
+        {% if list_item == "Otros" %}
+          {% set otros_si = "✓" %}
+          {% set otros_no = "" %}
+        {% endif %}
+    {% endfor %}
+       
+    <blockTable colWidths="20cm">        
+        <tr>
+            <td>
+                <blockTable colWidths="1.2cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,1.5cm,0.3cm,0.3cm,1.5cm,0.3cm,0.3cm" style="table_sub1_two">
+                    <tr>
+                        <td><para style="text1"><b>Tipo:</b> </para></td>                        
+                        <td><para style="text5">Escritorio</para></td>
+                        <td>{{desktop_si}}</td>
+                        <td>{{desktop_no}}</td>
+                        <td><para style="text5">Laptop</para></td>
+                        <td>{{laptop_si}}</td>
+                        <td>{{laptop_no}}</td>
+                        <td><para style="text5">Todo en Uno</para></td>
+                        <td>{{todUno_si}}</td>
+                        <td>{{todUno_no}}</td>
+                        <td><para style="text"><b>Marca:</b></para></td>
+                        <td></td>
+                        <td></td>
+                        <td><para style="text5">HP</para></td>
+                        <td>{{hp_si}}</td>
+                        <td>{{hp_no}}</td>
+                        <td><para style="text5">DELL</para></td>
+                        <td>{{dell_si}}</td>
+                        <td>{{dell_no}}</td>
+                        <td><para style="text5">Otros</para></td>
+                        <td>{{otros_si}}</td>
+                        <td>{{otros_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.2cm"/>
+                <blockTable colWidths="2cm,3cm,2cm,3cm,2cm,7.5cm" style="table_sub5_two">
+                    <tr>
+                        <td><para style="text1"> <b>Modelo: </b></para> </td>
+                        <td><para style="text2"> {{ answers.67bdd840b2350fb0eb0b9d0d}} </para> </td>  
+                        <td><para style="text1"> <b>No. Serie: </b></para> </td>
+                        <td><para style="text2"> {{ answers.67bdd840b2350fb0eb0b9d0e}} </para> </td>
+                        <td><para style="text1"> <b>Procesador:</b></para> </td>
+                        <td><para style="text2"> {{ answers.67bdd840b2350fb0eb0b9d0f}} </para> </td>                     
+                    </tr>
+                </blockTable>
+                <spacer length="0.2cm"/>
+                <blockTable colWidths="2cm,3cm,2cm,3cm,2cm,7.5cm" style="table_sub5_two">
+                    <tr>                    
+                        <td><para style="text1"> <b>Generación:</b></para> </td>
+                        <td><para style="text2"> {{ answers.67bdd840b2350fb0eb0b9d10}} </para> </td>
+                        <td><para style="text1"> <b>Velocidad:</b></para> </td>
+                        <td><para style="text2"> {{ answers.67bdd840b2350fb0eb0b9d11}} </para> </td>
+                        <td><para style="text1"> <b>RAM:</b></para> </td>
+                        <td><para style="text2"> {{ answers.67bdd840b2350fb0eb0b9d12}} GB</para> </td>                    
+                    </tr>
+                </blockTable>
+                
+            {% set hdd = '' %}
+            {% set ssd = '' %}
+            {% set amd = '' %}
+            {% set nvidia = '' %}
+
+            {% if answers.67bdd840b2350fb0eb0b9d13 == "HDD" %}
+            {% set hdd = '✓' %}
+            {% elif answers.67bdd840b2350fb0eb0b9d13 == "SSD" %}
+            {% set ssd = '✓' %}
+            {% endif %}
+            
+            {% if answers.67bdd840b2350fb0eb0b9d15 == "AMD" %}
+            {% set amd = '✓' %}
+            {% elif answers.67bdd840b2350fb0eb0b9d15 == "NVIDIA" %}
+            {% set nvidia = '✓' %}
+            {% endif %}
+        
+                <spacer length="0.2cm"/>
+                <blockTable colWidths="2cm,1.2cm,0.6cm,2cm,0.6cm,2cm,1.5cm,2.2cm,1.5cm,0.6cm,1.5cm,0.6cm,1.8cm,1.4cm" style="table_sub2_two">
+                    <tr>
+                        <td><para style="text1"><b>Disco Duro:</b> </para></td>                        
+                        <td><para style="text5">HDD</para></td>
+                        <td><para style="text3"> {{hdd}}</para> </td>
+                        <td><para style="text5">SDD</para></td>
+                        <td><para style="text3"> {{ssd}}</para> </td>
+                        <td><para style="text5">Capacidad:</para></td>
+                        <td><para style="text2">1024 GB</para></td>
+                        
+                        <td><para style="text1"><b>Tarjeta/Video:</b> </para></td>                        
+                        <td><para style="text5">AMD</para></td>
+                        <td><para style="text3"> {{amd}}</para> </td>
+                        <td><para style="text5">Nvidia</para></td>
+                        <td><para style="text3"> {{nvidia}}</para> </td>
+                        <td><para style="text5">Capacidad:</para></td>
+                        <td><para style="text2">1024 GB</para></td>
+                    </tr>
+                </blockTable>                                 
+            </td>
+        </tr> 
+    </blockTable>
+    
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>        
+                <blockTable colWidths="20cm" style="table_Header">
+                    <tr>
+                        <td><para style="datosTitulo">PERIFÉRICOS</para></td>
+                    </tr>
+                </blockTable>
+            </td>   
+        </tr>
+    </blockTable>
+    
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="1.5cm,1.5cm,3cm,2cm,3cm,2cm,4cm" style="table_sub6_two">
+                    <tr>
+                        <td><para style="text1"> <b>Monitor: </b></para></td>   
+                        <td><para style="text1"> <b>Marca: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bddf424374d9049b0f7c4d}}</para></td>  
+                        <td><para style="text1"> <b>Modelo: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bddf68a56934c13b67d65b}}</para></td>
+                        <td><para style="text1"> <b>No. Serie: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bddf68a56934c13b67d65c}}</para></td>                   
+                    </tr>
+                </blockTable>  
+            </td>
+                <blockTable colWidths="3cm">
+                    <td></td>
+                </blockTable>  
+        </tr>   
+    </blockTable>  
+    
+    <spacer length="0.1cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="1.5cm,1.5cm,3cm,2cm,3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text1"> <b>Teclado: </b></para></td>   
+                        <td><para style="text1"> <b>Marca: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bde17cc21762e0707f2ab5}}</para></td>  
+                        <td><para style="text1"> <b>No. Serie: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bde1b2fa147c7e8f0b9d01}}</para></td>      
+                    </tr>
+                </blockTable>
+            </td>  
+                <blockTable colWidths="8cm">
+                    <td></td>
+                </blockTable>  
+        </tr>   
+    </blockTable>              
+            
+    <spacer length="0.1cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="1.5cm,1.5cm,3cm,2cm,3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text1"> <b>Mouse: </b></para></td>   
+                        <td><para style="text1"> <b>Marca: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bde1b2fa147c7e8f0b9d02}}</para></td>  
+                        <td><para style="text1"> <b>No. Serie: </b></para></td>
+                        <td><para style="text2"> {{ answers.67bde1b2fa147c7e8f0b9d03}}</para></td>                   
+                    </tr>
+                </blockTable>
+            </td>
+                <blockTable colWidths="8cm">
+                    <td></td>
+                </blockTable>  
+        </tr>
+    </blockTable>
+    
+    <spacer length="0.1cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>    
+                <blockTable colWidths="1.5cm,1.5cm,3cm,2cm,3cm" style="table_sub7_two">
+                    <tr>
+                        <td><para style="text1"> <b>Cámara: </b></para></td>   
+                        <td><para style="text1"> <b>Marca: </b></para></td>
+                        <td><para style="text2"> N/A</para></td>  
+                        <td><para style="text1"> <b>No. Serie: </b></para></td>
+                        <td><para style="text2"> N/A</para></td>                      
+                    </tr>
+                </blockTable> 
+            </td>
+                <blockTable colWidths="8cm">
+                    <td></td>
+                </blockTable>
+        </tr>
+    </blockTable>
+    
+    {%set hp_si = "" %}
+    {%set hp_no = "x" %}
+    {%set epson_si = "" %}
+    {%set epson_no = "x" %}
+    {%set canon_si = "" %}
+    {%set canon_no = "x" %}
+    {%set otros_si = "" %}
+    {%set otros_no = "x" %}
+    
+    {% for list_item in answers.67bde461843d985b6511f22a %}
+        {% if list_item == "HP" %}
+          {% set hp_si = "✓" %}
+          {% set hp_no = "" %}
+        {% endif %}
+        {% if list_item == "EPSON" %}
+          {% set epson_si = "✓" %}
+          {% set epson_no = "" %}
+        {% endif %}
+        {% if list_item == "CANON" %}
+          {% set canon_si = "✓" %}
+          {% set canon_no = "" %}
+        {% endif %}
+        {% if list_item == "Otros" %}
+          {% set otros_si = "✓" %}
+          {% set otros_no = "" %}
+        {% endif %}
+    {% endfor %}    
+   
+    <blockTable colWidths="20cm">        
+        <tr>
+            <td>
+                <blockTable colWidths="2cm,1.2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,4cm" style="table_sub3_twoll">
+                    <tr>
+                        <td><para style="text1"><b>Impresora:</b> </para></td>                        
+                        <td><para style="text5">HP</para></td>
+                        <td>{{hp_si}}</td>
+                        <td>{{hp_no}}</td>
+                        <td><para style="text5">EPSON</para></td>
+                        <td>{{epson_si}}</td>
+                        <td>{{epson_no}}</td>
+                        <td><para style="text5">CANON</para></td>
+                        <td>{{canon_si}}</td>
+                        <td>{{canon_no}}</td>
+                        <td><para style="text5">OTROS</para></td>
+                        <td>{{otros_si}}</td>
+                        <td>{{otros_no}}</td>
+                        <td><para style="text5"><b>No. Serie:</b></para></td>
+                        <td><para style="text2">{{answers.67bde4b1f5b3724d2367d6d7}}</para></td>
+                    </tr>
+                </blockTable>
+            </td>
+        </tr> 
+    </blockTable>
+    
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>        
+                <blockTable colWidths="20cm" style="table_Header">
+                    <tr>
+                        <td><para style="datosTitulo">SOFTWARE</para></td>
+                    </tr>
+                </blockTable>
+            </td>   
+        </tr>
+    </blockTable> 
+    
+    {%set windows7_si = "" %}
+    {%set windows7_no = "x"}
+    {%set windows10_si = "" %}
+    {%set windows10_no = "x"}
+    {%set windows11_si = "" %}
+    {%set windows11_no = "x"}
+    {%set winOtros_si = "" %}
+    {%set winOtros_no = "x"}
+    
+    {%set office2013_si = "" %}
+    {%set office2013_no = "x"}
+    {%set office2016_si = "" %}
+    {%set office2016_no = "x"}
+    {%set office2021_si = "" %}
+    {%set office2021_no = "x"}
+    {%set visio_si = ""}
+    {%set visio_no = "x"}
+    {%set project_si = ""}
+    {%set project_no = "x"}
+    {%set sage_si = ""}
+    {%set sage_no = "x"}
+    {%set crystal_si = ""}
+    {%set crystal_no = "x"}
+    {%set compras_si = ""}
+    {%set compras_no = "x"}
+    {%set auxPlanilla_si = ""}
+    {%set auxPlanilla_no = "x"}
+    {%set winrar_si = ""}
+    {%set winrar_no = "x"}
+    {%set nitroPDF_si = ""}
+    {%set nitroPDF_no = "x"}
+    {%set otros_si = ""}
+    {%set otros_no = "x"}
+   
+    {% for list_item in answers.67bde539be89ffa86d67d675 %}
+        {% if list_item == "WIN 7" %}
+          {% set windows7_si = "✓" %}
+          {% set windows7_no = "" %}
+        {% endif %}
+        {% if list_item == "WIN 10" %}
+          {% set windows10_si = "✓" %}
+          {% set windows10_no = "" %}
+        {% endif %}
+        {% if list_item == "WIN 11" %}
+          {% set windows11_si = "✓" %}
+          {% set windows11_no = "" %}
+        {% endif %}
+        {% if list_item == "OTROS" %}
+          {% set winOtros_si = "✓" %}
+          {% set winOtros_no = "" %}
+        {% endif %}
+    {% endfor %}
+    
+    {% for list_item in answers.67bde573fa147c7e8f0b9d3c %}
+        {% if list_item == "Office 2013" %}
+          {% set office2013_si = "✓" %}
+          {% set office2013_no = "" %}
+        {% endif %}
+        {% if list_item == "Office 2016" %}
+          {% set office2016_si = "✓" %}
+          {% set office2016_no = "" %}
+        {% endif %}
+        {% if list_item == "Office 2021" %}
+          {% set office2021_si = "✓" %}
+          {% set office2021_no = "" %}
+        {% endif %}
+        {% if list_item == "Visio" %}
+          {% set visio_si = "✓" %}
+          {% set visio_no = "" %}
+        {% endif %}
+        {% if list_item == "Project" %}
+          {% set project_si = "✓" %}
+          {% set project_no = "" %}
+        {% endif %}
+        {% if list_item == "Sage" %}
+          {% set sage_si = "✓" %}
+          {% set sage_no = "" %}
+        {% endif %}
+        {% if list_item == "Crystal" %}
+          {% set crystal_si = "✓" %}
+          {% set crystal_no = "" %}
+        {% endif %}
+        {% if list_item == "Compras" %}
+          {% set compras_si = "✓" %}
+          {% set compras_no = "" %}
+        {% endif %}
+        {% if list_item == "Aux. Planilla" %}
+          {% set auxPlanilla_si = "✓" %}
+          {% set auxPlanilla_no = "" %}
+        {% endif %}
+        {% if list_item == "WinRAR" %}
+          {% set winrar_si = "✓" %}
+          {% set winrar_no = "" %}
+        {% endif %}
+        {% if list_item == "Nitro PDF" %}
+          {% set nitroPDF_si = "✓" %}
+          {% set nitroPDF_no = "" %}
+        {% endif %}
+        {% if list_item == "Otras Aplicaciones" %}
+          {% set otros_si = "✓" %}
+          {% set otros_no = "" %}
+        {% endif %}
+    {% endfor %}
+      
+    <blockTable colWidths="20cm">        
+        <tr>
+            <td>
+                <blockTable colWidths="4.5cm,1.3cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm" style="table_sub3_twol">
+                    <tr>
+                        <td><para style="text1"><b>Sistema Operativo:</b> </para></td>                        
+                        <td><para style="text5">WIN7</para></td>
+                        <td>{{windows7_si}}</td>
+                        <td>{{windows7_no}}</td>
+                        <td><para style="text5">WIN10</para></td>
+                        <td>{{windows10_si}}</td>
+                        <td>{{windows10_no}}</td>
+                        <td><para style="text5">WIN11</para></td>
+                        <td>{{windows11_si}}</td>
+                        <td>{{windows11_no}}</td>
+                        <td><para style="text5">OTROS</para></td>
+                        <td>{{winOtros_si}}</td>
+                        <td>{{winOtros_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>
+                <blockTable colWidths="4cm,1.8cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm" style="table_sub4_twol">
+                    <tr>
+                        <td><para style="text1"><b>Paquete Office: </b> </para></td> 
+                        <td><para style="text5">2013</para></td>
+                        <td>{{office2013_si}}</td>
+                        <td>{{office2013_no}}</td>                       
+                        <td><para style="text5">2016</para></td>
+                        <td>{{office2016_si}}</td>
+                        <td>{{office2016_no}}</td>
+                        <td><para style="text5">2019</para></td>
+                        <td></td>
+                        <td></td>
+                        <td><para style="text5">2021</para></td>
+                        <td>{{office2021_si}}</td>
+                        <td>{{office2021_no}}</td>
+                        <td><para style="text5">2024</para></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>
+                <blockTable colWidths="4.5cm,1.3cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm" style="table_sub4_two">
+                    <tr>
+                        <td><para style="text1"><b>Ofimatica: </b> </para></td>                        
+                        <td><para style="text5">Visio</para></td>
+                        <td>{{visio_si}}</td>
+                        <td>{{visio_no}}</td>
+                        <td><para style="text5">Project</para></td>
+                        <td>{{project_si}}</td>
+                        <td>{{project_no}}</td>
+                        <td><para style="text5">Sage</para></td>
+                        <td>{{sage_si}}</td>
+                        <td>{{sage_no}}</td>
+                        <td><para style="text5">Crystal</para></td>
+                        <td>{{crystal_si}}</td>
+                        <td>{{crystal_no}}</td>
+                    </tr>
+                </blockTable>
+                <spacer length="0.1cm"/>
+                <blockTable colWidths="4cm,1.8cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm" style="table_sub4_twol">
+                    <tr>
+                        <td></td>                        
+                        <td><para style="text5">Compras</para></td>
+                        <td>{{compras_si}}</td>
+                        <td>{{compras_no}}</td>
+                        <td><para style="text5">Aux/Planilla</para></td>
+                        <td>{{auxPlanilla_si}}</td>
+                        <td>{{auxPlanilla_no}}</td>
+                        <td><para style="text5">WinRar</para></td>
+                        <td>{{winrar_si}}</td>
+                        <td>{{winrar_no}}</td>
+                        <td><para style="text5">NitroPDF</para></td>
+                        <td>{{nitroPDF_si}}</td>
+                        <td>{{nitroPDF_no}}</td>
+                        <td><para style="text5">Otros</para></td>
+                        <td>{{otros_si}}</td>
+                        <td>{{otros_no}}</td>
+                    </tr>
+                </blockTable>
+                
+        {% set antivirus_si = "" %}
+        {% set antivirus_no = "x" %}
+        {% set antOtros_si = "" %}
+        {% set antOtros_no = "x" %}
+            {% for list_item in answers.67bde8122a9f58343867d68a%}
+                {% if list_item == "END POINT" %}
+                  {% set antivirus_si = "✓" %}
+                {% endif %}
+                {% if list_item == "Otros" %}
+                  {% set antOtros_si = "✓" %}
+                {% endif %}
+            {% endfor %}
+                <spacer length="0.1cm"/>
+                <blockTable colWidths="3cm,2.8cm,0.3cm,0.3cm,2cm,3cm,2.2cm,0.3cm,0.3cm" style="table_sub8_two">
+                    <tr>                     
+                        <td><para style="text1"><b>Antivirus:</b></para></td>
+                        <td><para style="text5">Eset/EndPoint</para></td>
+                        <td>{{antivirus_si}}</td>
+                        <td>{{antivirus_no}}</td>
+                        <td><para style="text5">Versión</para></td>
+                        <td><para style="text2">{{answers.67bde8122a9f58343867d68b}}</para></td>
+                        <td><para style="text5">Otros</para></td>
+                        <td>{{antOtros_si}}</td>
+                        <td>{{antOtros_no}}</td>
+                    </tr>
+                </blockTable>
+
+        {% set qnap_si = "" %}
+        {% set qnap_no = "x" %}                        
+        {% set cinco_si = "" %}
+        {% set cinco_no = "x" %}
+        {% set seis_si = "" %}
+        {% set seis_no = "x" %}
+        {% for list_item in answers.67bde8122a9f58343867d68c %}
+            {% if list_item == "QNAP" %}
+                {% set qnap_si = "✓" %}
+            {% endif %}
+            {% if list_item == "QNAP 192.168.149.5" %}
+                {% set cinco_si = "✓" %}
+            {% endif %}
+            {% if list_item == "QNAP 192.168.149.6" %}
+                {% set seis_si = "✓" %}        
+            {% endif %}
+        {% endfor %}
+
+                <spacer length="0.1cm"/>
+                <blockTable colWidths="3cm,2.8cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,0.3cm,0.3cm,2cm,1cm,1.6cm,3.4cm" style="table_sub9_two">
+                    <tr>                     
+                        <td><para style="text1"><b>Backup:</b></para></td>
+                        <td><para style="text5">QNAP</para></td>
+                        <td>{{qnap_si}}</td>
+                        <td>{{qnap_no}}</td>
+                        <td><para style="text5">192.168.149.5</para></td>
+                        <td>{{cinco_si}}</td>
+                        <td>{{cinco_no}}</td>
+                        <td><para style="text5">192.168.149.6</para></td>
+                        <td>{{seis_si}}</td>
+                        <td>{{seis_no}}</td>
+                        <td><para style="text5">Versión</para></td>
+                        <td><para style="text2">{{answers.67bde8122a9f58343867d68d}}</para></td>
+                        <td><para style="text5">Carpeta</para></td>
+                        <td><para style="text2">{{answers.67bde8122a9f58343867d68e}}</para></td>
+                    </tr>
+                </blockTable>
+        
+        {% set email_si = "" %}
+        {% set email_no = "" %}
+        {% if answers.67bde8122a9f58343867d690 == "SI" %}
+            {% set email_si = "✓" %}
+            {% set email_no = "" %}
+        {% elif answers.67bde8122a9f58343867d690 == "No" %}
+            {% set email_si = "" %}
+            {% set email_no = "✓" %}
+        {% endif %}
+
+                <spacer length="0.1cm"/>
+                <blockTable colWidths="5.8cm,0.3cm,0.3cm,2cm,3cm,2.2cm,6cm" style="table_sub10_two">
+                    <tr>                     
+                        <td><para style="text5"><b>Email Configurado Backup</b></para></td>
+                        <td>{{email_si}}</td>
+                        <td>{{email_no}}</td>
+                        <td><para style="text5">Día/Hora</para></td>
+                        <td><para style="text2">{{answers.67bde8122a9f58343867d68f}}</para></td>
+                        <td><para style="text5">Email</para></td>
+                        <td><para style="text2">{{answers.67bde8122a9f58343867d691}}</para></td>
+                    </tr>
+                </blockTable>
+            </td>
+        </tr> 
+    </blockTable>
+
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>        
+                <blockTable colWidths="20cm" style="table_Header">
+                    <tr>
+                        <td><para style="datosTitulo">CONFIGURACIÓN</para></td>
+                    </tr>
+                </blockTable>
+            </td>   
+        </tr>
+    </blockTable> 
+    <Spacer length="0.5cm"/>
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="3cm,1.5cm,3cm,2.5cm,3cm,3cm,3.5cm" style="table_sub6_two">
+                    <tr>
+                        <td><para style="text1"> <b>Datos de Dominio: </b></para></td>   
+                        <td><para style="text1"> <b>Usuario </b></para></td>
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7c9c}}</para></td>  
+                        <td><para style="text1"> <b>Usuario Local</b></para></td>
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7c9d}}</para></td>
+                        <td><para style="text1"> <b>Nombre de Maquina</b></para></td>
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7c9f}}</para></td>                   
+                    </tr>
+                </blockTable>
+            </td>
+        </tr>   
+    </blockTable> 
+    <Spacer length="0.5cm"/> 
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="2.5cm,2cm,3cm,2.5cm,3cm" style="table_sub11_two">
+                    <tr>
+                        <td><para style="text1"> <b>Interfaz de RED: </b></para></td>  
+                        <td><para style="text1"> <b>Dirección IP</b></para></td>
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7c9e}}</para></td>  
+                        <td><para style="text1"> <b>MC Adress</b></para></td>
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7ca0}}</para></td>                
+                    </tr>
+                </blockTable>    
+            </td>
+        </tr>   
+    </blockTable> 
+    
+    <Spacer length="0.5cm"/> 
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="4.5cm,15cm" style="table_sub12_two">
+                    <tr>
+                        <td><para style="text1"> <b>Correos Electronicos: </b></para></td>  
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7ca1}}</para></td>              
+                    </tr>
+                </blockTable>    
+            </td>
+        </tr>   
+    </blockTable>
+    
+    <Spacer length="0.5cm"/> 
+    <blockTable colWidths="20cm">
+        <tr>
+            <td>
+                <blockTable colWidths="4.5cm,15cm" style="table_sub12_two">
+                    <tr>
+                        <td><para style="text1"> <b>Observaciones: </b></para></td>  
+                        <td><para style="text2"> {{ answers.67bdec1c2aa837b39b0f7ca2}}</para></td>              
+                    </tr>
+                </blockTable>    
+            </td>
+        </tr>   
+    </blockTable>  
+    
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

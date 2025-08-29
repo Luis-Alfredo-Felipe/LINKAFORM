@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="PTSans" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/PTSans-Regular.ttf" />
+        <registerTTFont faceName="PTSans-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/PTSans-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="DejaVuSans" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/DejaVuSans.ttf" />
+    </docinit>
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,34cm)">
+        <pageTemplate id="first" pageSize="(21cm,34cm)">
+            <frame id="first"    x1="1.5cm"   y1="1.5cm" width="18cm"   height="24.5cm"/>
+            <pageGraphics>
+                <setFont name="Helvetica" size="7.5"/>
+                <drawCenteredString x="10.2cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Helvetica" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+
+    <story> 
+        <blockTable colWidths="4.5cm,4.5cm,4.5cm,4.5cm" style="mtto_header">
+            <tr>
+                <td><para style="text1"><b>Nombre del Proyecto:</b> </para></td>
+                <td><para style="text2"> {{answers.6876a537359a682ede8ab262}}</para></td>
+                <td><para style="text1"><b>No ODT:</b> </para></td>
+                <td><para style="text2"> {{answers.6876a537359a682ede8ab263}}</para></td>
+            </tr>
+            <tr>
+                <td><para style="text1"><b>Fecha de Inicio Proyecto:</b> </para></td>
+                <td><para style="text2"> {{answers.687ec4edf9fa5cbf631ff0b0}}</para></td>
+                <td><para style="text1"><b>Fecha Final de Proyecto:</b> </para></td>
+                <td><para style="text2"> {{answers.687ec4edf9fa5cbf631ff0b0}}</para></td>
+            </tr>
+        </blockTable>
+        
+        {% set version_1_si = '' %}
+        {% set version_1_no = '' %}
+        {% set version_2_si = '' %}
+        {% set version_2_no = '' %}
+        {% set version_3_si = '' %}
+        {% set version_3_no = '' %}
+        
+        {% if answers.687fc63b9a5a65cf2c1fef9e == "Versión 1" %}
+          {% set version_1_si = '✓' %}
+          {% set version_1_no = '' %}
+        {% elif answers.687fc63b9a5a65cf2c1fef9e == "Versión 2" %}
+          {% set version_2_si = '✓' %}
+          {% set version_2_no = '' %}
+        {% elif answers.687fc63b9a5a65cf2c1fef9e == "Versión 3" %}
+          {% set version_3_si = '✓' %}
+          {% set version_3_no = '' %}
+        {% endif %}
+        
+        <spacer length="0.5cm" />
+          <blockTable colWidths="3cm,3cm,1cm,3cm,1cm,3cm,1cm" style="table_sub2_two">
+             <tr>
+               <td><para style="dataBB"><b>Versiones: </b></para></td>
+               <td><para style="checklistll"><b>Version 1</b></para></td>
+               <td><para style="text4">{{ version_1_si }} {{ version_1_no }}</para></td>
+               <td><para style="checklistll"><b>Version 2</b></para></td>
+               <td><para style="text4">{{ version_2_si }} {{ version_2_no }}</para></td>
+               <td><para style="checklistll"><b>Version 3</b></para></td>
+               <td><para style="text4">{{ version_3_si }} {{ version_3_no }}</para></td>
+             </tr>
+          </blockTable>
+        
+        <spacer length="0.5cm"/>
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#000000"><para style="barra"> N/A </para></td>
+            </tr>
+        </blockTable>     
+        
+        <blockTable colWidths="18cm" style="TablaTitulo">
+            <tr>
+                <td><para style="title">FASE 1</para></td>
+            </tr>
+            <tr>
+                <td><para style="title">********************************************** HERRERERIA Y ENSAMBLE ******************************************************</para></td>
+            </tr>
+            <tr>
+                <td><para style="parrafo">Este formulario de Control de Calidad ha sido creado para asegurar la consistencia y trazabilidad en la inspección, de las fases de Herrería y Ensamble. Por favor, complete cada campo con objetividad y detalle para identificar  oportunamente cualquier no cumplimiento y facilitar la mejora continua de nuestros procesos.</para></td>
+            </tr>
+        </blockTable>  
+        
+        <spacer length="0.5cm"/>
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="text3">Descripción </para></td>
+                <td background="#222728"><para style="text3">Cumple </para></td>
+                <td background="#222728"><para style="text3">No Cumple </para></td>
+                <td background="#222728"><para style="text3">Observaciones </para></td>
+                <td background="#222728"><para style="text3">Operario </para></td>
+            </tr>
+        </blockTable>        
+
+        {% set c_si = '' %}
+        {% set c_no = '' %}
+        {% if answers.6876bb22e476a2aac9f01279 == "Cumple" %}
+                {% set c_si = '✔' %}
+                {% set c_no = '' %}
+        {% elif answers.6876bb22e476a2aac9f01279 == "No cumple" %}
+                {% set c_si = '' %}
+                {% set c_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">1. Dimensiones y tolerancias: ¿Las piezas cumplen con medidas según plano?*</para></td>
+                <td><para style="checklist">{{ c_si }}</para></td>
+                <td><para style="checklist">{{ c_no }}</para></td>
+                <td><para style="text2">{{ answers.6876bb22e476a2aac9f0127a }}</para></td>
+                <td><para style="text2">{{ answers.687967b15794cff7bb29a5b8 }}</para></td>
+            </tr>
+        </blockTable>
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable>       
+
+        {% set cl_si = '' %}
+        {% set cl_no = '' %}
+        {% if answers.6876c101fffe4dcc4acad43e == "Cumple" %}
+                {% set cl_si = '✔' %}
+                {% set cl_no = '' %}
+        {% elif answers.6876c101fffe4dcc4acad43e == "No cumple" %}
+                {% set cl_si = '' %}
+                {% set cl_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">2. Alineación y nivelación: ¿Componentes ensamblados están alineados y nivelados?*</para></td>
+                <td><para style="checklist">{{ cl_si }}</para></td>
+                <td><para style="checklist">{{ cl_no }}</para></td>
+                <td><para style="text2">{{ answers.6876c101fffe4dcc4acad43f }}</para></td>
+                <td><para style="text2">{{ answers.68796ca45a8b0ee55132ddd3 }}</para></td>
+            </tr>
+        </blockTable>
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable>       
+
+        {% set cll_si = '' %}
+        {% set cll_no = '' %}
+        {% if answers.6876c101fffe4dcc4acad440 == "Cumple" %}
+                {% set cll_si = '✔' %}
+                {% set cll_no = '' %}
+        {% elif answers.6876c101fffe4dcc4acad440 == "No cumple" %}
+                {% set cll_si = '' %}
+                {% set cll_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">3. Calidad de soldaduras: ¿Soldaduras uniformes, sin poros, grietas ni salpicaduras?*</para></td>
+                <td><para style="checklist">{{ cll_si }}</para></td>
+                <td><para style="checklist">{{ cll_no }}</para></td>
+                <td><para style="text2">{{ answers.6876c56911a08a391729a63c }}</para></td>
+                <td><para style="text2">{{ answers.68796ca45a8b0ee55132ddd4 }}</para></td>
+            </tr>
+        </blockTable> 
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable>      
+        
+        {% set clll_si = '' %}
+        {% set clll_no = '' %}
+        {% if answers.6876c56911a08a391729a63d == "Cumple" %}
+                {% set clll_si = '✔' %}
+                {% set clll_no = '' %}
+        {% elif answers.6876c56911a08a391729a63d == "No cumple" %}
+                {% set clll_si = '' %}
+                {% set clll_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">4. Perfiles y bordes: ¿No hay rebabas, filos cortantes ni irregularidades en los bordes?</para></td>
+                <td><para style="checklist">{{ clll_si }}</para></td>
+                <td><para style="checklist">{{ clll_no }}</para></td>
+                <td><para style="text2">{{ answers.6876c56911a08a391729a63e }}</para></td>
+                <td><para style="text2">{{ answers.68796ca45a8b0ee55132ddd5 }}</para></td>
+            </tr>
+        </blockTable>
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable> 
+        
+        {% set clv_si = '' %}
+        {% set clv_no = '' %}
+        {% if answers.6876c56911a08a391729a63f == "Cumple" %}
+                {% set clv_si = '✔' %}
+                {% set clv_no = '' %}
+        {% elif answers.6876c56911a08a391729a63f == "No cumple" %}
+                {% set clv_si = '' %}
+                {% set clv_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">5. Fijación mecánica: ¿Tornillos, tuercas y pernos ajustados al torque especificado?</para></td>
+                <td><para style="checklist">{{ clv_si }}</para></td>
+                <td><para style="checklist">{{ clv_no }}</para></td>
+                <td><para style="text2">{{ answers.6876c56911a08a391729a640 }}</para></td>
+                <td><para style="text2">{{ answers.68796ca45a8b0ee55132ddd6 }}</para></td>
+            </tr>
+        </blockTable>  
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable> 
+        
+        {% set cvl_si = '' %}
+        {% set cvl_no = '' %}
+        {% if answers.6876c56911a08a391729a641 == "Cumple" %}
+                {% set cvl_si = '✔' %}
+                {% set cvl_no = '' %}
+        {% elif answers.6876c56911a08a391729a641 == "No cumple" %}
+                {% set cvl_si = '' %}
+                {% set cvl_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">6.Posicionamiento de piezas: ¿Todas las partes están en la ubicación correcta?</para></td>
+                <td><para style="checklist">{{ cvl_si }}</para></td>
+                <td><para style="checklist">{{ cvl_no }}</para></td>
+                <td><para style="text2">{{ answers.6876c56911a08a391729a642 }}</para></td>
+                <td><para style="text2">{{ answers.68796ca45a8b0ee55132ddd7 }}</para></td>
+            </tr>
+        </blockTable> 
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable> 
+        
+        {% set cvll_si = '' %}
+        {% set cvll_no = '' %}
+        {% if answers.6876c56911a08a391729a643 == "Cumple" %}
+                {% set cvll_si = '✔' %}
+                {% set cvll_no = '' %}
+        {% elif answers.6876c56911a08a391729a643 == "No cumple" %}
+                {% set cvll_si = '' %}
+                {% set cvll_no = '✔' %}
+        {% endif %}
+
+        <blockTable colWidths="3.5cm,3.5cm,3.5cm,4cm,3.5cm" style="contenido">
+            <tr>
+                <td><para style="text2">7.Limpieza previa: ¿Superficies libres de aceite, grasa y polvo antes de soldar/ensamblar?</para></td>
+                <td><para style="checklist">{{ cvll_si }}</para></td>
+                <td><para style="checklist">{{ cvll_no }}</para></td>
+                <td><para style="text2">{{ answers.6876c56911a08a391729a644 }}</para></td>
+                <td><para style="text2">{{ answers.68796ca45a8b0ee55132ddd8 }}</para></td>
+            </tr>
+        </blockTable>            
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td background="#222728"><para style="barrall"> </para></td>
+            </tr>
+        </blockTable> 
+        
+        <spacer length="2cm"/>        
+        <blockTable colWidths="18cm" style="TablaTitulo">
+            <tr>
+                <td><para style="footer">Doy fe a que producto  fue verificado de manera rigurosa y efectiva para todos los productos cumplan con los criterios establecidos en este checklist</para></td>
+            </tr>
+        </blockTable>
+        
+        <blockTable colWidths="18cm" style="contenido">
+            <tr>
+                <td><para style="footer">=======================================================================</para></td>
+            </tr>
+            <tr>
+                <td><para style="footer"> EDGAR GIOVANIE GARCIA - RESPONSABLE DE CC </para></td>
+            </tr>
+        </blockTable>     
+
+     </story>
+</document>
+
+

@@ -97,13 +97,6 @@
     <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="9,0" stop="9,0"/>
 </blockTableStyle>
 
-<blockTableStyle id="table_sub7_two">
- <blockValign value="TOP"/>
-    <blockAlignment value="center" start="0,0" stop="-1, -1" />
-    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="1,0"/>
-    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="3,0" stop="3,0"/>
-</blockTableStyle>
-
 <paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" />
 <paraStyle name="datos" fontName="Helvetica Bold" fontSize="6" leading="7" alignment="center" />
 <paraStyle name="dfecha" fontName="Helvetica" fontSize="8" leading="7" alignment="center" />

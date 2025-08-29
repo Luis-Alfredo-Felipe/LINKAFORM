@@ -1,0 +1,57 @@
+SE HA GENERADO UN NUEVO TICKET DEL USUARIO: 
+<br>
+<br>
+PRIORIDAD:  <B><FONT COLOR="red">{{record.answers.685dd8ffdc050f9aa14fbdcb}}</FONT>
+ <br>
+ <br>
+JUSTIFICACIÓN DE PRIORIDAD ALTA:  <B><FONT COLOR="red">{{record.answers.685dd959e458a45105bdf339}}</FONT>                                                 
+<br>
+ <br>
+ÁREA QUE SOLICITA: <b><font color="#3B3EEF "> {{record.answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760}} </font>                                                                                                                         
+<br>
+<br>
+TICKET No. {{record.folio}}
+<br>
+<br>
+FECHA DE CREACION: {{record.created_at}}
+<br>
+<br>
+REGISTRO: {{record_url}}?token={{expiration_token}}&form_id={{record.form_id}}
+<br>
+<br>
+
+Categoría: {{ record.answers.685b2e625eb52ee7fb75292c|join:", " }} - 
+Detalle:  
+{{ record.answers.685ae5ff78164c38f537a4a2|join:", " }}
+{{ record.answers.685b03feab4d9338fb7277a8|join:", " }}
+{{ record.answers.68752b1ff99a20041c54e6eb|join:", " }}
+{{ record.answers.68752bfff99a20041c54e710|join:", " }}
+{{ record.answers.68758c6732f81f20a929a62a|join:", " }}
+{{ record.answers.68758ea5a5f94355198ab1eb|join:", " }}
+{{ record.answers.68753673c08628d77c1fd7f4|join:", " }}
+{{ record.answers.685b05f8dc683de0a52a5370|join:", " }}
+{{ record.answers.685db593275043112cbdf384|join:", " }}
+{{ record.answers.685dbd391e90061540834227|join:", " }}
+{{ record.answers.685dc2e75b256e7c014fbd41|join:", " }}
+{{ record.answers.685dc9c6742b89c877ab5054|join:", " }} - 
+Descripción: {{record.answers.685dd481b606817f31ab5073 }}
+<br>
+<br>
+DETALLE SOLICITUD LINKAFORM: <b><font color="#3B3EEF "> {{record.answers.68752bfff99a20041c54e710}} </font>  
+<br>
+<br>
+DETALLE SOLICITUD ZOHO: <b><font color="#3B3EEF "> {{record.answers.68758ea5a5f94355198ab1eb}} </font>  
+<br>
+<br>
+FECHA REUNIÓN: <b><font color="#3B3EEF "> {{record.answers.687e889b344a34842c14b668}} </font>    
+<br>
+<br>
+HORA REUNIÓN: <b><font color="#3B3EEF "> {{record.answers.687e88c0344a34842c14b66b}} </font>    
+<br>
+<br>
+LUGAR REUNION PROPUESTA: <b><font color="#3B3EEF "> {{record.answers.687e889b344a34842c14b669}} </font>    
+<br>
+<br>
+ESTATUS: <B><FONT COLOR="green">{{record.answers.68767b5a4ee4cf243729a606}} </FONT>
+<br>
+© 2025 Departamento IT /SELECOMET: Desarrollo Linkaform

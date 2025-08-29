@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+
+  <pageInfo pageSize="34cm,20cm)" doc:example="" />
+  <template  title="Mtto Vehiculos" author="LinkaForm" pagesize="(34cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.1cm" y1="2cm"  width="32cm" height="13cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="32cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <story> 
+    
+   <spacer length="1cm" />
+    <blockTable colWidths="2cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,3cm,2cm,2cm,2cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">Marca</para></td>
+          <td><para style="Encabezados">Placa</para></td>
+          <td><para style="Encabezados">Año</para></td>
+          <td><para style="Encabezados">Tipo Vehiculo</para></td>
+          <td><para style="Encabezados">Color</para></td>
+          <td><para style="Encabezados">KM Actual</para></td>
+          <td><para style="Encabezados">KM Proximo Servicio</para></td>
+          <td><para style="Encabezados">Mes Cierre</para></td>          
+          <td><para style="Encabezados">Tipo de Servicio</para></td>          
+          <td><para style="Encabezados">Servicio</para></td>
+          <td><para style="Encabezados">Tipo Trabajo (Comentario)</para></td>          
+          <td><para style="Encabezados">Fecha de Recepcion</para></td>   
+          <td><para style="Encabezados">Fecha de Entrega</para></td>
+          <td><para style="Encabezados">Taller</para></td>          
+        </tr>              
+    </blockTable>
+    
+    <blockTable colWidths="2cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,2cm,3cm,2cm,2cm,2cm" style="table_contenido">      
+    {% for record_mult in answers_list|slice:"1" %}
+    {% for record_mult in answers_list %}
+      <tr>
+        <td background="#e1f4ff"><para style="datos"> {% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a1 %}{{ select }}{% endfor %}</para></td>          
+        <td background="#e1f4ff"><para style="datos"> {% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a4 %}{{ select }}{% endfor %}</para></td>             
+        <td background="#e1f4ff"><para style="datos"> {% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a2 %}{{ select }}{% endfor %}</para></td> 
+        <td background="#e1f4ff"><para style="datos"> {% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a3.0 %}{{ select }}{% endfor %}</para></td>
+        <td background="#e1f4ff"><para style="datos"> {% for select in record_mult.answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a5 %}{{ select }}{% endfor %}</para></td>          
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+        <td background="#e1f4ff"></td>
+      </tr>      
+    
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>          
+        {% set kmActual = 0 %}
+        {% if  answers.5fce3cd3a5c4c7bd75d27cc5|length == 1 %}
+            {% set kmActual = record_mult.answers.5fce3cd3a5c4c7bd75d27cc5.0 %}
+        {% else %}
+            {% set kmActual = record_mult.answers.5fce3cd3a5c4c7bd75d27cc5 %}
+        {% endif %}
+        <td><para style="datos">{{kmActual}}</para></td>                  
+        <td><para style="datos"> {% for select in record_mult.answers.60e70c232c27fd70a8fb6cd5 %}{{ select }}{% endfor %}</para></td>     
+        <td><para style="datos"> {% for select in record_mult.answers.601c05614cdc5855852cd3fc.601c05614cdc5855852cd3fe %}{{ select }}{% endfor %}</para></td>             
+        <td><para style="datos"> {% for select in record_mult.answers.5fff6e9094db605ad4650a66.60c7c5ea415fc5a583a62ebb %}{{ select }}{% endfor %}</para></td>
+        <td><para style="datos"> {% for select in record_mult.answers.5fff6e9094db605ad4650a66.5fff6ee9316061bf5cf19555 %}{{ select }}{% endfor %}</para></td>     
+        <td><para style="datos"> {% for select in record_mult.answers.6173257937506f10cf143598 %}{{ select }}{% endfor %}</para></td>          
+        <td><para style="datos"> {% for select in record_mult.answers.5fce3cd3a5c4c7bd75d27cc2 %}{{ select }}{% endfor %}</para></td>          
+        <td><para style="datos"> {% for select in record_mult.answers.5fce3cd3a5c4c7bd75d27ccf %}{{ select }}{% endfor %}</para></td>          
+        <td><para style="datos"> {% for select in record_mult.answers.5fff70ca4373cd0d836aac43.60a570c078d994eb7c6094ea %}{{ select }}{% endfor %}</para></td>              
+      </tr>
+    {% endfor %}
+    {% endfor %}  
+  </blockTable>
+              
+    {% autoescape on %}
+    {{ Template.style|safe }}
+      {% endautoescape %}
+    </story>
+</document>

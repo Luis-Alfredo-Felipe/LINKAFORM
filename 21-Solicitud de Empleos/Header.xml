@@ -1,0 +1,17 @@
+<image x="15cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="4cm" height="2cm" />
+<image x="2.3cm" y="26.8cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/683f940a7baef0ae9885fc95.png " width="3cm" height="1.5cm" />
+
+<setFont name="Montserrat-Bold" size="12"/>
+<drawCentredString x="10.5cm" y="26.5cm"> SOLICITUD DE EMPLEO</drawCentredString>
+
+<!-- Línea Horizontal superior -->
+<lines>1.5cm 28.5cm 19.5cm 28.5cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<!-- Línea Horizontal inferior -->
+<lines>1.5cm 3cm 19.5cm 3cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<!-- Línea vertical izquierda -->
+<lines>1.5cm 3cm 1.5cm 28.5cm</lines>
+<!-- Línea vertical derecha -->
+<lines>19.5cm 3cm 19.5cm 28.5cm</lines>
+

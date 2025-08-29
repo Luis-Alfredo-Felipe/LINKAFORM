@@ -93,7 +93,7 @@
         {% add_total 'total' subtotal %}    
       {% endfor %}             
     </blockTable>
-  
+
     <spacer length="0.5cm" />       
     <blockTable colWidths="15cm,2.5cm,2.5cm" style="table_sub3_two">
     {% set total_general = 0.0 %}

@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,32cm)">
+        <pageTemplate id="first" pageSize="(21cm,34cm)">
+            <frame id="first"    x1="1.5cm"   y1="1.5cm" width="18cm"   height="24.5cm"/>
+            <pageGraphics>
+                <setFont name="Montserrat-Regular" size="7.5"/>
+                <drawCenteredString x="10.2cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Montserrat-Regular" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+
+    <story>    
+        <spacer length="0.5cm"/>
+        <blockTable colWidths="18cm">  
+            <tr>
+                <td>
+                    <blockTable colWidths="9cm,3cm,6cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"></para></td>                            
+                            <td><para style="text1"><b>Lugar y Fecha:</b> </para></td>
+                            <td><para style="text2"> {{answers.68668f1aa6993634752e9ccb}}, {{answers.68668efdcd8f84582e5a589e}}</para></td>
+                        </tr>
+                    </blockTable>
+                </td>
+            </tr> 
+        </blockTable>
+        
+        <spacer length="0.2cm"/>
+        <blockTable colWidths="18cm">  
+            <tr>
+                <td>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">DATOS GENERALES</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="3cm,6cm,3cm,6cm" style="table_sub2_two">
+                        <tr>                        
+                            <td><para style="text1"><b>Empresa:</b> </para></td>
+                            <td><para style="textt"> {{answers.6866903fb93c4e2a485a58e4}}</para></td>   
+                        </tr>
+                        <tr>                        
+                            <td><para style="text1"><b>Área:</b> </para></td>
+                            {% set dato = answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 %}
+                            <td><para style="textt"> {{ dato|first }} </para></td>
+                            <td><para style="text1"><b>Período plan:</b></para></td>
+                            <td><para style="textt"> {{answers.686690d07c43ff0c0aeb1806}}</para></td>
+                        </tr>
+                        <tr>                        
+                            <td><para style="text1"><b>Fecha elaboración:</b> </para></td>
+                            <td><para style="textt"> {{answers.686690d07c43ff0c0aeb1807}}</para></td>   
+                            <td><para style="text1"><b>Elaborado por:</b></para></td>
+                            <td><para style="textt"> {{answers.686690d07c43ff0c0aeb1808}}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">OBJETIVOS DEL PLAN DE CAPACITACION:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set habilidades = '' %}
+                    {% set conocimientos = '' %}
+                    {% set induccion = '' %}
+                    {% set otros = '' %}
+
+                    {% for list_item in answers.686691ca1f057c4a53772fcf %}
+                        {% if list_item == 'A. Mejora de Habilidades Técnicas' %}
+                            {% set habilidades = 'X' %}
+                        {% endif %}
+                        {% if list_item == 'B. Desarrollo de Nuevos Conocimientos' %}
+                            {% set conocimientos = 'X' %}
+                        {% endif %}
+                        {% if list_item == 'C. Inducción de Nuevo Personal' %}
+                            {% set induccion = 'X' %}
+                        {% endif %}
+                        {% if list_item == 'D. Otros' %}
+                            {% set otros = 'X' %}
+                        {% endif %}
+                    {% endfor %}          
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>Mejora habilidades técnicas:</b></para></td>
+                            <td><para style="textt">{{ habilidades }}</para></td>
+                            <td><para style="textbox"><b>Desarrollo conocimientos:</b></para></td>
+                            <td><para style="textt">{{ conocimientos }}</para></td>
+                            <td><para style="textbox"><b>Inducción nuevo personal:</b></para></td>
+                            <td><para style="textt">{{ induccion }}</para></td>
+                            <td><para style="textbox"><b>Otros:</b></para></td>
+                            <td><para style="textt">{{ otros }}</para></td>
+                        </tr>
+                    </blockTable>  
+                     
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,14cm" style="table_sub2_two">
+                        <tr>
+                            <td><para style="textbox"><b>Explicar otros motivos:</b></para></td>
+                            <td><para style="text2">{{answers.686691eeb7d9877fe62e9d08}}</para></td>
+                        </tr>
+                    </blockTable>             
+                   
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">PERÍODO DE PLAN DE CAPACITACIÓN:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set periodo = '' %}
+                    {% if answers.68714ce152418db647eb9170 == 'Diario' %}
+                        {% set periodo = 'Diario' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Semanal' %}
+                        {% set periodo = 'Semanal' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Quincenal' %}
+                        {% set periodo = 'Quincenal' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Mensual' %}
+                        {% set periodo = 'Mensual' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Bimestral' %}
+                        {% set periodo = 'Bimestral' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Trimestral' %}
+                        {% set periodo = 'Trimestral' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Semestral' %}
+                        {% set periodo = 'Semestral' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Anual' %}
+                        {% set periodo = 'Anual' %}
+                    {% elif answers.68714ce152418db647eb9170 == 'Horas' %}
+                        {% set periodo = 'Horas' %}
+                    {% endif %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,2cm,1cm,2.5cm,1.2cm,1cm,1cm,1cm,2.4cm,1.8cm" style="table_sub2_two">
+                        <tr>
+                            <td><para style="textbox"><b>Período:</b></para></td>
+                            <td><para style="textt">{{ periodo }}</para></td>
+                            <td><para style="textbox"><b>Mes:</b> </para></td>
+                            <td><para style="text2">{{answers.601c05614cdc5855852cd3fc.601c05614cdc5855852cd3fe}}</para></td>
+                            <td><para style="textbox"><b>Hora:</b> </para></td>
+                            <td><para style="text2"> {{answers.68714ce152418db647eb9171}}</para></td>
+                            <td><para style="textbox"><b>Año:</b> </para></td>
+                            <td><para style="text2"> {{answers.68714df2c9d7dd0420a0d37c}}</para></td>
+                            <td><para style="textbox"><b>Inversión total:</b> </para></td>
+                            <td><para style="text2">Q {{answers.68714d11ab4175f932f50c93}}0</para></td> 
+                        </tr>
+                    </blockTable>                  
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">IDENTIFICACIÓN DE NECESIDADES DE CAPACITACIONES:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set evaluacion = '' %}
+                    {% set personal = '' %}
+                    {% set puesto = '' %}
+                    {% set observacion = '' %}
+                    {% set otros_2 = '' %}
+
+                    {% for list_item in answers.686692a4a4179ef2a8eb1820 %}
+                        {% if list_item == '1. Evaluación de Desempeño' %}
+                            {% set evaluacion = 'X' %}
+                        {% endif %}
+                        {% if list_item == '2. Solicitudes del Personal' %}
+                            {% set personal = 'X' %}
+                        {% endif %}
+                        {% if list_item == '3. Cambio de Puesto de Trabajo' %}
+                            {% set puesto = 'X' %}
+                        {% endif %}
+                        {% if list_item == '4. Observaciones de Desempeño' %}
+                            {% set observacion = 'X' %}
+                        {% endif %}
+                        {% if list_item == '5. Otros' %}
+                            {% set otros_2 = 'X' %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>Evaluación/desempeño:</b></para></td>
+                            <td><para style="textt">{{ evaluacion }}</para></td>
+                            <td><para style="textbox"><b>Solicitudes de personal</b></para></td>
+                            <td><para style="textt">{{ personal }}</para></td>
+                            <td><para style="textbox"><b>Cambio puesto de trabajo:</b></para></td>
+                            <td><para style="textt">{{ puesto }}</para></td>
+                            <td><para style="textbox"><b>Observación desempeño:</b></para></td>
+                            <td><para style="textt">{{ observacion }}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,9.5cm" style="table_sub4_two">
+                        <tr>
+                            <td><para style="textbox"><b>Otros:</b></para></td>
+                            <td><para style="textt">{{ otros_2 }}</para></td>
+                            <td><para style="textbox"><b>Explicar otros motivos:</b></para></td>
+                            <td colspan="6"><para style="text2">{{answers.686693870c7084c30d5a589b}}</para></td>
+                        </tr>
+                    </blockTable>         
+
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">PROGRAMA DEL PLAN DE CAPACITACIÓN:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set personal = '' %}
+                    {% for item in answers.6866a22b1b428a847177304a %}
+                        {% if item == '1. Administrativo' %}
+                            {% set personal = 'Administrativo' %}
+                        {% elif item == '2. Operaciones' %}
+                            {% set personal = 'Operaciones' %}
+                        {% elif item == '3. Metal Mecanica' %}
+                            {% set personal = 'Metal Mecanica' %}
+                        {% elif item == '4. Infracom' %}
+                            {% set personal = 'Infracom' %}
+                        {% elif item == '5. Nuevos Empleados' %}
+                            {% set personal = 'Nuevos Empleados' %}
+                        {% elif item == '6. Jefes o Coordinadores' %}
+                            {% set personal = 'Jefes o Coordinadores' %}
+                        {% elif item == '7. Toda la Empresa' %}
+                            {% set personal = 'Toda la Empresa' %}
+                        {% elif item == '8. Otros' %}
+                            {% set personal = 'Otros' %}
+                    {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>                    
+                    <blockTable colWidths="4cm,4cm,5cm,5cm" style="table_sub2_two">
+                        <tr>                        
+                            <td><para style="textbox"><b>Personal del área:</b> </para></td>
+                            <td><para style="text2"> {{personal}}</para></td>
+                            <td><para style="textbox"><b>Nombre curso/taller:</b> </para></td>
+                            <td><para style="text2"> {{answers.6866973da5578ef46c772fda}}</para></td>   
+                        </tr>
+                    </blockTable>
+                                 
+                    {% set administrativo = '' %}
+                    {% set operaciones = '' %}
+                    {% set metal = '' %}
+                    {% set infracom = '' %}
+                    {% set nuevos = '' %}
+                    {% set jefes = '' %}
+                    {% set Empresa = '' %}
+                    {% set otros_3 = '' %}
+                    
+                    {% for list_item in answers.6866a22b1b428a847177304a %}
+                        {% if list_item == '1. Administrativo' %}
+                            {% set administrativo = 'X' %}
+                        {% endif %}
+                        {% if list_item == '2. Operaciones' %}
+                            {% set operaciones = 'X' %}
+                        {% endif %}
+                        {% if list_item == '3. Metal Mecanica' %}
+                            {% set metal = 'X' %}
+                        {% endif %}
+                        {% if list_item == '4. Infracom' %}
+                            {% set infracom = 'X' %}
+                        {% endif %}
+                        {% if list_item == '5. Nuevos Empleados' %}
+                            {% set nuevos = 'X' %}
+                        {% endif %}
+                        {% if list_item == '6. Jefes o Coordinadores' %}
+                            {% set jefes = 'X' %}
+                        {% endif %}
+                        {% if list_item == '7. Toda la Empresa' %}
+                            {% set Empresa = 'X' %}
+                        {% endif %}
+                        {% if list_item == '8. Otros' %}
+                            {% set otros_3 = 'X' %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>Administrativo:</b></para></td>
+                            <td><para style="textt">{{ administrativo }}</para></td>
+                            <td><para style="textbox"><b>Operaciones:</b></para></td>
+                            <td><para style="textt">{{ operaciones }}</para></td>
+                            <td><para style="textbox"><b>Transformetal:</b></para></td>
+                            <td><para style="textt">{{ metal }}</para></td>
+                            <td><para style="textbox"><b>Infracom:</b></para></td>
+                            <td><para style="textt">{{ infracom }}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>Nuevos empleados:</b></para></td>
+                            <td><para style="textt">{{ nuevos }}</para></td>
+                            <td><para style="textbox"><b>Jefes o coordinadores:</b></para></td>
+                            <td><para style="textt">{{ jefes }}</para></td>
+                            <td><para style="textbox"><b>Toda la empresa:</b></para></td>
+                            <td><para style="textt">{{ Empresa }}</para></td>
+                            <td><para style="textbox"><b>Otros:</b></para></td>
+                            <td><para style="textt">{{ otros_3 }}</para></td>
+                        </tr>
+                    </blockTable>  
+                    
+                    <spacer length="0.2cm"/>                    
+                    <blockTable colWidths="4cm,14cm" style="table_sub2_two">
+                        <tr>                        
+                            <td><para style="textbox"><b>Especificar otros:</b> </para></td>
+                            <td><para style="text2"> {{answers.6866a2aa4338111ab12e9ce8}}</para></td>   
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>                    
+                    <blockTable colWidths="4cm,14cm" style="table_sub2_two">
+                        <tr>                        
+                            <td><para style="textbox"><b>Fecha de realización:</b> </para></td>
+                            <td><para style="text2"> {{answers.6866a31901e6b9486f77301a}}</para></td>  
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">MODALIDAD:</para></td>
+                        </tr>
+                    </blockTable>
+
+                    {% set presencial = '' %}
+                    {% set virtual = '' %}
+                    {% set hibrida = '' %}
+                    
+                    {% for list_item in answers.6866a3ea37307166565a58a8 %}
+                        {% if list_item == '1. Presencial' %}
+                            {% set presencial = 'X' %}
+                        {% endif %}
+                        {% if list_item == '2. Virtual (E-Learning)' %}
+                            {% set virtual = 'X' %}
+                        {% endif %}
+                        {% if list_item == '3. Mixta (B-Learning)' %}
+                            {% set hibrida = 'X' %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>1. Presencial:</b></para></td>
+                            <td><para style="textt">{{ presencial }}</para></td>
+                            <td><para style="textbox"><b>2. Virtual (E-Learning):</b></para></td>
+                            <td><para style="textt">{{ virtual }}</para></td>
+                            <td><para style="textbox"><b>3. Mixta (B-Learning):</b></para></td>
+                            <td><para style="textt">{{ hibrida }}</para></td>
+                        </tr>
+                    </blockTable>  
+                    
+                    <spacer length="0.2cm"/>                    
+                    <blockTable colWidths="4cm,5cm,4cm,5cm" style="table_sub2_two">
+                        <tr>                        
+                            <td><para style="textbox"><b>Duración curso/taller:</b> </para></td>
+                            <td><para style="text2"> {{answers.6866a4ba1ee7c473668f6f72}}</para></td> 
+                            <td><para style="textbox"><b>Responsable curso/taller:</b> </para></td>
+                            <td><para style="text2"> {{answers.6866a4ba1ee7c473668f6f73}}</para></td>    
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">RECURSOS:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set capacitacion = '' %}
+                    {% set audiovisual = '' %}
+                    {% set impreso = '' %}
+                    {% set online = '' %}
+                    {% set instructor = '' %}
+                    {% set otros = '' %}
+                    
+                    {% for list_item in answers.6866a5db7d30a2084feb180c %}
+                        {% if list_item == '1. Sala de Capacitaciones' %}
+                            {% set capacitacion = 'X' %}
+                        {% endif %}
+                        {% if list_item == '2. Equipo Audivisual' %}
+                            {% set audiovisual = 'X' %}
+                        {% endif %}
+                        {% if list_item == '3. Material Impreso' %}
+                            {% set impreso = 'X' %}
+                        {% endif %}
+                        {% if list_item == '4. Plataforma Virtual (E-Learning)' %}
+                            {% set instructor = 'X' %}
+                        {% endif %}
+                        {% if list_item == '5. Instructor Externo' %}
+                            {% set instructor = 'X' %}
+                        {% endif %}
+                        {% if list_item == '6. Otros' %}
+                            {% set otros = 'X' %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>1. Sala de capacitaciones:</b></para></td>
+                            <td><para style="textt">{{ capacitacion }}</para></td>
+                            <td><para style="textbox"><b>2. Equipo audiovisual:</b></para></td>
+                            <td><para style="textt">{{ audiovisual }}</para></td>
+                            <td><para style="textbox"><b>3. Material impreso:</b></para></td>
+                            <td><para style="textt">{{ impreso }}</para></td>
+                            <td><para style="textbox"><b>4. Virtual (E-Learning):</b></para></td>
+                            <td><para style="textt">{{ online }}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>5. Instructor externo:</b></para></td>
+                            <td><para style="textt">{{ instructor }}</para></td>
+                            <td><para style="textbox"><b>6. Otros:</b></para></td>
+                            <td><para style="textt">{{ otros }}</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">MEDICIÓN:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set conocimiento = '' %}
+                    {% set observacion = '' %}
+                    {% set indicadores = '' %}
+                    {% set otros_4 = '' %}
+                    
+                    {% for list_item in answers.6866a61bfe908bba108f6fdb %}
+                        {% if list_item == '1. Prueba de Conocimiento' %}
+                            {% set conocimiento = 'X' %}
+                        {% endif %}
+                        {% if list_item == '2. Observacion de Desempeño' %}
+                            {% set observacion = 'X' %}
+                        {% endif %}
+                        {% if list_item == '3. Mejora en Indicadores' %}
+                            {% set indicadores = 'X' %}
+                        {% endif %}
+                        {% if list_item == '4. Otros' %}
+                            {% set otros_4 = 'X' %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>1. Prueba de conocimientos:</b></para></td>
+                            <td><para style="textt">{{ conocimiento }}</para></td>
+                            <td><para style="textbox"><b>2. Observación/Desempeño:</b></para></td>
+                            <td><para style="textt">{{ observación }}</para></td>
+                            <td><para style="textbox"><b>3. Mejora en indicadores:</b></para></td>
+                            <td><para style="textt">{{ indicadores }}</para></td>
+                            <td><para style="textbox"><b>4. Otros:</b></para></td>
+                            <td><para style="textt">{{ otros_4 }}</para></td>
+                        </tr>    
+                    </blockTable>  
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">AVANCES:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set reuniones = '' %}
+                    {% set trimestral = '' %}
+                    {% set revision = '' %}
+                    {% set otros_5 = '' %}  
+                       
+                    {% for list_item in answers.6866a7ee84f829f8af026584 %}
+                        {% if list_item == 'Reuniones Mensuales' %}
+                            {% set reuniones = 'X' %}
+                        {% endif %}
+                        {% if list_item == 'Informes Trimestrales' %}
+                            {% set trimestral = 'X' %}
+                        {% endif %}
+                        {% if list_item == 'Revision al Final del Año' %}
+                            {% set revision = 'X' %}
+                        {% endif %}
+                        {% if list_item == 'Otros' %}
+                            {% set otros_5 = 'X' %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <spacer length="0.2cm"/>
+                    <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                        <tr>
+                            <td><para style="textbox"><b>Reuniones mensuales:</b></para></td>
+                            <td><para style="textt">{{ reuniones }}</para></td>
+                            <td><para style="textbox"><b>Informes trimestrales:</b></para></td>
+                            <td><para style="textt">{{ trimestral }}</para></td>
+                            <td><para style="textbox"><b>Revisión final del año:</b></para></td>
+                            <td><para style="textt">{{ revision }}</para></td>
+                            <td><para style="textbox"><b>Otros:</b></para></td>
+                            <td><para style="textt">{{ otros_5 }}</para></td>
+                        </tr>
+                    </blockTable>                    
+
+                    <spacer length="0.2cm"/>
+                    <blockTable style="TablaTitulo" colWidths="18cm">
+                        <tr>
+                            <td><para style="dataT">EVIDENCIA FOTOGRAFICA:</para></td>
+                        </tr>
+                    </blockTable>
+                    
+                    {% set fotoA1 = '' %}
+                    {% set fotoA2 = '' %}
+                                        
+                    {% set count = 0 %}
+                    {% for item in answers.6866a81637307166565a592f %}
+                        {% if count == 0 %}
+                            {% set fotoA1 = item.file_url %}
+                        {% elif count == 1 %}
+                            {% set fotoA2 = item.file_url %}
+                        {% endif %}
+                        {% add_total 'count' 1 %}
+                    {% endfor %}     
+                    
+                    <blockTable style="mtto_data" colWidths="2cm,5cm,2cm,2cm,5cm,2cm">
+                        <tr>
+                            <td></td>
+                            <td>
+                                {% if fotoA1 %}
+                                <imageAndFlowables imageName="{% get_thumbnail fotoA1 %}"  imageWidth="3cm" imageHeight="2cm" />
+                                {% endif %}
+                            </td> 
+                            <td></td>
+                            <td></td>
+                            <td>
+                                {% if fotoA2 %}
+                                <imageAndFlowables imageName="{% get_thumbnail fotoA2 %}"  imageWidth="3cm" imageHeight="2cm" />
+                                {% endif %}
+                            </td>
+                            <td></td>
+                        </tr>
+                    </blockTable>                     
+                                
+                </td>
+            </tr> 
+        </blockTable>   
+    </story>
+</document>
+
+

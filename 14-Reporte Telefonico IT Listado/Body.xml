@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.5cm" y1="7cm" width="200mm" height="178mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story> 
+ <spacer length="0.1cm" />
+  <blockTable colWidths="7cm,4cm,7cm" style="encabezado">
+    <tr>
+      <td><para style="datosTitulo"><b>USUARIO</b></para></td>
+      <td><para style="datosTitulo"><b>EXTENSIÓN</b></para></td>
+      <td><para style="datosTitulo"><b>AREA</b></para></td>
+    </tr>
+  </blockTable>
+  <blockTable colWidths="7cm,4cm,7cm" style="contenido">    
+    {% for record_mult in answers_list %}      
+      <tr>
+        <td><para style="datosN"> {% for select in record_mult.answers.67a6157bb11cfd3dca2b3fe6 %}{{ select }}{% endfor %}</para></td>
+        
+        {% set extension = '' %}
+        {% if  answers.67a6157bb11cfd3dca2b3fe5|length == 1 %}
+            {% set extension = record_mult.answers.67a6157bb11cfd3dca2b3fe5.0 %}
+        {% else %}
+            {% set extension = record_mult.answers.67a6157bb11cfd3dca2b3fe5 %}
+        {% endif %}
+        <td><para style="datos">{{extension}}</para></td> 
+        <td><para style="datosN"> {% for select in record_mult.answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 %}{{ select }}{% endfor %}</para></td>          
+      </tr>
+    {% endfor %}  
+  </blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+

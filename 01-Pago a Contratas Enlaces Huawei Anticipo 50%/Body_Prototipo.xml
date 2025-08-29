@@ -45,7 +45,7 @@
     {% set total = 0 %} 
     <blockTable colWidths="5cm,5cm,5cm,5cm" style="table_contenido">
     {% for record_mult in answers_list|slice:":1" %}   
-        <tr>                        
+        <tr>                     
           <td><para style="datos">{% for select in record_mult.answers.617b201d7fb4e61948c9bc8c %}{{ select }}{% endfor %}</para></td>  
           <td><para style="datos">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a3f %}{{ select }}{% endfor %}</para></td>  
           <td><para style="datos">{% for select in record_mult.answers.601c013e77cae73d48e29a3d.601c013e77cae73d48e29a40 %}{{ select }}{% endfor %}</para></td>  

@@ -1,0 +1,10 @@
+<image x="1.5cm" y="15cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="6cm" height="3cm" />
+
+<setFont name="Helvetica-Bold" size="16" lineMode="single" />
+<drawCentredString x="17cm" y="17cm"> REPORTE - VENTANAS LABORALES </drawCentredString>
+<setFont name="Helvetica-Bold" size="10" lineMode="single" />
+<drawCentredString x="17cm" y="16cm"> RECURSOS HUMANOS </drawCentredString>
+<drawCentredString x="24.5cm" y="16cm"> RRHH-RV-003 </drawCentredString>
+<lines>8cm 16.8cm 25.5cm 16.8cm</lines>
+
+

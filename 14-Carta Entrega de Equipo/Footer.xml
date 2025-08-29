@@ -1,0 +1,17 @@
+<lineMode width="0.1"/>
+<fill color="#333333"/>
+<setFont name="Helvetica" size="8.5"/>
+<lines>.6cm 1.5cm 20.7cm 1.5cm</lines>
+
+<fill color="#17202a"/>
+<setFont name="Helvetica" size="10"/>
+
+<setFont name="Helvetica-Bold" size="10"/>
+<drawRightString x="13.2cm" y="8cm">Fecha: </drawRightString>
+<drawRightString x="13.2cm" y="7cm">Nombre: </drawRightString>
+<drawRightString x="13.2cm" y="6cm">Firma: </drawRightString>
+ 
+<stroke color="#17202a"/>
+<rect x="13.5cm" y="8cm" width="4.5cm" height="0.02cm" fill="yes" stroke="yes" />
+<rect x="13.5cm" y="7cm" width="4.5cm" height="0.02cm" fill="yes" stroke="yes" />
+<rect x="13.5cm" y="6cm" width="4.5cm" height="0.02cm" fill="yes" stroke="yes" />

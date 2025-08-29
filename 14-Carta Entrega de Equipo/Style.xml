@@ -1,0 +1,30 @@
+<blockTableStyle id="table_Header">
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#081350" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#c3d3db" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_contenidoll">
+  <!-- Estilo para los bordes exteriores de la tabla (caja completa) -->
+  <lineStyle kind="BOX" colorName="#061952" start="0,0" stop="-1,-1" thickness="0.5" />
+  <blockBackground colorName="#c3d3db" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Helvetica Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="dfecha" fontName="Helvetica" fontSize="8" leading="7" alignment="center" />
+<paraStyle name="dataB" fontName="Helvetica" fontSize="10" leading="7" alignment="right"/>
+<paraStyle name="datosTitulo" fontName="Helvetica-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosSubtitulo" fontName="Helvetica-Bold" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Helvetica" fontSize="8" leading="2" alignment="center" />
+<paraStyle name="firmall" fontName="Helvetica" fontSize="10" leading="2" alignment="center" />
+<paraStyle name="text1" fontName="Helvetica" fontSize="9" leading="15" alignment="left" textColor="#FFFFFF" />
+<paraStyle name="text2" fontName="Helvetica" fontSize="9" leading="10" alignment="left" />
+<paraStyle name="text3" fontName="Helvetica" fontSize="9" leading="20" alignment="right" />
+<paraStyle name="parrafo" fontName="Helvetica" fontSize="9" leading="12"  alignment="justify" />
+<paraStyle name="parrafoll" fontName="Helvetica" fontSize="9" leading="13"  alignment="justify" />
+<paraStyle name="parrafolll" fontName="Helvetica" fontSize="9" leading="10"  alignment="justify" />

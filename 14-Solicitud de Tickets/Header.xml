@@ -1,0 +1,10 @@
+<image x="2.5cm" y="25cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.2cm" />
+<image x="11.6cm" y="24cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/68928bc0fc027d15895fa230.png " width="7cm" height="4cm" />
+<image x="2.5cm" y="27.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/67aa814b5ff86069c734dfcd.png " width="16cm" height="0.5cm" />
+<image x="2.5cm" y="3.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/67aa814b5ff86069c734dfcd.png " width="16cm" height="0.5cm" />
+
+<setFont name="Helvetica-Bold" size="8"/>
+<drawString x="2.5cm" y="25cm"> Tecnología de la Información </drawString>
+<setFont name="Helvetica-Bold" size="20"/>
+<drawCentredString x="10.5cm" y="24cm"> SOLICITUD DE TICKETS </drawCentredString>
+<lines>2.5cm 23.8cm 18.5cm 23.8cm</lines>

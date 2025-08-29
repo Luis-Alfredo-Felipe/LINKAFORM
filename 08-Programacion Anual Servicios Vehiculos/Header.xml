@@ -1,0 +1,6 @@
+<image x="1.5cm" y="17cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/656f91f2763e1fe9ff170f73.png " width="6cm" height="2.5cm" />
+
+<setFont name="Helvetica-Bold" size="16" lineMode="single" />
+<drawCentredString x="17cm" y="16cm"> PROGRAMACION ANUAL DE SERVICIOS DE VEHICULOS ARRENDACAR, S.A. </drawCentredString>
+<lines>6cm 15.5cm 28cm 15.5cm</lines>
+

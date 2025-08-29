@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--  Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+  <story>
+    <spacer length="0.5cm"/>    
+  
+    <blockTable style="fecha_header" colWidths="10cm,8cm">
+      <tr>
+        <td><para style="dataB">FECHA</para></td>
+        <td><para style="dataBB" >{{answers.6818d79c3199f4d55cbae381}}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.2cm"/>    
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">INFORMACIÓN GENERAL</para></td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="table_datas" colWidths="4.5cm,4.5cm,4.5cm,4.5cm">
+      <tr>
+        <td><para style="dataL">Hora del Incidente:</para> </td>
+        <td><para style="data">{{answers.6818dbc10e0c7811d92cff5f}}</para></td>
+        <td><para style="dataL">Ubicación de la Cámara:</para></td>
+        <td><para style="data">{{answers.6818d8e74b57d76ec9bae3f5}}</para></td>
+      </tr>
+    </blockTable>
+ 
+    <blockTable style="table_datas" colWidths="4.5cm,4.5cm,4.5cm,4.5cm">      
+      <tr>
+        <td><para style="dataL">Personas Involucradas:</para> </td>
+        <td><para style="data">{{answers.6818d8e74b57d76ec9bae3f7}}</para></td>
+        <td><para style="dataL">Denunciante:</para> </td>
+        <td><para style="data">{{answers.6818dbc10e0c7811d92cff60}}</para></td>
+      </tr>
+    </blockTable> 
+    
+    <blockTable style="table_data" colWidths="4.5cm,13.5cm">
+      <tr>
+        <td><para style="dataL">Detallade de Incidencia:</para> </td>
+        <td><para style="data">{{answers.6818d8e74b57d76ec9bae3f6}}</para></td>
+      </tr>
+    </blockTable>   
+    
+    <blockTable style="table_data" colWidths="4.5cm,13.5cm">  
+      <tr>
+        <td><para style="dataL">Responsable del Registro:</para> </td>
+        <td><para style="data">{{answers.6818dbc10e0c7811d92cff61}}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.2cm"/>    
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">TIPO DE ACTIVIDAD O EVENTO</para></td>
+      </tr>
+    </blockTable>
+    
+    {% set incidente = '' %}
+    {% set movimiento = '' %}
+    {% set accidente = '' %}
+    {% set daño = '' %}
+    {% set robo = '' %}
+    {% set revision = '' %}
+    {% set mantenimiento = '' %}
+    {% set falla = '' %}
+    {% set otros = '' %}
+    {% set epp = '' %}
+    
+    {% if answers.6818dd6f1bc727f42e5d9f8c == 'Incidente de Seguridad:' %}
+        {% set incidente = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Movimiento Sospechoso:' %}
+        {% set movimiento = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Accidente:' %}
+        {% set accidente = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Daño a la Propiedad:' %}
+        {% set daño = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Robo/Hurto:' %}
+        {% set robo = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Revisión de Rutina:' %}
+        {% set revision = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Mantenimiento Realizado:' %}
+        {% set mantenimiento = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Falla del Sistema:' %}
+        {% set falla = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'Otra Actividad/Evento:' %}
+        {% set otros = '✓' %}
+      {% elif answers.6818dd6f1bc727f42e5d9f8c == 'No Utilizaba EPP' %}
+        {% set epp = '✓' %}
+    {% endif %}
+    
+      <spacer length="0.2cm"/>
+      <blockTable colWidths="18.5cm">  
+          <tr>
+              <td>
+                  <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                      <tr>
+                          <td><para style="text3"><b>Incidente de Segurida:</b></para></td>
+                          <td>{{incidente}}</td>
+                          <td><para style="text3"><b>Actividad Sospechoso:</b></para></td>
+                          <td>{{movimiento}}</td>
+                          <td><para style="text3"><b>Accidente:</b></para></td>
+                          <td>{{accidente}}</td>
+                          <td><para style="text3"><b>Daño a la Propiedad:</b></para></td>
+                          <td>{{daño}}</td>                          
+                      </tr>  
+                  </blockTable>                  
+                  <spacer length="0.3cm"/>
+                  <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                      <tr>
+                          <td><para style="text3"><b>Robo / Hurto:</b></para></td>
+                          <td>{{robo}}</td>
+                          <td><para style="text3"><b>Revisión/Rutina:</b></para></td>
+                          <td>{{revision}}</td>
+                          <td><para style="text3"><b>Mantenimiento :</b></para></td>
+                          <td>{{mantenimiento}}</td>
+                          <td><para style="text3"><b>Falla de Sistema:</b></para></td>
+                          <td>{{falla}}</td>
+                      </tr>  
+                  </blockTable>
+                  <spacer length="0.3cm"/>
+                  <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                      <tr>
+                          <td><para style="text3"><b>Otra Actividad/Evento: </b></para></td>
+                          <td>{{otros}}</td>
+                          <td><para style="text3"><b>No Usar EPP: </b></para></td>
+                          <td>{{epp}}</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>  
+                  </blockTable>
+              </td>
+          </tr> 
+        </blockTable>
+        
+        <spacer length="0.2cm"/>    
+        <blockTable style="TableHeader" colWidths="18cm">
+          <tr>
+            <td><para style="dataT">DESCRIPCIÓN DETALLADA DE ACTIVIDAD O EVENTO</para></td>
+          </tr>
+        </blockTable>
+        
+        <blockTable style="datos" colWidths="18cm">
+          <tr>
+            <td><para style="dataBB" >{{answers.6818dd9cf0b7850c727944e1}}</para></td>
+          </tr>
+        </blockTable>
+        
+        {% set photoB_01 = '' %}
+        {% set photoB_02 = '' %}
+
+        {% if answers.6818ddd08b52dad4cd497104.0.file_url %}
+          {% set photoB_01 = answers.6818ddd08b52dad4cd497104.0.file_url %}
+        {% endif%}
+        {% if answers.6818ddd08b52dad4cd497105.0.file_url %}
+          {% set photoB_02 = answers.6818ddd08b52dad4cd497105.0.file_url %}
+        {% endif%}
+        
+    <spacer length="0.2cm"/>
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">EVIDENCIA FOTOGRAFICA DE VIDEO</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="6cm,3cm,6cm,3cm">
+      <tr>
+          {% if photoB_01 %} 
+            <td href="{{ photoB_01 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_01 %}" imageWidth="2.5cm" imageHeight="2.5cm" imageSide="right"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
+          {% endif %}
+          <td></td>
+          {% if photoB_02 %} 
+            <td href="{{ photoB_02 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photoB_02 %}" imageWidth="2.5cm" imageHeight="2.5cm" imageSide="right"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
+          {% endif %}
+          <td></td>
+      </tr>
+    </blockTable>    
+    
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">TIPO DE INDICENCIAS</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="datos" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">{{answers.6818e3bf536fb901a1794491}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBB">{{answers.6818e3bf536fb901a1794492}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBB">{{answers.6818e3bf536fb901a1794493}}</para></td>
+      </tr>
+    </blockTable>
+    
+    <spacer length="0.2cm"/>
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">ACCIONES TOMADAS</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="table_data" colWidths="7cm,11cm">
+      <tr>
+        <td><para style="dataL">Notificación Jefe Inmediato:</para> </td>
+        <td><para style="data">{{answers.6818e41cb06165ef43497127}}</para></td>
+      </tr>
+      <tr>  
+        <td><para style="dataL">Otras Acciones:</para></td>
+        <td><para style="data">{{answers.6818e41cb06165ef43497128}}</para></td>
+      </tr>
+    </blockTable>    
+
+    <spacer length="0.2cm"/>    
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">SEGUIMIENTO</para></td>
+      </tr>
+    </blockTable>
+    
+  {% set pendiente_si = '' %}
+  {% set pendiente_no = '' %}
+  {% set proceso_si = '' %}
+  {% set proceso_no = '' %}
+  {% set resuelto_si = '' %}
+  {% set resuelto_no = '' %}
+  {% set otros_si = '' %}
+  {% set otros_no = '' %}
+  
+  {% for list_item in answers.6818e50597acd2fce75d9c95 %}
+    {% if list_item == 'Pendiente' %}
+      {% set pendiente_si = '✓' %}
+      {% set pendiente_no = '' %}
+    {% endif %}
+    
+    {% if list_item == 'Proceso' %}
+      {% set proceso_si = '✓' %}
+      {% set proceso_no = '' %}
+    {% endif %}
+    
+    {% if list_item == 'Resuelto' %}
+      {% set resuelto_si = '✓' %}
+      {% set resuelto_no = '' %}
+    {% endif %}
+    
+    {% if list_item == 'Otros' %}
+      {% set otros_si = '✓' %}
+      {% set otros_no = '' %}
+    {% endif %}
+  {% endfor %}  
+      
+    <spacer length="0.2cm"/>
+      <blockTable colWidths="18.5cm">  
+          <tr>
+              <td>
+                  <blockTable colWidths="4cm,0.5cm,4cm,0.5cm,4cm,0.5cm,4cm,0.5cm" style="table_sub3_two">
+                      <tr>
+                        <td><para style="text3"><b>Pendiente:</b></para></td>
+                        <td>{{pendiente_si}}{{pendiente_no}}</td>
+                        <td><para style="text3"><b>Proceso:</b></para></td>
+                        <td>{{proceso_si}}{{proceso_no}}</td>
+                        <td><para style="text3"><b>Resuelto:</b></para></td>
+                        <td>{{resuelto_si}}{{resuelto_no}}</td>
+                        <td><para style="text3"><b>Otros:</b></para></td>
+                        <td>{{otros_si}}{{otros_no}}</td>                          
+                      </tr>  
+                  </blockTable>                  
+              </td>
+          </tr> 
+        </blockTable>
+        
+    <spacer length="0.2cm"/>    
+    <blockTable style="TableHeader" colWidths="18cm">
+      <tr>
+        <td><para style="dataT">OBSERVACIONES</para></td>
+      </tr>
+    </blockTable>
+    
+    <blockTable style="datos" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB" >{{answers.6818e5475ff44eea792cff7b}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBB" >{{answers.6818e5475ff44eea792cff7c}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBB" >{{answers.6818e5475ff44eea792cff7d}}</para></td>
+      </tr>
+    </blockTable>
+        
+  <spacer length="0.5cm"/>
+  <blockTable colWidths="6cm,6cm,6cm">
+   <tr>   
+     <td>
+     </td>
+     <td>
+        {% set firma1 = answers.6818e565a5621179c95d9d4d.file_url %}
+        {% if firma1 %}
+        <imageAndFlowables imageName="{% get_thumbnail firma1 %}"  imageWidth="4cm" imageHeight="1.5cm" hAlign="CENTER" />
+        {% endif %}             
+       <para style="firma"> ___________________________________ </para>
+       <para style="firma"> Firma Responsable de Registro </para>
+     </td>  
+     <td>
+     </td>
+    </tr>
+  </blockTable>
+
+  {% autoescape on %}
+  {{ Template.style|safe }}
+  {% endautoescape %}
+  </story>
+  </document>

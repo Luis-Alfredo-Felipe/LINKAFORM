@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+        <setFont name="Helvetica-Bold" size="10"/>
+        <drawRightString x="18cm" y="27.5cm"> HOJA DE ENTREGA 00{{answers.67ad0b72ed70c60f932e5ce1}}</drawRightString>
+        <setFont name="Helvetica-Bold" size="10"/>
+        <drawRightString x="18cm" y="26.5cm">Guatemala, {{answers.67ad0d0a0b59cd7fd692fb9f}}</drawRightString>
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story> 
+    <spacer length="0.5cm" /> 
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2"><b>Para:</b> {{answers.67aceab8f85a3f741ba0fbaf}} {{answers.67aceab8f85a3f741ba0fbb0}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="text2"><b>Presente.</b></para></td>     
+      </tr>
+      <tr>  
+        <td><para style="text2"><b>Estimado(a):</b> {{answers.67aceab8f85a3f741ba0fbb0}}</para></td>        
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="parrafolll">Es un placer dirigirme a usted, deseándole éxito en sus actividades diarias.</para></td>       
+      </tr>
+      <tr>
+        <td><para style="parrafolll">Mediante la presente, hago entrega del siguiente equipo, detallada a continuación:</para></td>       
+      </tr>
+  </blockTable>
+
+  <spacer length="0.5cm" />
+    <blockTable colWidths="3cm,7cm,6cm" style="table_Header">
+      <tr>
+        <td><para style="text1">Cantidad</para></td>
+        <td><para style="text1">Descripción de Producto</para></td>
+        <td><para style="text1">Serie</para></td>
+      </tr>
+    </blockTable>
+
+    {%for item in answers.67d04df17d3ca7b85201b4b2%}
+      <blockTable colWidths="3cm,7cm,6cm" style="contenido">
+        <tr>
+          <td><para style="text2">{{item.67d04e6cf374fdfcff7a246c}}</para></td>
+          <td><para style="text2">{{item.67d04eec1865d1b0976ae84f}}</para></td>
+          <td><para style="text2">{{item.67d04e6cf374fdfcff7a246e}}</para></td>          
+        </tr>
+      </blockTable>
+    {% endfor %}  
+
+  <spacer length="0.5cm" />
+  <blockTable colWidths="16cm" style="table_Header">
+    <tr>
+      <td><para style="text1">Observaciones</para> </td> 
+    </tr>
+  </blockTable>
+  <blockTable colWidths="16cm" style="contenido">
+    <tr>
+      <td><para style="text2">{{answers.67aceb3518f124e5dd104055}}</para></td>   
+    </tr>
+  </blockTable>
+  
+  <spacer length="0.5cm" />
+  <blockTable colWidths="16cm" style="table_contenidoll" >
+      <tr>
+        <td><para style="parrafoll">He revisado el equipo entregado y confirmo que está en condiciones óptimas para su uso. Su propósito es exclusivamente laboral. Cualquier uso indebido o daño derivado de un uso inapropiado será mi responsabilidad ante la empresa.<b> </b></para> </td>     
+      </tr>
+    </blockTable>
+
+    <spacer length="0.5cm" />
+    <blockTable colWidths="16cm">
+      <tr>
+        <td><para style="text2"><b>ASIGNACIÓN DE EQUIPO </b></para> </td>               
+      </tr>
+      <tr>
+        <td><para style="text2">Sin otro particular, me suscribo.</para> </td>               
+      </tr>
+      <tr>
+        <td><para style="text2">Atentamente,</para> </td>               
+      </tr>
+    </blockTable>
+
+<spacer length="0.5cm" />
+<blockTable colWidths="16cm">
+  <tr>
+    <td><para style="text2"><b>MARVIN OVALLE</b></para></td>
+  </tr>
+  <tr>
+    <td><para style="text2"><b>IT</b></para></td>
+  </tr>
+</blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+

@@ -1,0 +1,205 @@
+<blockTableStyle id="TablaTitulo">
+ <lineStyle kind="GRID" colorName="#000" start="0,0" stop="0,0" />
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_Header">
+<lineStyle thickness="1" kind="GRID" colorName="#323639" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#323639" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_Headerll">
+<lineStyle thickness="1" kind="BOX" colorName="#000" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="center" start="0,0" stop="-1, -1" />
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+</blockTableStyle>
+ 
+ <blockTableStyle id="table_sub1_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="14,0" stop="15,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="17,0" stop="18,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="20,0" stop="21,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="14,0" stop="15,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="17,0" stop="18,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="20,0" stop="21,-1"/> 
+</blockTableStyle>
+
+ <blockTableStyle id="table_sub2_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="2,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="4,0" stop="4,0"/>  <!-- Une la celda 4 y 5 -->
+    <blockSpan start="9,0" stop="9,0"/>  <!-- Une la celda 4 y 5 -->
+    <blockSpan start="11,0" stop="11,0"/>  <!-- Une la celda 4 y 5 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="9,0" stop="9,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="11,0" stop="11,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="6,0" stop="6,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="13,0" stop="13,0"/>
+</blockTableStyle>
+
+ <blockTableStyle id="table_sub3_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/> 
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="11,0" stop="12,0"/>
+</blockTableStyle>
+
+ <blockTableStyle id="table_sub3_twol">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="11,0" stop="12,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="11,0" stop="12,-1"/>
+</blockTableStyle>
+
+ <blockTableStyle id="table_sub3_twoll">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="11,0" stop="12,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="11,0" stop="12,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="14,0" stop="15,0"/>
+</blockTableStyle>
+
+ <blockTableStyle id="table_sub4_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="11,0" stop="12,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="11,0" stop="12,-1"/> 
+</blockTableStyle>
+
+ <blockTableStyle id="table_sub4_twol">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="11,0" stop="12,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="14,0" stop="15,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="11,0" stop="12,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="14,0" stop="15,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub8_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="7,0" stop="8,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="7,0" stop="8,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="5,0" stop="5,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub9_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="2,0" stop="3,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="5,0" stop="6,0"/>  <!-- Une la celda 1 y 2 -->
+    <blockSpan start="8,0" stop="9,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="3,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="6,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="9,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="11,0" stop="11,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="13,0" stop="13,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub10_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <blockSpan start="1,0" stop="2,0"/>  <!-- Une la celda 1 y 2 -->
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="4,0" stop="4,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="6,0" stop="6,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub11_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="2,0" stop="2,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="4,0" stop="4,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub12_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="1,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub5_two">
+ <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="1,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="3,0" stop="3,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="5,0" stop="5,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub6_two">
+ <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="2,0" stop="2,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="4,0" stop="4,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="6,0" stop="6,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub7_two">
+ <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="2,0" stop="2,0"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="4,0" stop="4,0"/>
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Helvetica Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosll" fontName="Helvetica" fontSize="15" leading="7" alignment="center" />
+<paraStyle name="dataB" fontName="Helvetica" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataBB" fontName="Helvetica-Bold" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="datosTitulo" fontName="Montserrat-Regular" fontSize="10" leading="12" alignment="center" textColor="#FFFFFF"/>
+<paraStyle name="datosSubtitulo" fontName="Helvetica-Bold" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Helvetica" fontSize="8" leading="7" alignment="center" />
+<paraStyle name="text" fontName="Helvetica" fontSize="7" leading="7" alignment="right" />
+<paraStyle name="text1" fontName="Helvetica" fontSize="7" leading="7" alignment="left" />
+<paraStyle name="text2" fontName="Helvetica" fontSize="7" leading="7" alignment="left" />
+<paraStyle name="text3" fontName="Helvetica" fontSize="9" leading="12" alignment="left" />
+<paraStyle name="text4" fontName="Helvetica" fontSize="8" leading="10" alignment="justify" />
+<paraStyle name="text5" fontName="Montserrat-Regular" fontSize="7" leading="5" alignment="right" />
+
